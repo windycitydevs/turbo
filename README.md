@@ -6,15 +6,10 @@
 
 ### _Deployed Apps_
 
-#### [Official Indexer Demo Repo](apps/demo/README.md)
-
-- [Deployed Demo](https://indexer-demo.vercel.app/)
-- [Source Code](https://github.com/windycitydevs/turbo/tree/main/apps/demo)
 
 #### [Verel Deployed Express App ft testing](https://github.com/windycitydevs/turbo/tree/main/apps/express/README.md)
 
-- [Deployed Storybook](https://windycitydevs-story.vercel.app/?path=/docs/buttons-generic-button--primary)
-- [Source Code](https://github.com/windycitydevs/turbo/tree/main/apps/story)
+- [Source Code](https://github.com/windycitydevs/turbo/tree/main/apps/express)
 
 ---
 
