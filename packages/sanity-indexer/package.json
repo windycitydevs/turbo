@@ -1,0 +1,72 @@
+{
+  "name": "@windycitydevs/sanity-indexer",
+  "version": "1.0.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "algolia",
+    "sanity",
+    "indexer",
+    "next.js",
+    "node"
+  ],
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "sideEffects": false,
+  "files": [
+    "dist/**/*.{js,cjs,d.ts,d.mts,mts,mjs,cts,d.cts,css}"
+  ],
+  "scripts": {
+    "build": "yarn release && yarn types && cp ./package.json ./dist",
+    "dev": "ncc build ./src/index.ts -o ./dist/",
+    "release": "ncc build ./src/index.ts -o ./dist/ --minify --no-cache --no-source-map-register",
+    "prerelease": "rimraf ./dist/",
+    "types": "tsc --declaration --esModuleInterop --declarationDir dist",
+    "lint": "TIMING=1 eslint ./src/**/*.ts* --fix",
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
+    "publish": "npm publish"
+  },
+  "devDependencies": {
+    "@algolia/client-common": "^4.14.3",
+    "@algolia/client-search": "^4.14.3",
+    "@edge-runtime/types": "^2.0.5",
+    "@types/eventsource": "^1.1.11",
+    "@types/node": "^18.13.0",
+    "@types/react": "^18.0.28",
+    "@vercel/ncc": "^0.36.1",
+    "algoliasearch": "^4.14.3",
+    "dotenv": "^16.0.3",
+    "dotenv-cli": "^7.0.0",
+    "dotenv-expand": "^10.0.0",
+    "eslint": "^8.34.0",
+    "eslint-config-custom": "*",
+    "next": "^13.1.6",
+    "react": "^18.2.0",
+    "rimraf": "^4.1.2",
+    "sanity": "^3.3.1",
+    "tslib": "^2.5.0",
+    "tsx": "^3.12.3",
+    "typescript": "^4.9.5"
+  },
+  "peerDependencies": {
+    "@sanity/client": "^4.0.1",
+    "algoliasearch": "^4.14.3",
+    "next": "^13.1.6",
+    "react": "^18.2.0",
+    "sanity": "^3.3.1"
+  },
+  "peerDependenciesMeta": {
+    "sanity": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "@sanity/client": "^4.0.1",
+    "algoliasearch": "^4.14.3",
+    "groq": "^3.3.1"
+  }
+}

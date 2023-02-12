@@ -1,0 +1,102 @@
+{
+  "$schema": "https://turborepo.org/schema.json",
+  "globalDependencies": [
+    ".env"
+  ],
+  "pipeline": {
+    "build": {
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        "dist/**",
+        ".next/**"
+      ]
+    },
+    "drisdell#build": {
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        ".next/**"
+      ]
+    },
+    "express#build": {
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        "dist/**"
+      ],
+      "env": [
+        "PORT"
+      ]
+    },
+    "faderoom#build": {
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        ".next/**"
+      ],
+      "env": [
+        "PORT"
+      ]
+    },
+    "hillsidetoharbor#build": {
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        ".next/**"
+      ],
+      "env": [
+        "PORT"
+      ]
+    },
+    "test": {
+      "outputs": [
+        "coverage/**"
+      ],
+      "dependsOn": []
+    },
+    "lint": {
+      "outputs": []
+    },
+    "dev": {
+      "cache": false
+    },
+    "clean": {
+      "cache": false
+    }
+  },
+  "globalEnv": [
+    "__NEXT_PROCESSED_ENV",
+    "ALGOLIA_APP_ID",
+    "ALGOLIA_INDEX",
+    "ALGOLIA_SEARCH_KEY",
+    "ALGOLIA_WRITE_KEY",
+    "CI_ENV",
+    "GITHUB_PAT",
+    "MY_GITHUB_PAT",
+    "NO_COLOR",
+    "NODE_ENV",
+    "NPM_TOKEN",
+    "SANITY_API_TOKEN",
+    "SANITY_API_VERSION",
+    "SANITY_DATASET",
+    "SANITY_DATASET_TAG",
+    "SANITY_PROJECT_ID",
+    "SANITY_REVALIDATE_SECRET",
+    "SANITY_WEBHOOK_SECRET",
+    "NEXT_PUBLIC_ALGOLIA_APP_ID",
+    "NEXT_PUBLIC_ALGOLIA_BASE_URL",
+    "NEXT_PUBLIC_ALGOLIA_ID",
+    "NEXT_PUBLIC_ALGOLIA_SEARCH_KEY",
+    "NEXT_PUBLIC_ALGOLIA_WRITE_KEY",
+    "NEXT_PUBLIC_BASIC_AUTHORIZATION",
+    "NEXT_PUBLIC_SANITY_API_TOKEN",
+    "NEXT_PUBLIC_SANITY_DATASET",
+    "NEXT_PUBLIC_SANITY_PROJECT_ID"
+  ]
+}

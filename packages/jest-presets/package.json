@@ -1,0 +1,12 @@
+{
+  "name": "@windycitydevs/jest-presets",
+  "version": "1.0.0",
+  "private": true,
+  "license": "MIT",
+  "dependencies": {
+    "ts-jest": "^29.0.5"
+  },
+  "peerDependencies": {
+    "jest": "^29.4.2"
+  }
+}

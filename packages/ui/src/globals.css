@@ -1,0 +1,159 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /*
+    Chrome has a bug with transitions on load since 2012!
+
+    To prevent a "pop" of content, you have to disable all transitions until
+    the page is done loading.
+
+    https://lab.laukstein.com/bug/input
+    https://twitter.com/timer150/status/1345217126680899584
+  */
+  body.loading * {
+    transition: none !important;
+  }
+
+  /*
+    Create a root stacking context
+  */
+  #__next {
+    isolation: isolate;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  /*
+    remove margin default
+  */
+  * {
+    margin: 0;
+  }
+
+  html {
+    height: 100%;
+    box-sizing: border-box;
+    touch-action: manipulation;
+  }
+
+  /*
+    WCAG criteria indicates that a line-height of >=1.5 must be used
+    for the site to be considered accessible for people with dyslexia
+
+    note: can replace the calculated value with a static 1.5
+  */
+  body {
+    position: relative;
+    line-height: calc(1em + 0.5rem);
+    min-height: 100%;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html,
+  body {
+    background-color: var(--accents-0);
+    overscroll-behavior-x: none;
+  }
+
+  /*
+    sensible media defaults
+  */
+  img,
+  picture,
+  video,
+  canvas,
+  svg,
+  pre {
+    display: block;
+    max-width: 100%;
+  }
+
+  /*
+    inherit fonts for form controls
+  */
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+@layer components {
+  .tooltip {
+    @apply invisible absolute transform-gpu transition-transform ease-in-out;
+  }
+
+  .has-tooltip {
+    @apply text-xxs visible z-50 my-auto -mt-1.5 border-collapse
+    translate-x-3 bg-opacity-75 px-1.5 py-2 font-medium text-current;
+  }
+
+  @-webkit-keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes wave {
+    0%, 100% {
+      transform: rotate(0deg);
+    }
+    20%, 60% {
+      transform: rotate(-25deg);
+    }
+    40%, 80% {
+      transform: rotate(10deg);
+    }
+  }
+
+  @keyframes shimmer {
+    100% {
+      transform: translateX(100%);
+    }
+  }
+}
+
+/* Start purging... */
+
+@layer utilities {
+  .skeleton {
+    @media (prefers-reduced-motion: no-preference) {
+      @apply block w-full animate-[loading_10s_ease-in-out_infinite] motion-safe:hover:animate-[shimmer_1s_cubic-bezier(0,0,0.2,1)_infinite]
+      bg-[linear-gradient(calc(-270deg),rgb(249,250,251),#f0f1f2,#f0f1f2,rgba(136,19,55,0.25))] bg-[length:400%_100%];
+    }
+  }
+}
+
+/* Stop purging... */

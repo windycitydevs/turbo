@@ -1,0 +1,15 @@
+{
+    "editor.bracketPairColorization.enabled": false,
+    "css.hover.documentation": true,
+    "css.completion.completePropertyWithSemicolon": true,
+    "css.format.newlineBetweenSelectors": true,
+    "css.hover.references": true,
+    "css.format.enable": true,
+    "typescript.tsdk": "./node_modules/typescript/lib",
+    "typescript.enablePromptUseWorkspaceTsdk": true,
+    "eslint.workingDirectories": [
+      "apps/*",
+      "packages/*"
+      ],
+      "C_Cpp.dimInactiveRegions": false
+  }

@@ -1,0 +1,79 @@
+{
+  "name": "@windycitydevs/ui",
+  "version": "1.0.0",
+  "files": [
+    "dist/**/*.{js,cjs,d.ts,d.cts,css}"
+  ],
+  "license": "MIT",
+  "sideEffects": true,
+  "type": "module",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "src/*",
+        "src/*/index"
+      ],
+      "tailwind": [
+        "dist/tailwind.d.cts"
+      ]
+    }
+  },
+  "publishConfig": {
+    "access": "public",
+    "typesVersions": {
+      "*": {
+        "*": [
+          "dist/*.d.ts",
+          "dist/*/index.d.ts"
+        ],
+        "tailwind": [
+          "dist/tailwind.d.cts"
+        ]
+      }
+    }
+  },
+  "exports": {
+    ".": "./dist/index.js",
+    "./*": "./dist/*.js",
+    "./tailwind": {
+      "require": "./dist/tailwind.cjs"
+    },
+    "./globals.css": "./dist/globals.css"
+  },
+  "scripts": {
+    "lint": "TIMING=1 eslint . --ext .js,.jsx,.ts,.tsx",
+    "dev": "yarn build",
+    "prebuild": "rm -rf dist",
+    "build": "yarn build:swc && yarn types",
+    "build:swc": "swc src -d dist --copy-files",
+    "clean": "rm -rf ./dist",
+    "postclean": "yarn types",
+    "publish": "npm publish",
+    "types": "tsc --emitDeclarationOnly --esModuleInterop"
+  },
+  "peerDependencies": {
+    "next": "^13.1.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "dependencies": {
+    "@swc/helpers": "^0.4.14",
+    "clsx": "^1.2.1",
+    "sugar-high": "~0.4.6"
+  },
+  "devDependencies": {
+    "@swc/cli": "^0.1.61",
+    "@swc/core": "^1.3.35",
+    "@types/node": "^18.13.0",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.10",
+    "chokidar": "^3.5.3",
+    "eslint": "^8.34.0",
+    "eslint-config-custom": "*",
+    "eslint-config-next": "^13.1.6",
+    "next": "^13.1.6",
+    "react": "^18.2.0",
+    "tsx": "^3.12.3",
+    "typescript": "^4.9.5"
+  }
+}

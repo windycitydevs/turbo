@@ -1,0 +1,70 @@
+import cn from "clsx";
+import type { AppProps } from "next/app";
+import type { ComponentType, FC, HTMLAttributes, ReactNode } from "react";
+
+export const Noop: FC<{ children?: ReactNode }> = ({ children }) => (
+  <>{children}</>
+);
+
+export const Page: FC<HTMLAttributes<HTMLElement>> = ({
+  children,
+  className,
+  ...props
+}) => (
+  <main {...props} className={cn("mx-auto w-full max-w-3xl py-16", className)}>
+    {children}
+  </main>
+);
+
+/**
+ * @type `UIAppProps`
+ * @description
+ * Accepts Generic Args which are inherited by the `pageProps` field of the `AppProps` Base Entity
+ *
+ *
+ */
+export type UIAppProps<P = {}> = AppProps<P> & {
+  Component: AppProps["Component"] & {
+    getLayout: (page: ReactNode) => ReactNode;
+  };
+};
+
+export function getLayout<LP extends {}>(
+  Component: ComponentType<any>
+): ComponentType<LP> {
+  return (Component as any).Layout || Noop;
+}
+export { default as Button } from "./atoms/Buttons";
+export { default as Code } from "./atoms/Code";
+export { default as Container } from "./atoms/Container";
+export { default as DeployButton } from "./atoms/DeployButton";
+export { default as Input } from "./atoms/Input";
+export { default as Inspector } from "./atoms/Inspector";
+export { default as Layout } from "./atoms/Layout";
+export { default as LoadingDots } from "./atoms/LoadingDots";
+export { default as Nav } from "./atoms/Nav";
+export { default as NextLink } from "./atoms/NextLink";
+export { default as Snippet } from "./atoms/Snippet";
+export { default as Spinner } from "./atoms/Spinner";
+export { default as Text } from "./atoms/Text";
+export { default as FacebookIcon } from "./icons/Facebook";
+export { default as InstagramIcon } from "./icons/Instagram";
+export { default as LinkedInIcon } from "./icons/LinkedIn";
+export { default as SanityLogo } from "./icons/Sanity";
+export { default as TwitterIcon } from "./icons/Twitter";
+export { default as Wcd } from "./icons/Wcd";
+export { default as WcdAbbreviated } from "./icons/WcdAbbreviated";
+export { default as mapParams } from "./lib/map-params";
+export { default as blurDataURLShimmer } from "./lib/shimmer";
+export { default as WcdEnums } from "./typedefs/enum";
+export { default as UI } from "./typedefs/namespace";
+export { default as CaseHelpers } from "./utils/CaseHelpers";
+export { default as DateTimeHelper } from "./utils/DateTimeHelper";
+export { default as MergeRefs } from "./utils/MergeRefs";
+export { default as queryParamHandler } from "./utils/q-param-handler";
+export {
+  default as safeLdJsonReplacer,
+  toJson
+} from "./utils/SafeJsonLdReplacer";
+export { default as toSlug } from "./utils/Slugify";
+export { default as useIsomorphicLayoutEffect } from "./utils/UseIsomorphicLayoutEffect";

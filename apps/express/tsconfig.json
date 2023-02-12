@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "module": "ESNext",
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "declaration": true,
+    "outDir": "./dist",
+    "sourceMap": true,
+    "strict": true,
+    "checkJs": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "moduleResolution": "NodeNext",
+    "target": "ESNext",
+    "lib": ["esnext", "DOM", "DOM.Iterable"],
+    "esModuleInterop": true,
+    "rootDir": "./api"
+  },
+  "exclude": ["node_modules"],
+  "include": ["api", "api/**/*.ts"]
+}

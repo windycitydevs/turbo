@@ -1,0 +1,35 @@
+# `@windycitydevs/*` turborepo
+
+## What&apos;s inside this [Turborepo](https://turbo.build/repo)?
+
+---
+
+### _Deployed Apps_
+
+#### [Official Indexer Demo Repo](apps/demo/README.md)
+
+- [Deployed Demo](https://indexer-demo.vercel.app/)
+- [Source Code](https://github.com/windycitydevs/turbo/tree/main/apps/demo)
+
+#### [Verel Deployed Express App ft testing](https://github.com/windycitydevs/turbo/tree/main/apps/express/README.md)
+
+- [Deployed Storybook](https://windycitydevs-story.vercel.app/?path=/docs/buttons-generic-button--primary)
+- [Source Code](https://github.com/windycitydevs/turbo/tree/main/apps/story)
+
+---
+
+### _Packages in the pipeline (not yet published)_
+
+#### [@windycitydevs/backfill](https://github.com/windycitydevs/turbo/tree/main/packages/backfill/README.md)
+
+- [Source Code](https://github.com/windycitydevs/turbo/tree/main/packages/model-viewer)
+
+#### [@windycitydevs/sanity-indexer](https://github.com/windycitydevs/turbo/tree/main/packages/sanity-indexer/README.md)
+
+- [Source Code](https://github.com/windycitydevs/turbo/tree/main/packages/sanity-indexer)
+
+#### [@windycitydevs/ui](https://github.com/windycitydevs/turbo/tree/main/packages/ui/README.md)
+
+- [Source Code](https://github.com/windycitydevs/turbo/tree/main/packages/ui)
+
+---
