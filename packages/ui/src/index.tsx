@@ -2,6 +2,7 @@ import cn from "clsx";
 import type { AppProps } from "next/app";
 import type { ComponentType, FC, HTMLAttributes, ReactNode } from "react";
 
+// global
 export const Noop: FC<{ children?: ReactNode }> = ({ children }) => (
   <>{children}</>
 );
@@ -34,6 +35,7 @@ export function getLayout<LP extends {}>(
 ): ComponentType<LP> {
   return (Component as any).Layout || Noop;
 }
+// atoms
 export { default as Button } from "./atoms/Buttons";
 export { default as Code } from "./atoms/Code";
 export { default as Container } from "./atoms/Container";
@@ -47,17 +49,27 @@ export { default as NextLink } from "./atoms/NextLink";
 export { default as Snippet } from "./atoms/Snippet";
 export { default as Spinner } from "./atoms/Spinner";
 export { default as Text } from "./atoms/Text";
+// icons
 export { default as FacebookIcon } from "./icons/Facebook";
+export { default as HillsideToHarborHorizontal } from "./icons/HillsideToHarbor/HillsideToHarborHorizontal";
+export { default as HillsideToHarborSquare } from "./icons/HillsideToHarbor/HillsideToHarborSquare";
+export { default as HillsideToHarborTypeOneLine } from "./icons/HillsideToHarbor/HillsideToHarborTypeOneLine";
+export { default as HillsideToHarborTypeTwoLine } from "./icons/HillsideToHarbor/HillsideToHarborTypeTwoLine";
+export { default as HillsideToHarborVertical } from "./icons/HillsideToHarbor/HillsideToHarborVertical";
+export { default as HillsideToHarborVerticalWide } from "./icons/HillsideToHarbor/HillsideToHarborVerticalWide";
 export { default as InstagramIcon } from "./icons/Instagram";
 export { default as LinkedInIcon } from "./icons/LinkedIn";
 export { default as SanityLogo } from "./icons/Sanity";
 export { default as TwitterIcon } from "./icons/Twitter";
 export { default as Wcd } from "./icons/Wcd";
 export { default as WcdAbbreviated } from "./icons/WcdAbbreviated";
+// lib
 export { default as mapParams } from "./lib/map-params";
 export { default as blurDataURLShimmer } from "./lib/shimmer";
+// types
 export { default as WcdEnums } from "./typedefs/enum";
 export { default as UI } from "./typedefs/namespace";
+// utils
 export { default as CaseHelpers } from "./utils/CaseHelpers";
 export { default as DateTimeHelper } from "./utils/DateTimeHelper";
 export { default as MergeRefs } from "./utils/MergeRefs";

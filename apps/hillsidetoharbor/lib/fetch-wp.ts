@@ -1,8 +1,113 @@
+import type { HomeProps } from "@/types/home-props";
+
 const API_URL =
   process.env.WORDPRESS_API_URL ?? "https://www.hillsidetoharbor.biz/graphql";
 
+export const QueryObject = {
+  home: `fragment MediaDetailsFragment on MediaDetails {
+    __typename
+    width
+    height
+  }
+  
+  
+  
+  fragment MediaItemFragment on MediaItem {
+    __typename
+    altText
+    uri
+    title
+    sourceUrl
+    databaseId
+    id
+    srcSet
+    slug
+  }
+  
+  fragment SubHeroFragment on Page_Hero_subHeroImages3 {
+    __typename
+    subHeroImageCta
+    subHeroImageSubCta
+    fieldGroupName
+  }
+  
+  fragment HeroFragment on Page_Hero {
+    __typename
+    fieldGroupName
+    subCta
+    cta
+  }
+  
+  fragment PostTypeSeoFragment on PostTypeSEO {
+    metaDesc
+    readingTime
+    metaKeywords
+    __typename
+    focuskw
+    metaRobotsNofollow
+  }
+  
+  fragment NodeWithFeaturedImageToMediaItemConnectionEdgeFragment on NodeWithFeaturedImageToMediaItemConnectionEdge {
+    __typename
+    cursor
+  }
+  
+  fragment PageFragment on Page {
+    __typename
+    title
+    content
+    previewRevisionId
+    previewRevisionDatabaseId
+    isPreview
+    isFrontPage
+    uri
+    slug
+    guid
+    modifiedGmt
+    guid
+    databaseId
+    id
+  }
+  
+  query Home($id: ID!, $idType: PageIdType!) {
+    page(idType: $idType, id: $id) {
+      ...PageFragment
+      seo {
+        ...PostTypeSeoFragment
+      }
+      featuredImage {
+        ...NodeWithFeaturedImageToMediaItemConnectionEdgeFragment
+        node {
+          ...MediaItemFragment
+          mediaDetails {
+            ...MediaDetailsFragment
+          }
+        }
+      }
+      hero {
+        ...HeroFragment
+        subHeroImages3 {
+          ...SubHeroFragment
+          subHeroImage {
+            ...MediaItemFragment
+            mediaDetails {
+              ...MediaDetailsFragment
+            }
+          }
+        }
+        heroImage {
+          ...MediaItemFragment
+          mediaDetails {
+            ...MediaDetailsFragment
+          }
+        }
+      }
+    }
+  }`
+} as const;
+
 async function fetchAPI<T extends any = any>(
-  query: string,
+  query: keyof typeof QueryObject,
   { variables }: Record<string, unknown> = {}
 ): Promise<T> {
   const headers = {
@@ -13,7 +118,7 @@ async function fetchAPI<T extends any = any>(
     headers,
     method: "POST",
     body: JSON.stringify({
-      query,
+      query: QueryObject[query],
       variables
     })
   });
@@ -26,91 +131,17 @@ async function fetchAPI<T extends any = any>(
   return json.data;
 }
 
+export type PageIdType = "URI" | "ID" | "DATABASE_ID";
+
 export const getHomePageData = async ({
   idType,
   id
 }: {
-  idType: "URI" | "ID" | "DATABASE_ID";
+  idType: PageIdType;
   id: string | number;
 }) => {
-  const data = await fetchAPI(
-    `
-    fragment MediaItemFragment on MediaItem {
-        __typename
-        altText
-        uri
-        description
-        title
-        slug
-        mediaDetails {
-          width
-          height
-          __typename
-        }
-      }
-      
-      fragment SubHeroFragment on Page_Hero_subHeroImages3 {
-        __typename
-        subHeroImageCta
-        subHeroImageSubCta
-      }
-      
-      fragment HeroFragment on Page_Hero {
-        __typename
-        fieldGroupName
-        subCta
-        cta
-      }
-      
-      fragment PostTypeSeoFragment on PostTypeSEO {
-        metaDesc
-        readingTime
-        metaKeywords
-        __typename
-        focuskw
-        metaRobotsNofollow
-      }
-      
-      fragment PageFragment on Page {
-        title
-        content
-        previewRevisionId
-        previewRevisionDatabaseId
-        isPreview
-        isFrontPage
-        uri
-        slug
-        modifiedGmt
-        databaseId
-        id
-      }
-      
-      query Home($id: ID!, $idType: PageIdType!) {
-        page(idType: $idType, id: $id) {
-              ...PageFragment
-          seo {
-            ...PostTypeSeoFragment
-          }
-          featuredImage {
-            node {
-              ...MediaItemFragment
-            }
-          }
-          hero {
-            ...HeroFragment
-            subHeroImages3 {
-              ...SubHeroFragment
-              subHeroImage {
-                ...MediaItemFragment
-              }
-            }
-            heroImage {
-              ...MediaItemFragment
-            }
-          }
-        }
-      }`,
-      { variables: { id: id, idType: idType } }
-  );
+  const data = await fetchAPI<HomeProps>("home", {
+    variables: { id: id, idType: idType }
+  });
   return data;
 };
