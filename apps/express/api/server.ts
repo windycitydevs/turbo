@@ -17,9 +17,10 @@ export class Mount<T extends express.Application = express.Application> {
   }
 
   protected internals(app: T, writeStream: fs.WriteStream) {
-    app.get("/message/:name", (req, res) => {
-      return res.json({ message: `hello ${req.params.name}` });
-    })
+    app
+      .get("/message/:name", (req, res) => {
+        return res.json({ message: `hello ${req.params.name}` });
+      })
       .get("/healthz", (_req, res) => {
         return res.json({ ok: true });
       });
@@ -82,7 +83,7 @@ export class Mount<T extends express.Application = express.Application> {
         eStatic(join(process.cwd(), "/public"), {
           index: ["index.html"]
         })
-      )
+      );
   }
 
   public async mounting() {

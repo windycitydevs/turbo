@@ -6,7 +6,6 @@ export {
   handleUpdate,
   transformRes
 } from "./api/handle-operations";
-
 export {
   ALGOLIA_APP_ID,
   ALGOLIA_INDEX,
@@ -19,7 +18,6 @@ export {
   SANITY_PROJECT_ID,
   SANITY_WEBHOOK_SECRET
 } from "./config/constants";
-;
 export { default as Indexer } from "./types/namespace";
 export { handleQParam, qParamConditional } from "./utils/handle-q-param";
 export { mapParams } from "./utils/map-params";

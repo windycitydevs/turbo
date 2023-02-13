@@ -14,8 +14,9 @@ export default function Page() {
             client-side react component.
           </li>
           <li>
-            Why is the (updated soon) smaller video a client side component? because to use the
-            intersection observer library you must utilize the `useRef` hook.
+            Why is the (updated soon) smaller video a client side component?
+            because to use the intersection observer library you must utilize
+            the `useRef` hook.
           </li>
           <li>
             useRef Hooks are by nature strictly for client-side use. Refs should

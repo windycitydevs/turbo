@@ -1,4 +1,8 @@
 /**
+ * @type {import("tailwindcss/colors")}
+ */
+const colors = require("tailwindcss/colors");
+/**
  * @type {import('tailwindcss/defaultTheme')}
  */
 const defaultTheme = require("tailwindcss/defaultTheme");
@@ -15,13 +19,44 @@ module.exports = {
     "./lib/**/*.{ts,js,tsx,jsx,mdx}"
   ],
   future: { hoverOnlyWhenSupported: true },
-  darkMode: "class",
   theme: {
     extend: {
       maxWidth: {
         "10xl": "173.75rem", // 2780 px
         "9xl": "121rem", // 1936px
         "8xl": "96rem" // 1536px
+      },      screens: {
+        "6xs": { max: "274.99px" },
+        "5xs": { min: "275px", max: "299.99px" },
+        "4xs": { min: "300px", max: "324.99px" },
+        "3xs": { min: "325px", max: "349.99px" },
+        "2xs": { min: "350px", max: "374.99px" },
+        xs: { min: "375px", max: "474.99px" },
+        smxs: { min: "475px", max: "639.99px" },
+        "3xl": { min: "1720px", max: "2039.99px" },
+        "4xl": { min: "2040px", max: "2359.99px" },
+        "5xl": { min: "2360px", max: "2779.99px" },
+        "6xl": { min: "2780px" }
+      },
+      colors: {
+        iconGray: "#272729",
+        basicallyBlack: "#141415",
+        pencilPurple: "#3B2DB0",
+        "wcd-blue": "#B3DDF2",
+        "akane-red": "#ea5532",
+        "wcd-red": "#FF0000",        sky: colors.sky,
+        teal: colors.teal,
+        rose: colors.rose,
+        gray: colors.zinc,
+        "gray-1000": "rgb(17,17,19)",
+        "gray-1100": "rgb(10,10,11)",
+        vercel: {
+          pink: "#FF0080",
+          blue: "#0070F3",
+          cyan: "#50E3C2",
+          orange: "#F5A623",
+          violet: "#7928CA"
+        }
       },
       backgroundImage: ({ theme }) => ({
         "vc-border-gradient": `radial-gradient(at left top, ${theme(

@@ -29,7 +29,10 @@ module.exports = {
         )}, 50px, ${theme("colors.gray.800")} 50%)`
       }),
       fontFamily: {
-        "kaisei-tokumin": ["var(--font-kaisei-tokumin)", ...defaultTheme.fontFamily.sans]
+        "kaisei-tokumin": [
+          "var(--font-kaisei-tokumin)",
+          ...defaultTheme.fontFamily.sans
+        ]
       },
       animation: {
         wiggle: "wiggle 10s ease-in-out infinite",

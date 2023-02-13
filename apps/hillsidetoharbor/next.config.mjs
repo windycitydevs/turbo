@@ -5,6 +5,7 @@ const nextConfig = {
   experimental: {
     appDir: true
   },
+  transpilePackages: ["@windycitydevs/ui"],
   images: {
     loader: "default",
     formats: ["image/avif", "image/webp"],

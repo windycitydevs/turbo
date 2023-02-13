@@ -11,7 +11,7 @@ export const preload = () => {
 
 const VideoComponent = cache(() => {
   return (
-    <div className='relative isolate overflow-hidden mx-auto bg-gray-900 py-24 px-6 sm:py-32 lg:px-8'>
+    <div className='relative isolate mx-auto overflow-hidden bg-gray-900 py-24 px-6 sm:py-32 lg:px-8'>
       <Image
         className={cn(`absolute inset-0 -z-10 h-full w-full object-cover`)}
         style={{ objectFit: "contain" }}
@@ -78,10 +78,10 @@ const VideoComponent = cache(() => {
         </defs>
       </svg>
       <div className='mx-auto max-w-2xl transform-gpu select-none text-center align-bottom transition-transform delay-200 duration-500 ease-in-out'>
-        <h2 className='font-kaisei-tokumin from-wcd-red/50 to-wcd-red/50 via-transparent text-2xl font-medium tracking-tight text-wcd-blue transition-colors ease-in-out hover:bg-gradient-to-r sm:text-3xl'>
+        <h2 className='font-kaisei-tokumin from-wcd-red/50 to-wcd-red/50 text-wcd-blue via-transparent text-2xl font-medium tracking-tight transition-colors ease-in-out hover:bg-gradient-to-r sm:text-3xl'>
           {"Windy City Devs LLC"}&nbsp;
         </h2>
-        <h3 className='text-wcd-red mt-6 rounded-lg from-transparent via-wcd-blue to-transparent text-4xl font-medium leading-8 transition-colors ease-in-out hover:bg-gradient-to-r'>
+        <h3 className='text-wcd-red via-wcd-blue mt-6 rounded-lg from-transparent to-transparent text-4xl font-medium leading-8 transition-colors ease-in-out hover:bg-gradient-to-r'>
           <em>{"Bleeding Edge Solutions Made Simple"}</em>
         </h3>
       </div>

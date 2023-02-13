@@ -51,7 +51,9 @@
         ".next/**"
       ],
       "env": [
-        "PORT"
+        "PORT",
+        "WORDPRESS_AUTH_REFRESH_TOKEN",
+        "WORDPRESS_API_URL"
       ]
     },
     "test": {

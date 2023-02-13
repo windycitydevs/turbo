@@ -1,4 +1,4 @@
-import "@/styles/globals.css";
+import "../styles/globals.css";
 import AddressBar from "@/ui/AddressBar";
 import VideoComponent, { preload } from "@/ui/Video";
 import type { NextFontWithVariable } from "@next/font";
@@ -26,11 +26,7 @@ const kaiseiTokumin = localFont<"--kaisei-tokumin">({
   ]
 }) satisfies NextFontWithVariable;
 
-async function fetcherr() {
-  return await fetch("https://virtual-stream-demo.vercel.app/api/edge-video", {
-    keepalive: true
-  }).then(d => d.arrayBuffer());
-}
+
 export default async function RootLayout({
   children
 }: {
@@ -38,17 +34,8 @@ export default async function RootLayout({
 }) {
   preload();
 
-  // const [data] = await Promise.all([fetcherr()])
   return (
     <html>
-      <head>
-        <link
-          rel='preload'
-          href='/api/edge-video'
-          as='fetch'
-          crossOrigin='anonymous'
-        />
-      </head>
       <body
         className={`bg-gray-1100 overflow-y-scroll ${kaiseiTokumin.variable} font-kaisei-tokumin`}>
         <VideoComponent />
@@ -64,8 +51,7 @@ export default async function RootLayout({
           </div>
           <div className='col-start-3 col-end-4 mt-28 flex items-center justify-center'>
             <div className='text-sm text-zinc-600'>
-              Created by
-              {" "}
+              Created by{" "}
               <a href='https://github.com/windycitydevs'>
                 <b>Windy City Devs</b>
               </a>

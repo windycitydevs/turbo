@@ -1,6 +1,13 @@
 import { demos } from "@/lib/demos";
+import { getHomePageData } from "@/lib/fetch-wp";
+import { HomeProps } from "@/types/home-props";
+import { Inspector } from "@windycitydevs/ui";
 import Link from "next/link";
-export default function Page() {
+
+export default async function Page() {
+  const [data] = await Promise.all<[HomeProps]>([
+    getHomePageData({ id: "index", idType: "URI" })
+  ]);
   return (
     <>
       <div className='space-y-6'>
@@ -40,6 +47,9 @@ export default function Page() {
               );
             })}
           <div className={"relative inset-0 mx-auto my-10 min-w-[3/4]"} />
+          <Inspector Component='pre' variant='white'>
+            {JSON.stringify({ ...data }, null, 2)}
+          </Inspector>
         </div>
       </div>
     </>

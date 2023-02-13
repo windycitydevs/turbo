@@ -759,8 +759,6 @@ export namespace Indexer {
       }
     };
 
-
-
     export type WebhookResponse = {
       readonly changed: {
         readonly _type: string;
@@ -772,9 +770,6 @@ export namespace Indexer {
     };
 
     export type SanityMembersPath = `/projects`;
-
-
-
 
     export type SlashDeleteFromEnumKeys = Exclude<
       keyof typeof OperationEnum,

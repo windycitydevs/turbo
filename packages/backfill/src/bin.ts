@@ -1,5 +1,7 @@
 #!/usr/bin/env node
-import SanityClientConstructor, { IdentifiedSanityDocumentStub } from "@sanity/client";
+import SanityClientConstructor, {
+  IdentifiedSanityDocumentStub
+} from "@sanity/client";
 import algoliasearch, { type SearchIndex } from "algoliasearch";
 import axios, {
   type AxiosInstance,
@@ -443,15 +445,14 @@ export default function BackfillIndex<T extends typeof process.argv>(str: T) {
             )
           );
 
-          const [bulkData] = (await Promise.all([
-            sanityClient.fetch<Array<IdentifiedSanityDocumentStub<Record<string, any>>>>(
-              aggregateGroq,
-              {
-                type: props.groq,
-                ids: executeComparator
-              }
-            )
-          ]));
+          const [bulkData] = await Promise.all([
+            sanityClient.fetch<
+              Array<IdentifiedSanityDocumentStub<Record<string, any>>>
+            >(aggregateGroq, {
+              type: props.groq,
+              ids: executeComparator
+            })
+          ]);
 
           return await getBulkData({
             algoliaAppId: props.algoliaAppId,

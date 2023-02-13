@@ -7,8 +7,7 @@ import DeployButton, {
 } from "../DeployButton/DeployButton";
 import Link from "../NextLink";
 
-const REPO_URL =
-  "https://github.com/windycitydevs/turbo/tree/main" as const;
+const REPO_URL = "https://github.com/windycitydevs/turbo/tree/main" as const;
 
 export interface NavProps extends UI.TSX.JSXSelect<"nav"> {
   path: string;

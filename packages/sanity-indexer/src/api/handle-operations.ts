@@ -1,7 +1,9 @@
 import { ALGOLIA_WRITE_KEY } from "../config/constants";
 import type Indexer from "../types/namespace";
-import { getSanityDataCreateOrUpdate } from "./operation-helpers";
-import { defaultGroqQuery } from "./operation-helpers";
+import {
+  defaultGroqQuery,
+  getSanityDataCreateOrUpdate
+} from "./operation-helpers";
 
 export const handleDelete = async ({
   searchIndex,
