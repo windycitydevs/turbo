@@ -3,20 +3,22 @@ import { getHomePageData } from "@/lib/fetch-wp";
 import { HomeProps } from "@/types/home-props";
 import AddressBar from "@/ui/AddressBar";
 import HeroImageComponent, { preload } from "@/ui/HeroImage";
+import Subhero, { perloadSubHero } from "@/ui/Subhero";
 import { Inspector } from "@windycitydevs/ui";
 import Link from "next/link";
 import GlobalNav from "./GlobalNav";
-import { inferObj } from "@/types/helpers";
 
 const getData = getHomePageData({ id: "index", idType: "URI" });
 
 export default async function Page() {
   const [data] = await Promise.all<HomeProps>([getData]);
   preload(data.page.hero);
+  perloadSubHero(data.page.hero);
 
   return (
     <>
       <HeroImageComponent {...data.page.hero} />
+      <Subhero {...data.page.hero} />
       <div className='grid grid-cols-[1fr,minmax(auto,240px),min(800px,100%),1fr] gap-x-8 py-8'>
         <div className='col-start-2'>
           <GlobalNav />

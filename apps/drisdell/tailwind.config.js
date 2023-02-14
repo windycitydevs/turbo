@@ -26,7 +26,8 @@ module.exports = {
         "10xl": "173.75rem", // 2780 px
         "9xl": "121rem", // 1936px
         "8xl": "96rem" // 1536px
-      },      screens: {
+      },
+      screens: {
         "6xs": { max: "274.99px" },
         "5xs": { min: "275px", max: "299.99px" },
         "4xs": { min: "300px", max: "324.99px" },
@@ -45,7 +46,8 @@ module.exports = {
         pencilPurple: "#3B2DB0",
         "wcd-blue": "#B3DDF2",
         "akane-red": "#ea5532",
-        "wcd-red": "#FF0000",        sky: colors.sky,
+        "wcd-red": "#FF0000",
+        sky: colors.sky,
         teal: colors.teal,
         rose: colors.rose,
         gray: colors.zinc,
@@ -65,7 +67,10 @@ module.exports = {
         )}, 50px, ${theme("colors.gray.800")} 50%)`
       }),
       fontFamily: {
-        "kaisei-tokumin": ["var(--font-kaisei-tokumin)", ...defaultTheme.fontFamily.sans]
+        "kaisei-tokumin": [
+          "var(--font-kaisei-tokumin)",
+          ...defaultTheme.fontFamily.sans
+        ]
       },
       animation: {
         wiggle: "wiggle 10s ease-in-out infinite",

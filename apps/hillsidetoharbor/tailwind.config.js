@@ -45,9 +45,9 @@ module.exports = {
         pencilPurple: "#3B2DB0",
         "wcd-blue": "#B3DDF2",
         "akane-red": "#ea5532",
-        "h2hDarkGreen": "#4E5F4F",
-        "h2hTurquoise": "#91D3CA",
-        "h2hPinkOrange": "#F49A7A",
+        h2hDarkGreen: "#4E5F4F",
+        h2hTurquoise: "#91D3CA",
+        h2hPinkOrange: "#F49A7A",
         "wcd-red": "#FF0000",
         sky: colors.sky,
         teal: colors.teal,
@@ -70,9 +70,13 @@ module.exports = {
       }),
       fontFamily: {
         "kaisei-tokumin": [
-          "var(--font-kaisei-tokumin)",
+          "var(--kaisei-tokumin)",
           ...defaultTheme.fontFamily.sans
-        ]
+        ],
+        inter: ["var(--inter)", ...defaultTheme.fontFamily.sans],
+        montserrat: ["var(--montserrat)", ...defaultTheme.fontFamily.sans],
+        flower: ["var(--flower)", ...defaultTheme.fontFamily.serif],
+        caveat: ["var(--caveat)", ...defaultTheme.fontFamily.serif]
       },
       animation: {
         wiggle: "wiggle 10s ease-in-out infinite",

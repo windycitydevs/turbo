@@ -1,1 +1,1 @@
-export {default} from "./HillsideToHarborHorizontal"
+export { default } from "./HillsideToHarborHorizontal";

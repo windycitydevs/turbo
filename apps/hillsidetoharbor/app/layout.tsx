@@ -1,11 +1,37 @@
-import "../styles/globals.css";
-import AddressBar from "@/ui/AddressBar";
-import VideoComponent, { preload } from "@/ui/Video";
-import HeroImageComponent, {preload as HeroImagePreload} from "@/ui/HeroImage";
 import type { NextFontWithVariable } from "@next/font";
+import { Caveat, Inter, Montserrat } from "@next/font/google";
 import localFont from "@next/font/local";
 import { ReactNode } from "react";
-import GlobalNav from "./GlobalNav";
+import "../styles/globals.css";
+const inter = Inter<"--inter">({
+  subsets: ["latin", "latin-ext"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  display: "swap"
+});
+
+const montserrat = Montserrat<"--montserrat">({
+  variable: "--montserrat",
+  subsets: ["latin", "latin-ext"],
+  display: "swap"
+});
+
+const caveat = Caveat<"--caveat">({
+  variable: "--caveat",
+  subsets: ["latin", "latin-ext"],
+  display: "swap",
+  weight: "variable"
+});
+
+const indieFlower = localFont<"--flower">({
+  variable: "--flower",
+  display: "swap",
+  src: [
+    { path: "./fonts/IndieFlower-Regular.ttf" },
+    {
+      path: "./fonts/IndieFlower.woff2"
+    }
+  ]
+});
 
 const kaiseiTokumin = localFont<"--kaisei-tokumin">({
   variable: "--kaisei-tokumin",
@@ -27,18 +53,15 @@ const kaiseiTokumin = localFont<"--kaisei-tokumin">({
   ]
 }) satisfies NextFontWithVariable;
 
-
 export default async function RootLayout({
   children
 }: {
   children: ReactNode;
 }) {
-  preload();
-
   return (
     <html>
       <body
-        className={`bg-gray-1100 overflow-y-scroll ${kaiseiTokumin.variable} font-kaisei-tokumin`}>
+        className={`overflow-y-scroll bg-gray-100 mx-auto ${inter.variable} ${montserrat.variable} ${kaiseiTokumin.variable} ${indieFlower.variable} ${caveat.variable} font-montserrat`}>
         {children}
       </body>
     </html>

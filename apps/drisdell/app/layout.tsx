@@ -26,7 +26,6 @@ const kaiseiTokumin = localFont<"--kaisei-tokumin">({
   ]
 }) satisfies NextFontWithVariable;
 
-
 export default async function RootLayout({
   children
 }: {

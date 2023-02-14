@@ -1,4 +1,3 @@
-"use-client";
 import { HeroCPTUIProps } from "@/types/home-props";
 import {
   blurDataURLShimmer,
@@ -22,13 +21,12 @@ export type SafeNumber = `${number}` | number;
 const HeroImageComponent = cache(
   ({ heroImage, cta, subCta }: HeroCPTUIProps) => {
     return (
-      <div className='relative isolate transition-all mx-auto overflow-hidden  bg-gray-900 py-24 px-6 sm:py-32 lg:px-8'>
+      <div className='relative isolate mx-auto overflow-hidden bg-gray-900  py-24 px-6 transition-all sm:pt-20 sm:pb-32 lg:px-8'>
         <Image
           className={cn(`absolute inset-0 -z-10 h-full w-full object-cover`)}
-          style={{ objectFit: "cover"}}
+          style={{ objectFit: "cover" }}
           quality={100}
           priority={true}
-
           alt='archer'
           height={heroImage.mediaDetails.height}
           width={heroImage.mediaDetails.width}
@@ -96,15 +94,21 @@ const HeroImageComponent = cache(
           </defs>
         </svg>
 
-        <div className='relative mx-auto max-w-2xl gap-y-10 bg-gradient-to-r pt-14 pb-4  from-white/[0.175] via-white/[0.5] to-white/[0.175]  transform-gpu select-none text-center align-bottom transition-transform delay-200 duration-500 ease-in-out font-kaisei-tokumin'>
-          <div className="mb-5 flex-row pb-8">
-          <HillsideToHarborHorizontal width={435} height={187} className="align-top inline-flex -my-10" />
+        <div className='font-kaisei-tokumin sticky mx-auto max-w-2xl transform-gpu select-none gap-y-10  bg-gradient-to-r from-white/[0.175] via-white/[0.5]  to-white/[0.175] pt-14 pb-4 text-center align-bottom transition-transform delay-200 duration-500 ease-in-out'>
+          <div className='mb-5 flex-row pb-8'>
+            <HillsideToHarborHorizontal
+              width={435}
+              height={187}
+              className='-my-10 inline-flex align-top'
+            />
           </div>
 
-          <h3 className='text-h2hTurquoise italic via-white/20 mt-6 pt-2 rounded-lg from-transparent to-transparent lg:text-[2rem] lg:leading-[2.375rem] font-medium leading-8 transition-colors ease-in-out sm:text-3xl'>
+          <h3 className='text-h2hTurquoise font-caveat mt-6 rounded-lg from-transparent via-white/20 to-transparent pt-2 font-medium leading-8 transition-colors ease-in-out sm:text-3xl lg:text-[2rem] lg:leading-[2.375rem]'>
             {cta.toUpperCase()}&nbsp;
-            <hr className="w-[75%] mx-auto mt-2.5 pb-[0.2675rem]" />
-            <em className="lg:text-2xl sm:text-xl font-medium text-gray-100">{subCta}</em>
+            <hr className='mx-auto mt-2.5 w-[75%] pb-[0.2675rem]' />
+            <p className='font-montserrat font-normal text-gray-100 sm:text-lg lg:text-lg'>
+              {subCta}
+            </p>
           </h3>
         </div>
       </div>

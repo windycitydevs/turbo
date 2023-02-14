@@ -10,7 +10,7 @@ export function DefaultHead() {
       />
       <meta name='apple-mobile-web-app-capable' content='yes' />
       <meta name='apple-mobile-web-app-status-bar-style' content='default' />
-      <link rel='shortcut icon' href='/favicon.ico' />
+      <link rel='shortcut icon' href='/favicon/favicon.ico' />
       <link
         rel='apple-touch-icon'
         sizes='180x180'
