@@ -48,6 +48,8 @@ module.exports = {
         h2hDarkGreen: "#4E5F4F",
         h2hTurquoise: "#91D3CA",
         h2hPinkOrange: "#F49A7A",
+        lightPink: "#FF80B5",
+        lavender: "#9089FC",
         "wcd-red": "#FF0000",
         sky: colors.sky,
         teal: colors.teal,

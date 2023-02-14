@@ -117,3 +117,30 @@ const HeroImageComponent = cache(
 );
 
 export default HeroImageComponent;
+/**
+         <Image
+          className={cn(`absolute inset-0 -z-10 h-full w-full object-cover`)}
+          style={{ objectFit: "cover" }}
+          quality={100}
+          priority={true}
+          alt='archer'
+          height={heroImage.mediaDetails.height}
+          width={heroImage.mediaDetails.width}
+          blurDataURL={blurDataURLShimmer({
+            h:
+              typeof heroImage.mediaDetails.height === "string"
+                ? heroImage.mediaDetails.height?.includes(".") === true
+                  ? Number.parseFloat(heroImage.mediaDetails.height)
+                  : Number.parseInt(heroImage.mediaDetails.height, 10)
+                : heroImage.mediaDetails.height,
+            w:
+              typeof heroImage.mediaDetails.width === "string"
+                ? heroImage.mediaDetails.width.includes(".") === true
+                  ? Number.parseFloat(heroImage.mediaDetails.width)
+                  : Number.parseInt(heroImage.mediaDetails.width, 10)
+                : heroImage.mediaDetails.width
+          })}
+          placeholder='blur'
+          src={heroImage.sourceUrl}
+        />
+ */

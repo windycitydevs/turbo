@@ -61,7 +61,7 @@ export default async function RootLayout({
   return (
     <html>
       <body
-        className={`overflow-y-scroll bg-gray-100 mx-auto ${inter.variable} ${montserrat.variable} ${kaiseiTokumin.variable} ${indieFlower.variable} ${caveat.variable} font-montserrat`}>
+        className={`mx-auto overflow-y-scroll bg-gray-100 ${inter.variable} ${montserrat.variable} ${kaiseiTokumin.variable} ${indieFlower.variable} ${caveat.variable} font-montserrat`}>
         {children}
       </body>
     </html>

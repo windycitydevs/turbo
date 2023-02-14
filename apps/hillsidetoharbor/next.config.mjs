@@ -10,7 +10,7 @@ const nextConfig = {
     formats: ["image/avif", "image/webp"],
     remotePatterns: [
       { hostname: "**.sanity.io" },
-      { hostname: "source.unsplash.com" },
+      { hostname: "**.unsplash.com" },
       { hostname: "**.hillsidetoharbor.biz" },
       { hostname: "**.hillsidetoharbor.com" },
       { hostname: "wpengine.com" },

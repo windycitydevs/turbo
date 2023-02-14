@@ -22,7 +22,7 @@ const getPublicRootData = fsSync
 const cacheControlHeaders = [
   {
     key: "Cache-Control",
-    value: "s-maxage=31536000, immutable"
+    value: "public, max-age=604800, must-revalidate=1987200"
   }
 ];
 

@@ -9,15 +9,17 @@ import Link from "next/link";
 import GlobalNav from "./GlobalNav";
 
 const getData = getHomePageData({ id: "index", idType: "URI" });
-
+const fetchData = () =>
+  fetch("http://localhost:3000/api/hero-stream").then((data) => data.arrayBuffer());
 export default async function Page() {
-  const [data] = await Promise.all<HomeProps>([getData]);
+  const [data, avif] = await Promise.all([getData, fetchData()]);
   preload(data.page.hero);
   perloadSubHero(data.page.hero);
-
+  const { heroImage: { sourceUrl, ...rest }, ...rests } = data.page.hero
+  const returnData = {heroImage: {sourceUrl: `data:image/avif;base64,${Buffer.from(Buffer.from(avif).toJSON().data).toString("base64")}`,...rest}, ...rests}
   return (
     <>
-      <HeroImageComponent {...data.page.hero} />
+      <HeroImageComponent {...returnData} />
       <Subhero {...data.page.hero} />
       <div className='grid grid-cols-[1fr,minmax(auto,240px),min(800px,100%),1fr] gap-x-8 py-8'>
         <div className='col-start-2'>

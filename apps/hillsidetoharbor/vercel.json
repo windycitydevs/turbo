@@ -6,7 +6,7 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "s-maxage=31536000, immutable"
+          "value": "public, max-age=604800, must-revalidate=1987200"
         }
       ]
     },
@@ -15,7 +15,7 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "s-maxage=31536000, immutable"
+          "value": "public, max-age=604800, must-revalidate=1987200"
         }
       ]
     },
@@ -24,7 +24,7 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "s-maxage=31536000, immutable"
+          "value": "public, max-age=604800, must-revalidate=1987200"
         }
       ]
     },
@@ -33,7 +33,7 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "s-maxage=31536000, immutable"
+          "value": "public, max-age=604800, must-revalidate=1987200"
         }
       ]
     },
@@ -42,7 +42,7 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "s-maxage=31536000, immutable"
+          "value": "public, max-age=604800, must-revalidate=1987200"
         }
       ]
     },
@@ -51,7 +51,7 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "s-maxage=31536000, immutable"
+          "value": "public, max-age=604800, must-revalidate=1987200"
         }
       ]
     },
@@ -60,7 +60,7 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "s-maxage=31536000, immutable"
+          "value": "public, max-age=604800, must-revalidate=1987200"
         }
       ]
     },
@@ -69,7 +69,7 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "s-maxage=31536000, immutable"
+          "value": "public, max-age=604800, must-revalidate=1987200"
         }
       ]
     },
@@ -78,7 +78,7 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "s-maxage=31536000, immutable"
+          "value": "public, max-age=604800, must-revalidate=1987200"
         }
       ]
     },
@@ -87,7 +87,7 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "s-maxage=31536000, immutable"
+          "value": "public, max-age=604800, must-revalidate=1987200"
         }
       ]
     },
@@ -96,7 +96,7 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "s-maxage=31536000, immutable"
+          "value": "public, max-age=604800, must-revalidate=1987200"
         }
       ]
     },
@@ -105,7 +105,7 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "s-maxage=31536000, immutable"
+          "value": "public, max-age=604800, must-revalidate=1987200"
         }
       ]
     },
@@ -114,7 +114,7 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "s-maxage=31536000, immutable"
+          "value": "public, max-age=604800, must-revalidate=1987200"
         }
       ]
     },
@@ -123,7 +123,25 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "s-maxage=31536000, immutable"
+          "value": "public, max-age=604800, must-revalidate=1987200"
+        }
+      ]
+    },
+    {
+      "source": "/VerticalWithTextSquare.png",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, must-revalidate=1987200"
+        }
+      ]
+    },
+    {
+      "source": "/VerticalWithTextSquare.svg",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, must-revalidate=1987200"
         }
       ]
     },
@@ -132,7 +150,7 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "s-maxage=31536000, immutable"
+          "value": "public, max-age=604800, must-revalidate=1987200"
         }
       ]
     },
@@ -141,7 +159,7 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "s-maxage=31536000, immutable"
+          "value": "public, max-age=604800, must-revalidate=1987200"
         }
       ]
     },
@@ -150,7 +168,7 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "s-maxage=31536000, immutable"
+          "value": "public, max-age=604800, must-revalidate=1987200"
         }
       ]
     },
@@ -159,7 +177,7 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "s-maxage=31536000, immutable"
+          "value": "public, max-age=604800, must-revalidate=1987200"
         }
       ]
     },
@@ -168,7 +186,25 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "s-maxage=31536000, immutable"
+          "value": "public, max-age=604800, must-revalidate=1987200"
+        }
+      ]
+    },
+    {
+      "source": "/logo-square.png",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, must-revalidate=1987200"
+        }
+      ]
+    },
+    {
+      "source": "/logo-square.svg",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, must-revalidate=1987200"
         }
       ]
     },
@@ -177,7 +213,7 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "s-maxage=31536000, immutable"
+          "value": "public, max-age=604800, must-revalidate=1987200"
         }
       ]
     },
@@ -186,7 +222,16 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "s-maxage=31536000, immutable"
+          "value": "public, max-age=604800, must-revalidate=1987200"
+        }
+      ]
+    },
+    {
+      "source": "/robots.txt",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, must-revalidate=1987200"
         }
       ]
     },
@@ -195,7 +240,7 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "s-maxage=31536000, immutable"
+          "value": "public, max-age=604800, must-revalidate=1987200"
         }
       ]
     },
@@ -204,7 +249,7 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "s-maxage=31536000, immutable"
+          "value": "public, max-age=604800, must-revalidate=1987200"
         }
       ]
     },
@@ -213,7 +258,7 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "s-maxage=31536000, immutable"
+          "value": "public, max-age=604800, must-revalidate=1987200"
         }
       ]
     },
@@ -222,7 +267,7 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "s-maxage=31536000, immutable"
+          "value": "public, max-age=604800, must-revalidate=1987200"
         }
       ]
     },
@@ -231,7 +276,7 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "s-maxage=31536000, immutable"
+          "value": "public, max-age=604800, must-revalidate=1987200"
         }
       ]
     },
@@ -240,7 +285,7 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "s-maxage=31536000, immutable"
+          "value": "public, max-age=604800, must-revalidate=1987200"
         }
       ]
     }
