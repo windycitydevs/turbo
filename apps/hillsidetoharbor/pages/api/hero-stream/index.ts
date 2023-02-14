@@ -1,4 +1,3 @@
-
 export const config = {
   runtime: "edge"
 };
@@ -9,7 +8,7 @@ const heroFetcher = () =>
 export default async function HeroEdge() {
   const [avifData] = await Promise.all([heroFetcher()]);
 
-  return new Response(avifData.body,{
+  return new Response(avifData.body, {
     status: avifData.status,
     headers: {
       "Content-Type": avifData.headers.get("Content-Type") || "image/avif",
@@ -17,4 +16,3 @@ export default async function HeroEdge() {
     }
   });
 }
-

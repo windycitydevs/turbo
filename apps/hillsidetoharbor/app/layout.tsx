@@ -1,29 +1,35 @@
+import { DefaultHead } from "@/ui/DefaultHead";
 import type { NextFontWithVariable } from "@next/font";
 import { Caveat, Inter, Montserrat } from "@next/font/google";
+import { HillsideToHarborHorizontal, Nav } from "@windycitydevs/ui/index";
+
 import localFont from "@next/font/local";
+import Link from "next/link";
 import { ReactNode } from "react";
 import "../styles/globals.css";
-const inter = Inter<"--inter">({
+
+const inter = Inter<"--font-inter">({
   subsets: ["latin", "latin-ext"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-  display: "swap"
+  display: "swap",
+  variable: "--font-inter"
 });
 
-const montserrat = Montserrat<"--montserrat">({
-  variable: "--montserrat",
+const montserrat = Montserrat<"--font-montserrat">({
+  variable: "--font-montserrat",
   subsets: ["latin", "latin-ext"],
   display: "swap"
 });
 
-const caveat = Caveat<"--caveat">({
-  variable: "--caveat",
+const caveat = Caveat<"--font-caveat">({
+  variable: "--font-caveat",
   subsets: ["latin", "latin-ext"],
   display: "swap",
   weight: "variable"
 });
 
-const indieFlower = localFont<"--flower">({
-  variable: "--flower",
+const indieFlower = localFont<"--font-flower">({
+  variable: "--font-flower",
   display: "swap",
   src: [
     { path: "./fonts/IndieFlower-Regular.ttf" },
@@ -33,8 +39,8 @@ const indieFlower = localFont<"--flower">({
   ]
 });
 
-const kaiseiTokumin = localFont<"--kaisei-tokumin">({
-  variable: "--kaisei-tokumin",
+const kaiseiTokumin = localFont<"--font-kaisei-tokumin">({
+  variable: "--font-kaisei-tokumin",
   display: "swap",
   src: [
     {
@@ -60,10 +66,46 @@ export default async function RootLayout({
 }) {
   return (
     <html>
+      <head>
+        <DefaultHead />
+        <title>Hillside To Harbor</title>
+        <meta
+          name='description'
+          content='If you can dream it you can (maybe) do it 🎉'
+        />
+      </head>
       <body
-        className={`mx-auto overflow-y-scroll bg-gray-100 ${inter.variable} ${montserrat.variable} ${kaiseiTokumin.variable} ${indieFlower.variable} ${caveat.variable} font-montserrat`}>
-        {children}
+        className={`max-w-10xl scroll-smooth  mx-auto overflow-y-scroll ${inter.variable} ${montserrat.variable} ${kaiseiTokumin.variable} ${indieFlower.variable} ${caveat.variable} font-montserrat`}>
+        <Nav variant='primary' id="top" />
+        <div className='bg-accents-0'>{children}</div>{" "}
+        <footer className='bg-accents-1 z-20 mt-auto flex w-full items-center justify-center border-t py-10'>
+          <span className='sr-only'>back to top</span>
+          <Link
+            href='/'
+            aria-label='Hillside To Harbor'
+            scroll={true}
+            className='leading-relaxed tracking-wider text-black'>
+            <HillsideToHarborHorizontal className='text-primary ml-3 inline-block h-20' />
+          </Link>
+        </footer>
       </body>
     </html>
   );
 }
+/**
+ import { DefaultHead } from "@/ui/DefaultHead";
+
+export default function Head() {
+  return (
+    <>
+      <DefaultHead />
+      <title>Hillside To Harbor</title>
+      <meta
+        name='description'
+        content='If you can dream it you can (maybe) do it 🎉'
+      />
+    </>
+  );
+}
+
+ */

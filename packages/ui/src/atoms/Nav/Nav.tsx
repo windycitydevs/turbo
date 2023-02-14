@@ -1,34 +1,17 @@
 import cn from "clsx";
-import Wcd from "../../icons/Wcd";
+import HillsideToHarborVerticalWide from "../../icons/HillsideToHarbor/HillsideToHarborVerticalWide";
+import EnvelopeIcon from "../../icons/UI/Envelope/Envelope";
+import PhoneIcon from "../../icons/UI/Phone/Phone";
 import type UI from "../../typedefs/namespace";
 import Button from "../Buttons";
-import DeployButton, {
-  type DeployButtonProps
-} from "../DeployButton/DeployButton";
 import Link from "../NextLink";
-
 const REPO_URL = "https://github.com/windycitydevs/turbo/tree/main" as const;
 
 export interface NavProps extends UI.TSX.JSXSelect<"nav"> {
-  path: string;
-  deployButton?: Partial<DeployButtonProps>;
   variant?: "primary" | "secondary" | "ghost" | "violet" | "black" | "white";
 }
 
-export default function Nav({
-  path,
-  deployButton,
-  variant,
-  className,
-  ...rest
-}: NavProps) {
-  const displayPath = ["turbo"]
-    .concat(path?.split("/").filter(Boolean) || [])
-    .join(" / ");
-  const repositoryUrl = deployButton?.repositoryUrl
-    ? deployButton.repositoryUrl
-    : (`${REPO_URL}/${path}` as const);
-
+export default function Nav({ variant, className, ...rest }: NavProps) {
   return (
     <nav
       className={cn(
@@ -36,16 +19,18 @@ export default function Nav({
         className
       )}
       {...rest}>
-      <div className='mx-auto flex max-w-7xl items-center px-14 sm:px-8 lg:px-6'>
-        <div className='flex flex-row items-center'>
-          <Link href='/'>
+      <div className='max-w-8xl mx-auto flex items-center px-14 sm:px-8 lg:px-6'>
+        <div className='flex flex-row items-center justify-start'>
+          <Link href='/' id='top'>
             <span>
-              <Wcd height='32' shapeRendering='geometricPrecision'>
-                <title>{"Windy City Devs"}</title>
-              </Wcd>
+              <HillsideToHarborVerticalWide
+                height='36'
+                shapeRendering='geometricPrecision'>
+                <title>{"Hillside To Harbor"}</title>
+              </HillsideToHarborVerticalWide>
             </span>
           </Link>
-          <ul className='flex content-center items-center'>
+          {/* <ul className='flex content-center items-center'>
             <li className='ml-2 text-gray-200'>
               <svg
                 viewBox='0 0 24 24'
@@ -69,7 +54,7 @@ export default function Nav({
                 {displayPath}
               </Link>
             </li>
-          </ul>
+          </ul> */}
         </div>
         <div className='hidden flex-1 justify-end md:flex'>
           <nav className='inline-flex flex-row items-center'>
@@ -77,20 +62,25 @@ export default function Nav({
               <Button
                 variant='secondary'
                 Component='a'
-                href={REPO_URL}
+                className='mx-auto'
+                href={`tel:+18658306061`}
                 target='_blank'
                 rel='noreferrer noopener'>
-                View the Codebase →
+                <span className='sr-only'>Call</span>
+                <PhoneIcon className='h-5 w-5' aria-hidden='true' />
               </Button>
             </span>
             <span className='text-accents-5 ml-2 flex h-full cursor-not-allowed items-center'>
-              <DeployButton
-                {...deployButton}
-                variant={variant ? variant : "primary"}
-                repositoryUrl={repositoryUrl}
-                projectName={deployButton?.projectName || path}
-                repositoryName={deployButton?.repositoryName || path}
-              />
+              <Button
+                variant='primary'
+                Component='a'
+                className='mx-auto'
+                href={`mailto:contact@hillsidetoharbor.com`}
+                target='_blank'
+                rel='noreferrer noopener'>
+                <span className='sr-only'>Email</span>
+                <EnvelopeIcon className=' h-5 w-5' aria-hidden='true' />
+              </Button>
             </span>
           </nav>
         </div>
@@ -98,3 +88,4 @@ export default function Nav({
     </nav>
   );
 }
+// {`mailto:${useData.betaMe?.mail}`

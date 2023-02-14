@@ -9,13 +9,7 @@ export interface LayoutProps extends NavProps {
   description?: string;
 }
 
-const Layout: FC<LayoutProps> = ({
-  title,
-  description,
-  path,
-  deployButton,
-  children
-}) => {
+const Layout: FC<LayoutProps> = ({ title, description, children, ...rest }) => {
   return (
     <div className='mx-auto flex h-screen flex-col'>
       <Head>
@@ -31,7 +25,7 @@ const Layout: FC<LayoutProps> = ({
         )}
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <Nav path={path} deployButton={deployButton} />
+      <Nav {...rest} />
       <div className='bg-accents-0 px-8'>{children}</div>
       <footer className='bg-accents-1 z-20 mt-auto flex w-full items-center justify-center border-t py-10'>
         <span className='text-primary'>Created by</span>

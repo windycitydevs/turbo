@@ -61,6 +61,8 @@ export { default as InstagramIcon } from "./icons/Instagram";
 export { default as LinkedInIcon } from "./icons/LinkedIn";
 export { default as SanityLogo } from "./icons/Sanity";
 export { default as TwitterIcon } from "./icons/Twitter";
+export { default as EnvelopeIcon } from "./icons/UI/Envelope";
+export { default as PhoneIcon } from "./icons/UI/Phone";
 export { default as Wcd } from "./icons/Wcd";
 export { default as WcdAbbreviated } from "./icons/WcdAbbreviated";
 // lib

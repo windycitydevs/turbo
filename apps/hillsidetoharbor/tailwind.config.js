@@ -72,13 +72,13 @@ module.exports = {
       }),
       fontFamily: {
         "kaisei-tokumin": [
-          "var(--kaisei-tokumin)",
+          "var(--font-kaisei-tokumin)",
           ...defaultTheme.fontFamily.sans
         ],
-        inter: ["var(--inter)", ...defaultTheme.fontFamily.sans],
-        montserrat: ["var(--montserrat)", ...defaultTheme.fontFamily.sans],
-        flower: ["var(--flower)", ...defaultTheme.fontFamily.serif],
-        caveat: ["var(--caveat)", ...defaultTheme.fontFamily.serif]
+        inter: ["var(--font-inter)", ...defaultTheme.fontFamily.sans],
+        montserrat: ["var(--font-montserrat)", ...defaultTheme.fontFamily.sans],
+        flower: ["var(--font-flower)", ...defaultTheme.fontFamily.serif],
+        caveat: ["var(--font-caveat)", ...defaultTheme.fontFamily.serif]
       },
       animation: {
         wiggle: "wiggle 10s ease-in-out infinite",
@@ -176,6 +176,7 @@ module.exports = {
     }
   },
   plugins: [
+    require("@headlessui/tailwindcss"),
     require("@tailwindcss/typography"),
     require("@tailwindcss/line-clamp"),
     require("@tailwindcss/forms")
