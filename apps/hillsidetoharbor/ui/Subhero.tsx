@@ -2,7 +2,9 @@ import type { HeroCPTUIProps } from "@/types/home-props";
 import { blurDataURLShimmer } from "@windycitydevs/ui";
 import Image from "next/image";
 import { cache } from "react";
-export const perloadSubHero = ({ ...props }: Parameters<typeof SubHeroTwo>[0]) => {
+export const perloadSubHero = ({
+  ...props
+}: Parameters<typeof SubHeroTwo>[0]) => {
   void SubHeroTwo({ ...props });
 };
 
@@ -70,24 +72,27 @@ const Subhero = cache(({ subHeroImages3 }: HeroCPTUIProps) => {
   );
 });
 
-
-
 export const SubHeroTwo = ({ subHeroImages3 }: HeroCPTUIProps) => {
   return (
-    <div className='bg-h2hDarkGreen w-full py-16 sm:py-6 isolate mx-auto overflow-hidden  justify-items-center lg:px-8'>
-      <div className='mx-auto flex flex-row max-w-8xl w-full justify-center px-6 lg:px-8'>
+    <div className='bg-h2hDarkGreen isolate mx-auto w-full justify-items-center overflow-hidden py-16  sm:py-6 lg:px-8'>
+      <div className='max-w-8xl mx-auto flex w-full flex-row justify-center px-6 lg:px-8'>
         <ul
           role='list'
-          className='mx-auto text-center justify-center grid max-w-3xl grid-cols-1 gap-x-8 sm:grid-cols-2 lg:mx-0 lg:gap-x-16 lg:max-w-[65vw] lg:grid-cols-3'>
+          className='mx-auto grid max-w-3xl grid-cols-1 justify-center gap-x-8 text-center sm:grid-cols-2 lg:mx-0 lg:max-w-[65vw] lg:grid-cols-3 lg:gap-x-16'>
           {subHeroImages3.map(sub => (
-            <li key={sub.subHeroImage.databaseId} className="max-w-2xl flex-col scale-[0.9]">
-                                          <h3 className='mb-6 text-3xl font-normal font-montserrat leading-8 tracking-tight text-gray-100'>
+            <li
+              key={sub.subHeroImage.databaseId}
+              className='max-w-2xl scale-[0.9] flex-col'>
+              <h3 className='font-montserrat mb-6 text-3xl font-normal leading-8 tracking-tight text-gray-100'>
                 {sub.subHeroImageCta}
               </h3>
               <Image
-                className='aspect-square drop-shadow-sm border-collapse border-2 border-gray-100 self-center my-2 w-full h-auto rounded-full object-cover'
+                className='my-2 aspect-square h-auto w-full border-collapse self-center rounded-full border-2 border-gray-100 object-cover drop-shadow-sm'
                 src={sub.subHeroImage.sourceUrl}
-                alt=''
+                alt={sub.subHeroImage.altText ?? sub.subHeroImageCta}
+                quality={100}
+                placeholder={"blur"}
+                blurDataURL={blurDataURLShimmer({ w: 300, h: 300 })}
                 width={sub.subHeroImage.mediaDetails.width}
                 height={sub.subHeroImage.mediaDetails.height}
               />
@@ -101,4 +106,4 @@ export const SubHeroTwo = ({ subHeroImages3 }: HeroCPTUIProps) => {
     </div>
   );
 };
-export default SubHeroTwo
+export default SubHeroTwo;
