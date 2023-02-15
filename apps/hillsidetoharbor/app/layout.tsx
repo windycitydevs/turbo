@@ -67,12 +67,6 @@ export default async function RootLayout({
   return (
     <html>
       <head>
-        <link
-          rel='preload'
-          href='/api/hero-stream'
-          as='fetch'
-          crossOrigin='anonymous'
-        />
         <DefaultHead />
         <title>Hillside To Harbor</title>
         <meta
