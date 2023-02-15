@@ -1,3 +1,6 @@
+### Had to axe because Pro doesn't support more than 2MB of data in edge (enterprise supports 10mb)
+- `pages/api/hero-stream.ts`
+```ts
 export const config = {
   runtime: "edge"
 };
@@ -16,3 +19,5 @@ export default async function HeroEdge() {
     }
   });
 }
+
+```
