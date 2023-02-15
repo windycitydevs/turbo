@@ -1,11 +1,12 @@
+import { envMediatedBaseUrl } from "@/lib/env-handler";
 import { getHomePageData } from "@/lib/fetch-wp";
 import HeroImageComponent, { preload } from "@/ui/HeroImage";
 import Subhero, { perloadSubHero } from "@/ui/Subhero";
 
 const getData = getHomePageData({ id: "index", idType: "URI" });
 const fetchData = () =>
-  fetch("http://localhost:3000/api/hero-stream").then(data =>
-    data.arrayBuffer()
+  fetch(`${envMediatedBaseUrl(process.env.NODE_ENV)}/api/hero-stream`).then(
+    data => data.arrayBuffer()
   );
 export default async function Page() {
   const [data, avif] = await Promise.all([getData, fetchData()]);

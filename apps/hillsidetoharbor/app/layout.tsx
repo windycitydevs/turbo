@@ -67,6 +67,12 @@ export default async function RootLayout({
   return (
     <html>
       <head>
+        <link
+          rel='preload'
+          href='/api/hero-stream'
+          as='fetch'
+          crossOrigin='anonymous'
+        />
         <DefaultHead />
         <title>Hillside To Harbor</title>
         <meta
@@ -75,8 +81,8 @@ export default async function RootLayout({
         />
       </head>
       <body
-        className={`max-w-10xl scroll-smooth  mx-auto overflow-y-scroll ${inter.variable} ${montserrat.variable} ${kaiseiTokumin.variable} ${indieFlower.variable} ${caveat.variable} font-montserrat`}>
-        <Nav variant='primary' id="top" />
+        className={`max-w-10xl mx-auto  overflow-y-scroll scroll-smooth ${inter.variable} ${montserrat.variable} ${kaiseiTokumin.variable} ${indieFlower.variable} ${caveat.variable} font-montserrat`}>
+        <Nav variant='primary' id='top' />
         <div className='bg-accents-0'>{children}</div>{" "}
         <footer className='bg-accents-1 z-20 mt-auto flex w-full items-center justify-center border-t py-10'>
           <span className='sr-only'>back to top</span>

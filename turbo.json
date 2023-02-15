@@ -51,6 +51,8 @@
         ".next/**"
       ],
       "env": [
+        "NEXT_PUBLIC_GA_MEASUREMENT_ID",
+        "NEXT_PUBLIC_GA_STREAM_ID",
         "PORT",
         "WORDPRESS_AUTH_REFRESH_TOKEN",
         "WORDPRESS_API_URL"
