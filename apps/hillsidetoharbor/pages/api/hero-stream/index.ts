@@ -3,7 +3,7 @@ export const config = {
 };
 
 const heroFetcher = () =>
-  fetch(new URL("../../../public/hero.avif", import.meta.url));
+  fetch(new URL("../../../public/tennessee-autumn.webp", import.meta.url));
 
 export default async function HeroEdge() {
   const [avifData] = await Promise.all([heroFetcher()]);
@@ -11,7 +11,7 @@ export default async function HeroEdge() {
   return new Response(avifData.body, {
     status: avifData.status,
     headers: {
-      "Content-Type": avifData.headers.get("Content-Type") || "image/avif",
+      "Content-Type": avifData.headers.get("Content-Type") || "image/webp",
       "Cache-Control": "public, max-age=604800, must-revalidate=1987200"
     }
   });
