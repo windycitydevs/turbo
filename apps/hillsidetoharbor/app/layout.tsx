@@ -2,11 +2,9 @@ import { DefaultHead } from "@/ui/DefaultHead";
 import type { NextFontWithVariable } from "@next/font";
 import { Caveat, Inter, Montserrat } from "@next/font/google";
 import {
-  Button,
-  EnvelopeIcon,
   HillsideToHarborHorizontal,
   HillsideToHarborSquare,
-  PhoneIcon
+  Nav
 } from "@windycitydevs/ui";
 
 import localFont from "@next/font/local";
@@ -82,56 +80,14 @@ export default async function RootLayout({
       </head>
       <body
         className={`max-w-10xl mx-auto  overflow-y-scroll scroll-smooth ${inter.variable} ${montserrat.variable} ${kaiseiTokumin.variable} ${indieFlower.variable} ${caveat.variable} font-montserrat`}>
-        <nav className='bg-background font-gotham relative z-20 mx-auto w-full justify-between border-b border-gray-200 py-5 px-10 shadow-magical'>
-          <div className='md:flex md:items-center md:justify-between md:space-x-5'>
-            <div className='ml-10 flex items-start space-x-5'>
-              <div className='flex-shrink-0'>
-                <div className='relative'>
-                  <Link href='/' id='top' className='mx-auto flex text-left'>
-                    <span className='z-10'>
-                      <HillsideToHarborSquare
-                        className='h-16 w-16'
-                        height={64}
-                        width={64}
-                        shapeRendering='geometricPrecision'
-                      />
-                    </span>
-                  </Link>
-                  <span
-                    className='absolute inset-0 rounded-full shadow-inner'
-                    aria-hidden='true'
-                  />
-                </div>
-              </div>
-            </div>
-            <div className='md:justify-stretch sr-only md:mx-10 md:not-sr-only md:flex md:justify-stretch md:space-y-0 md:mt-0 md:flex-row md:space-x-3'>
-              <span className='text-accents-5 ml-2 flex h-full cursor-not-allowed items-center outline-1 '>
-                <Button
-                  variant='secondary'
-                  Component='a'
-                  className='mx-auto'
-                  href={`tel:+18658306061`}
-                  target='_blank'
-                  rel='noreferrer noopener'>
-                  <span className='sr-only'>Call</span>
-                  <PhoneIcon className='h-5 w-5' aria-hidden='true' />
-                </Button>
-              </span>
-              <span className='text-accents-5  ml-2 inline-flex h-full cursor-not-allowed items-end'>
-                <Button
-                  variant='secondary'
-                  Component='a'
-                  className='mx-auto'
-                  href={`mailto:contact@hillsidetoharbor.com`}
-                  target='_blank'
-                  rel='noreferrer noopener'>
-                  <span className='sr-only'>Email</span>
-                  <EnvelopeIcon className=' h-5 w-5' aria-hidden='true' />
-                </Button>
-              </span>
-            </div>
-          </div>
-        </nav>
+        <Nav variantEmail='secondary' variantPhone='secondary'>
+          <HillsideToHarborSquare
+            className='h-16 w-16'
+            height={64}
+            width={64}
+            shapeRendering='geometricPrecision'
+          />
+        </Nav>
         <div className='bg-accents-0'>{children}</div>{" "}
         <footer className='bg-accents-1 z-20 mt-auto flex w-full items-center justify-center border-t py-10'>
           <span className='sr-only'>back to top</span>
