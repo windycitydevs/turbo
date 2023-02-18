@@ -1,7 +1,9 @@
 import type { FC } from "react";
 import type { UI } from "../../../typedefs/namespace";
 
-const PhoneIcon: FC<UI.TSX.JSXSelect<"svg">> = ({ ...props }) => (
+const PhoneIcon: FC<
+  UI.Helpers.RemoveFields<UI.TSX.JSXSelect<"svg">, "xmlns" | "viewBox" | "fill">
+> = ({ ...props }) => (
   <svg
     {...props}
     xmlns='http://www.w3.org/2000/svg'

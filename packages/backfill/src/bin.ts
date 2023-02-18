@@ -1,7 +1,5 @@
 #!/usr/bin/env node
-import SanityClientConstructor, {
-  IdentifiedSanityDocumentStub
-} from "@sanity/client";
+import { createClient, IdentifiedSanityDocumentStub } from "@sanity/client";
 import algoliasearch, { type SearchIndex } from "algoliasearch";
 import axios, {
   type AxiosInstance,
@@ -375,7 +373,7 @@ export default function BackfillIndex<T extends typeof process.argv>(str: T) {
     async function BackfillDataset<T extends IncomingArgs>(
       props: Backfill.Helpers.UnwrapPromise<T>
     ) {
-      const sanityClient = new SanityClientConstructor({
+      const sanityClient = createClient({
         token: props.sanitykey ?? "",
         apiVersion: props.apiVersion ?? "2022-11-15",
         dataset: props.dataset ?? "",

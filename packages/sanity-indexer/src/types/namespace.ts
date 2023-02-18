@@ -1,4 +1,4 @@
-import type { ClientConstructor } from "@sanity/client";
+import type { createClient } from "@sanity/client";
 import type { AlgoliaSearchOptions, SearchIndex } from "algoliasearch";
 import { IncomingMessage } from "http";
 
@@ -590,9 +590,8 @@ export namespace Indexer {
       | BatchResponse
       | PartialUpdateObjectResponse
       | undefined;
-
     export interface HandleOperationProps extends HandleDeleteProps {
-      sanityClient: InstanceType<ClientConstructor>;
+      sanityClient: ReturnType<typeof createClient>;
       transformedData?: Record<string, any>;
       groqQueryUpdate?: string;
       groqQueryCreate?: string;
@@ -780,7 +779,7 @@ export namespace Indexer {
       T extends SlashDeleteFromEnumKeys
     > = Operation.GetQueryForOperationProps<T> & {
       readonly targetKeyForLogger?: string;
-      readonly sanityClient: InstanceType<ClientConstructor>;
+      readonly sanityClient: ReturnType<typeof createClient>;
       readonly req: Operation.NextApiRequest;
     };
 

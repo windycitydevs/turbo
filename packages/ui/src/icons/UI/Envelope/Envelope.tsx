@@ -1,7 +1,9 @@
 import { type FC } from "react";
 import { type UI } from "../../../typedefs/namespace";
 
-const EnvelopeIcon: FC<UI.TSX.JSXSelect<"svg">> = ({ fill, ...svg }) => (
+const EnvelopeIcon: FC<
+  UI.Helpers.RemoveFields<UI.TSX.JSXSelect<"svg">, "xmlns" | "viewBox">
+> = ({ fill, ...svg }) => (
   <svg
     {...svg}
     viewBox='0 0 52 44'

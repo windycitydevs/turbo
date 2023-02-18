@@ -62,12 +62,17 @@ export { default as LinkedInIcon } from "./icons/LinkedIn";
 export { default as SanityLogo } from "./icons/Sanity";
 export { default as TwitterIcon } from "./icons/Twitter";
 export { default as EnvelopeIcon } from "./icons/UI/Envelope";
+export { default as Heart } from "./icons/UI/Heart";
+export { default as Lifebuoy } from "./icons/UI/Lifebuoy";
+export { default as Newspaper } from "./icons/UI/Newspaper";
 export { default as PhoneIcon } from "./icons/UI/Phone";
 export { default as Wcd } from "./icons/Wcd";
 export { default as WcdAbbreviated } from "./icons/WcdAbbreviated";
 // lib
 export { default as mapParams } from "./lib/map-params";
 export { default as blurDataURLShimmer } from "./lib/shimmer";
+// molecules
+export { default as SubHero } from "./molecules/SubHero";
 // types
 export { default as WcdEnums } from "./typedefs/enum";
 export { default as UI } from "./typedefs/namespace";
