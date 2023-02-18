@@ -2,8 +2,8 @@ const siteUrl =
   process.env.NODE_ENV != "development"
     ? process.env.NODE_ENV != "production"
       ? "http://localhost:3000"
-      : "https://turbo-hillsidetoharbor.vercel.app"
-    : "https://dev.hillsidetoharbor.com";
+      : `https://${process.env.VERCEL_URL}`
+    : `https://${process.env.VERCEL_URL}`;
 
 // @ts-check
 /** @type {import('next-sitemap').IConfig} */
