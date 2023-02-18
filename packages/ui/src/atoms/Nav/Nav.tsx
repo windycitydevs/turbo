@@ -1,8 +1,9 @@
 import clsx from "clsx";
-import type { FC, PropsWithChildren } from "react";
+import type { FC } from "react";
 import HillsideToHarborSquare from "../../icons/HillsideToHarbor/HillsideToHarborSquare";
 import EnvelopeIcon from "../../icons/UI/Envelope/Envelope";
 import PhoneIcon from "../../icons/UI/Phone/Phone";
+import Wcd from "../../icons/Wcd";
 import type UI from "../../typedefs/namespace";
 import Button from "../Buttons";
 import Link from "../NextLink";
@@ -15,15 +16,42 @@ export type VariantOpts =
   | "black"
   | "white";
 
+export const LogoObject = {
+  HillsidetoharborLogo: (
+    <HillsideToHarborSquare
+      className='h-16 w-16'
+      height={64}
+      width={64}
+      shapeRendering='geometricPrecision'
+    />
+  ),
+  Wcd: (
+    <Wcd
+      className='h-min w-16'
+      width={64}
+      shapeRendering='geometricPrecision'
+    />
+  )
+} as const;
+
+export const LogoObjectHelper = <
+  T extends keyof typeof LogoObject = keyof typeof LogoObject
+>({
+  logo
+}: {
+  logo: T;
+}) => LogoObject[logo];
+
 export interface NavProps extends UI.TSX.JSXSelect<"nav"> {
   variantPhone?: VariantOpts;
   variantEmail?: VariantOpts;
+  logo: keyof typeof LogoObject;
 }
 
-const Nav: FC<PropsWithChildren<NavProps>> = ({
+const Nav: FC<NavProps> = ({
   variantEmail,
   variantPhone,
-  children,
+  logo,
   className,
   ...rest
 }) => {
@@ -35,21 +63,12 @@ const Nav: FC<PropsWithChildren<NavProps>> = ({
       )}
       {...rest}>
       <div className='md:flex md:items-center md:justify-between md:space-x-5'>
-        <div className='ml-10 flex items-start space-x-5'>
+        <div className='flex items-start md:ml-10 md:space-x-5'>
           <div className='flex-shrink-0'>
             <div className='relative'>
               <Link href='/' id='top' className='mx-auto flex text-left'>
                 <span className='z-10'>
-                  {typeof children !== "undefined" ? (
-                    children
-                  ) : (
-                    <HillsideToHarborSquare
-                      className='h-16 w-16'
-                      height={64}
-                      width={64}
-                      shapeRendering='geometricPrecision'
-                    />
-                  )}
+                  <LogoObjectHelper logo={logo} />
                 </span>
               </Link>
               <span

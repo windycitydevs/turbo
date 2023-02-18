@@ -1,11 +1,7 @@
 import { DefaultHead } from "@/ui/DefaultHead";
 import type { NextFontWithVariable } from "@next/font";
 import { Caveat, Inter, Montserrat } from "@next/font/google";
-import {
-  HillsideToHarborHorizontal,
-  HillsideToHarborSquare,
-  Nav
-} from "@windycitydevs/ui";
+import { HillsideToHarborHorizontal, Nav } from "@windycitydevs/ui";
 
 import localFont from "@next/font/local";
 import Link from "next/link";
@@ -80,14 +76,11 @@ export default async function RootLayout({
       </head>
       <body
         className={`max-w-10xl mx-auto  overflow-y-scroll scroll-smooth ${inter.variable} ${montserrat.variable} ${kaiseiTokumin.variable} ${indieFlower.variable} ${caveat.variable} font-montserrat`}>
-        <Nav variantEmail='secondary' variantPhone='secondary'>
-          <HillsideToHarborSquare
-            className='h-16 w-16'
-            height={64}
-            width={64}
-            shapeRendering='geometricPrecision'
-          />
-        </Nav>
+        <Nav
+          variantEmail='secondary'
+          variantPhone='secondary'
+          logo='HillsidetoharborLogo'
+        />
         <div className='bg-accents-0'>{children}</div>{" "}
         <footer className='bg-accents-1 z-20 mt-auto flex w-full items-center justify-center border-t py-10'>
           <span className='sr-only'>back to top</span>
