@@ -2,7 +2,7 @@ import { getHomePageData } from "@/lib/fetch-wp";
 import HeroImageComponent, { preload } from "@/ui/HeroImage";
 import Subhero, { perloadSubHero } from "@/ui/Subhero";
 
-const getData = getHomePageData({ id: "index", idType: "URI" });
+const getData = getHomePageData({ id: "a-fresh-start", idType: "URI" });
 
 export default async function Page() {
   const [data] = await Promise.all([getData]);
