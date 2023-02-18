@@ -1,7 +1,8 @@
 import { HeroCPTUIProps } from "@/types/home-props";
 import {
   blurDataURLShimmer,
-  HillsideToHarborHorizontal
+  HillsideToHarborHorizontal,
+  HillsideToHarborVertical
 } from "@windycitydevs/ui";
 import cn from "clsx";
 import Image from "next/image";
@@ -23,7 +24,7 @@ const HeroImageComponent = cache(
     return (
       <div className='relative isolate mx-auto overflow-hidden bg-gray-900  py-24 px-6 transition-all sm:pt-20 sm:pb-32 lg:px-8'>
         <Image
-          className={cn(`absolute inset-0 -z-10 h-full w-full object-cover`)}
+          className={cn(`absolute inset-0 object-bottom -z-10 h-full w-full object-cover`)}
           style={{ objectFit: "cover" }}
           quality={100}
           priority={true}
@@ -94,19 +95,21 @@ const HeroImageComponent = cache(
           </defs>
         </svg>
 
-        <div className='font-kaisei-tokumin sticky mx-auto max-w-2xl transform-gpu select-none gap-y-10  bg-gradient-to-r from-white/[0.175] via-white/[0.5]  to-white/[0.175] pt-14 pb-4 text-center align-bottom transition-transform delay-200 duration-500 ease-in-out'>
-          <div className='mb-5 flex-row pb-8'>
+        <div className='font-kaisei-tokumin mx-auto max-w-[75vw] transform-gpu select-none gap-y-10 bg-gradient-to-r from-white/[0.175] via-white/[0.5]  to-white/[0.175] pt-14 pb-4  text-center align-bottom transition-transform  delay-200 duration-500 ease-in-out [flex:auto] sm:max-w-2xl'>
+          <div className='sr-only sm:not-sr-only sm:mx-auto sm:mb-5 sm:mt-auto sm:h-fit sm:min-h-fit sm:w-fit sm:flex-auto sm:content-center sm:pb-8 sm:text-center'>
             <HillsideToHarborHorizontal
               width={435}
               height={187}
-              className='-my-10 inline-flex align-top'
+              className='sm:-my-10 sm:mx-auto  sm:flex-shrink sm:object-scale-down sm:object-center sm:align-top sm:transition-all sm:duration-150 sm:ease-in-out'
             />
           </div>
-
-          <h3 className='text-h2hTurquoise font-caveat mt-6 rounded-lg from-transparent via-white/20 to-transparent pt-2 font-medium leading-8 transition-colors ease-in-out sm:text-3xl lg:text-[2rem] lg:leading-[2.375rem]'>
+          <div className='mx-auto mt-auto h-fit min-h-fit w-fit flex-auto content-center pb-8 text-center sm:hidden'>
+            <HillsideToHarborVertical className=' mx-auto w-[70%] h-min  flex-shrink object-scale-down object-center align-top transition-all duration-150 ease-in-out' />
+          </div>
+          <h3 className='text-h2hTurquoise text-sm 4xs:text-base 2xs:text-xl font-caveat sm:mt-6 rounded-lg from-transparent via-white/20 to-transparent sm:pt-2 font-medium leading-8 transition-colors ease-in-out smxs:text-lg sm:text-3xl lg:text-[2rem] lg:leading-[2.375rem]'>
             {cta.toUpperCase()}&nbsp;
-            <hr className='mx-auto mt-2.5 w-[75%] pb-[0.2675rem]' />
-            <p className='font-montserrat font-normal text-gray-100 sm:text-lg lg:text-lg'>
+            <hr className='mx-auto mt-[0.4375rem] w-[75%] pb-[0.2675rem]' />
+            <p className='font-montserrat text-xs 4xs:text-sm w-[75%] mx-auto smxs:w-[100%] smxs:text-base font-normal text-gray-100 sm:text-lg lg:text-xl'>
               {subCta}
             </p>
           </h3>
