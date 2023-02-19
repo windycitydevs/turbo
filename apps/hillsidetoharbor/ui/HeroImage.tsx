@@ -7,6 +7,7 @@ import {
 import cn from "clsx";
 import Image from "next/image";
 import { cache } from "react";
+
 export type HeroImageComponeentProps = {
   src: string;
   width: SafeNumber;
@@ -24,7 +25,9 @@ const HeroImageComponent = cache(
     return (
       <div className='relative isolate mx-auto overflow-hidden bg-gray-900  py-24 px-6 transition-all sm:pt-20 sm:pb-32 lg:px-8'>
         <Image
-          className={cn(`absolute inset-0 object-bottom -z-10 h-full w-full object-cover`)}
+          className={cn(
+            `absolute inset-0 -z-10 h-full w-full object-cover object-bottom`
+          )}
           style={{ objectFit: "cover" }}
           quality={100}
           priority={true}
@@ -104,12 +107,12 @@ const HeroImageComponent = cache(
             />
           </div>
           <div className='mx-auto mt-auto h-fit min-h-fit w-fit flex-auto content-center pb-8 text-center sm:hidden'>
-            <HillsideToHarborVertical className=' mx-auto w-[70%] h-min  flex-shrink object-scale-down object-center align-top transition-all duration-150 ease-in-out' />
+            <HillsideToHarborVertical className=' mx-auto h-min w-[70%]  flex-shrink object-scale-down object-center align-top transition-all duration-150 ease-in-out' />
           </div>
-          <h3 className='text-h2hTurquoise text-sm 4xs:text-base 2xs:text-xl font-caveat sm:mt-6 rounded-lg from-transparent via-white/20 to-transparent sm:pt-2 font-medium leading-8 transition-colors ease-in-out smxs:text-lg sm:text-3xl lg:text-[2rem] lg:leading-[2.375rem]'>
+          <h3 className='text-h2hTurquoise 4xs:text-base 2xs:text-xl font-caveat rounded-lg from-transparent via-white/20 to-transparent text-sm font-medium leading-8 transition-colors ease-in-out sm:mt-6 sm:pt-2 sm:text-3xl lg:text-4xl [h3:text-3xl]'>
             {cta.toUpperCase()}&nbsp;
             <hr className='mx-auto mt-[0.4375rem] w-[75%] pb-[0.2675rem]' />
-            <p className='font-montserrat text-xs 4xs:text-sm w-[75%] mx-auto smxs:w-[100%] smxs:text-base font-normal text-gray-100 sm:text-lg lg:text-xl'>
+            <p className='font-montserrat 4xs:text-sm sm:w-[100%] smxs:text-base mx-auto w-[75%] text-xs font-normal text-gray-100 sm:text-lg lg:text-xl'>
               {subCta}
             </p>
           </h3>

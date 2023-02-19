@@ -1,0 +1,8 @@
+fragment PostTypeSeoFragment on PostTypeSEO {
+  __typename
+  metaDesc
+  readingTime
+  metaKeywords
+  focuskw
+  metaRobotsNofollow
+}

@@ -1,0 +1,20 @@
+fragment UserFragment on User {
+  __typename
+  capKey
+  databaseId
+  id
+  email
+  username
+  url
+  uri
+  slug
+  name
+  lastName
+  nicename
+  nickname
+  jwtUserSecret
+  jwtAuthExpiration
+  jwtRefreshToken
+  isJwtAuthSecretRevoked
+  description
+}

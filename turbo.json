@@ -51,11 +51,15 @@
         ".next/**"
       ],
       "env": [
+        "GRAPHQL_JWT_AUTH_SECRET_KEY",
+        "GRAVITY_CONSUMER_KEY",
+        "GRAVITY_CONSUMER_SECRET",
+        "JWT_USER_SECRET",
         "NEXT_PUBLIC_GA_MEASUREMENT_ID",
         "NEXT_PUBLIC_GA_STREAM_ID",
-        "PORT",
+        "WORDPRESS_API_URL",
         "WORDPRESS_AUTH_REFRESH_TOKEN",
-        "WORDPRESS_API_URL"
+        "WORDPRESS_PREVIEW_PATH"
       ]
     },
     "test": {

@@ -1,0 +1,6 @@
+fragment LoginPayloadFragment on LoginPayload {
+  __typename
+  authToken
+  refreshToken
+  clientMutationId
+}

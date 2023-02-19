@@ -1,6 +1,7 @@
 /**
- *   "wcd-red": "#FF0000",
-  "wcd-blue": "#B3DDF2",
+ * "wcd-red": "#FF0000",
+ * "wcd-blue": "#B3DDF2"
+ *
  */
 const colors = {
   blue: "#2882ef",
@@ -84,32 +85,13 @@ const colors = {
   "dark-grey-contrast": "var(--colorDarkGreyContrast)"
 };
 
-const screens = {
-  "7xs": { max: "249.99px" },
-  "6xs": { min: "250px", max: "274.99px" },
-  "5xs": { min: "275px", max: "299.99px" },
-  "4xs": { min: "300px", max: "324.99px" },
-  "3xs": { min: "325px", max: "349.99px" },
-  "2xs": { min: "350px", max: "374.99px" },
-  xs: { min: "375px", max: "474.99px" },
-  smxs: { min: "475px", max: "639.99px" },
-  "2xl": { min: "1536px", max: "1819.99px" },
-  "3xl": { min: "1820px", max: "2039.99px" },
-  "4xl": { min: "2040px", max: "2359.99px" },
-  "5xl": { min: "2360px", max: "2779.99px" },
-  "6xl": { min: "2780px" }
-};
-
 /**
- * @type {import('tailwindcss/defaultConfig')}
+ * @type {import('tailwindcss').Config}
  */
 
 module.exports = {
   theme: {
     extend: {
-      screens: {
-        ...screens
-      },
       colors: {
         ...colors,
         selection: colors.cyan.light,

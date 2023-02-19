@@ -1,0 +1,15 @@
+# import AvatarFragment from "../Fragments/AvatarFragment.graphql";
+# import LoginPayloadFragment from "../Fragments/LoginPayloadFragment.graphql";
+# import UserFragment from "../Fragments/UserFragment.graphql";
+
+mutation Login($input: LoginInput!) {
+  login(input:$input) {
+    ...LoginPayloadFragment
+    user {
+      ...UserFragment
+      avatar {
+        ...AvatarFragment
+      }
+    }
+  }
+}

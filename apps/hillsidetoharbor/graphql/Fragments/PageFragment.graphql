@@ -1,0 +1,16 @@
+fragment PageFragment on Page {
+  __typename
+  title
+  content
+  previewRevisionId
+  previewRevisionDatabaseId
+  isPreview
+  isFrontPage
+  uri
+  slug
+  guid
+  modifiedGmt
+  guid
+  databaseId
+  id
+}

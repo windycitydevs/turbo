@@ -191,6 +191,15 @@
       ]
     },
     {
+      "source": "/hero.avif",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, must-revalidate=1987200"
+        }
+      ]
+    },
+    {
       "source": "/logo-square.png",
       "headers": [
         {
@@ -245,6 +254,15 @@
       ]
     },
     {
+      "source": "/tennessee-autumn.webp",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, must-revalidate=1987200"
+        }
+      ]
+    },
+    {
       "source": "/wcd-square.png",
       "headers": [
         {
@@ -273,6 +291,15 @@
     },
     {
       "source": "/wcd.svg",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, must-revalidate=1987200"
+        }
+      ]
+    },
+    {
+      "source": "/wp-headless-config-wp-config-php.png",
       "headers": [
         {
           "key": "Cache-Control",

@@ -18,11 +18,10 @@ export const Page: FC<HTMLAttributes<HTMLElement>> = ({
 );
 
 /**
- * @type `UIAppProps`
  * @description
- * Accepts Generic Args which are inherited by the `pageProps` field of the `AppProps` Base Entity
- *
- *
+ * ```md
+ * Accepts Generic Args which are inherited by the `pageProps` field of the `AppProps<P = {}>` Base Entity
+ *```
  */
 export type UIAppProps<P = {}> = AppProps<P> & {
   Component: AppProps["Component"] & {
