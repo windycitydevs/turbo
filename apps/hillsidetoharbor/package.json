@@ -5,13 +5,14 @@
   "scripts": {
     "host:server": "cat /etc/resolv.conf",
     "dev": "next dev -p ${PORT:=3000}",
-    "prebuild": "tsx vercel-schema-generator.ts",
+    "prebuild": "tsx vercel-schema-generator.ts && graphql-codegen --config codegen.ts",
     "postbuild": "next-sitemap --config next-sitemap.js",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@graphql-tools/executor-http": "^0.1.9",
     "@headlessui/react": "^1.7.11",
     "@headlessui/tailwindcss": "^0.1.2",
     "@heroicons/react": "1.0.6",
@@ -32,6 +33,8 @@
     "dinero.js": "^2.0.0-alpha.13",
     "eventsource-parser": "^0.1.0",
     "fast-equals": "^4.0.3",
+    "graphql": "^16.6.0",
+    "graphql-request": "5.1.0",
     "html-react-parser": "^3.0.9",
     "intl-segmenter-polyfill": "^0.4.4",
     "js-cookie": "^3.0.1",
@@ -59,6 +62,9 @@
     "@edge-runtime/cookies": "^3.0.4",
     "@edge-runtime/ponyfill": "^2.0.0",
     "@edge-runtime/types": "^2.0.5",
+    "@graphql-codegen/cli": "^3.0.0",
+    "@graphql-codegen/client-preset": "^2.0.0",
+    "@graphql-codegen/schema-ast": "^3.0.0",
     "@types/google.analytics": "^0.0.42",
     "@types/gtag.js": "^0.0.12",
     "@types/js-cookie": "^3.0.3",
@@ -88,6 +94,5 @@
     "typescript": "^4.9.5",
     "urlpattern-polyfill": "^6.0.2",
     "vercel": "^28.16.2"
-
   }
 }

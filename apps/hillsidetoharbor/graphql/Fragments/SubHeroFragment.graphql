@@ -1,0 +1,6 @@
+fragment SubHeroFragment on Page_Hero_subHeroImages3 {
+  __typename
+  subHeroImageCta
+  subHeroImageSubCta
+  fieldGroupName
+}

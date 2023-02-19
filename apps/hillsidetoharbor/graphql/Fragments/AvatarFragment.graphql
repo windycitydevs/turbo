@@ -1,0 +1,11 @@
+fragment AvatarFragment on Avatar {
+  __typename
+  width
+  height
+  default
+  foundAvatar
+  size
+  url
+  scheme
+  forceDefault
+}

@@ -14,9 +14,9 @@ module.exports = {
   presets: [require("@windycitydevs/ui/tailwind")],
   content: [
     "../../node_modules/@windycitydevs/ui/**/*.{ts,tsx,js,jsx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./ui/**/*.{ts,js,tsx,jsx,mdx}",
-    "./lib/**/*.{ts,js,tsx,jsx,mdx}"
+    "app/**/*.{js,ts,jsx,tsx,mdx}",
+    "ui/**/*.{ts,js,tsx,jsx,mdx}",
+    "lib/**/*.{ts,js,tsx,jsx,mdx}"
   ],
   future: { hoverOnlyWhenSupported: true },
   theme: {
@@ -26,19 +26,22 @@ module.exports = {
         "9xl": "121rem", // 1936px
         "8xl": "96rem" // 1536px
       },
-      screens: {
-        "6xs": { max: "274.99px" },
-        "5xs": { min: "275px" },
-        "4xs": { min: "300px" },
-        "3xs": { min: "325px" },
-        "2xs": { min: "350px" },
-        xs: { min: "375px" },
-        smxs: { min: "475px" },
-        "3xl": { min: "1720px" },
-        "4xl": { min: "2040px" },
-        "5xl": { min: "2360px" },
-        "6xl": { min: "2780px" }
-      },
+      // screens: {
+      //   "8xs": { min: "224.99px" },
+      //   "7xs": { min: "249.99px" },
+      //   "6xs": { min: "250px" },
+      //   "5xs": { min: "275px" },
+      //   "4xs": { min: "300px" },
+      //   "3xs": { min: "325px" },
+      //   "2xs": { min: "350px" },
+      //   xs: { min: "375px" },
+      //   smxs: { min: "475px" },
+      //   "2xl": { min: "1536px" },
+      //   "3xl": { min: "1820px" },
+      //   "4xl": { min: "2040px" },
+      //   "5xl": { min: "2360px" },
+      //   "6xl": { min: "2780px" }
+      // },
       colors: {
         iconGray: "#272729",
         basicallyBlack: "#141415",

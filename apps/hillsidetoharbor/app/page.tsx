@@ -3,7 +3,7 @@ import HeroImageComponent, { preload } from "@/ui/HeroImage";
 import Subhero, { perloadSubHero } from "@/ui/Subhero";
 
 async function getData() {
-  return getHomePageData({ id: "a-fresh-start", idType: "URI" });
+  return getHomePageData({ id: "a-fresh-start", idType: "Uri" });
 }
 
 export default async function Page() {

@@ -1,7 +1,8 @@
+import { PageIdType } from "@/gql/graphql";
 import type { HomeProps } from "@/types/home-props";
 
 const API_URL =
-  process.env.WORDPRESS_API_URL ?? "https://www.hillsidetoharbor.biz/graphql";
+  process.env.WORDPRESS_API_URL ?? "";
 
 export const QueryObject = {
   home: `fragment MediaDetailsFragment on MediaDetails {
@@ -112,7 +113,7 @@ async function fetchAPI<T extends any = any>(
 ): Promise<T> {
   const headers = {
     "Content-Type": "application/json",
-    Authorization: `Bearer ${process.env.WORDPRESS_AUTH_REFRESH_TOKEN}`
+    Authorization: `Bearer ${process.env.WORDPRESS_AUTH_REFRESH_TOKEN ?? ""}`
   };
   const res = await fetch(API_URL, {
     headers,
@@ -131,17 +132,15 @@ async function fetchAPI<T extends any = any>(
   return json.data;
 }
 
-export type PageIdType = "URI" | "ID" | "DATABASE_ID";
-
 export const getHomePageData = async ({
   idType,
   id
 }: {
-  idType: PageIdType;
+  idType: keyof typeof PageIdType;
   id: string | number;
 }) => {
   const data = await fetchAPI<HomeProps>("home", {
-    variables: { id: id, idType: idType }
+    variables: { id: id, idType: PageIdType[idType] }
   });
   return data;
 };

@@ -1,0 +1,6 @@
+fragment HeroFragment on Page_Hero {
+  __typename
+  fieldGroupName
+  subCta
+  cta
+}

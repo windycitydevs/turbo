@@ -1,0 +1,43 @@
+# import HeroFragment from "../Fragments/HeroFragment.graphql";
+# import MediaDetailsFragment from "../Fragments/MediaDetailsFragment.graphql";
+# import MediaItemFragment from "../Fragments/MediaItemFragment.graphql";
+# import NodeWithFeaturedImageToMediaItemConnectionEdgeFragment from "../Fragments/NodeWithFeaturedImageToMediaItemConnectionEdgeFragment.graphql";
+# import PageFragment from "../Fragments/PageFragment.graphql";
+# import PostTypeSeoFragment from "../Fragments/PostTypeSeoFragment.graphql";
+# import SubHeroFragment from "../Fragments/SubHeroFragment.graphql";
+
+query Home($id: ID!, $idType: PageIdType!) {
+  page(idType: $idType, id: $id) {
+    ...PageFragment
+    seo {
+      ...PostTypeSeoFragment
+    }
+    featuredImage {
+      ...NodeWithFeaturedImageToMediaItemConnectionEdgeFragment
+      node {
+        ...MediaItemFragment
+        mediaDetails {
+          ...MediaDetailsFragment
+        }
+      }
+    }
+    hero {
+      ...HeroFragment
+      subHeroImages3 {
+        ...SubHeroFragment
+        subHeroImage {
+          ...MediaItemFragment
+          mediaDetails {
+            ...MediaDetailsFragment
+          }
+        }
+      }
+      heroImage {
+        ...MediaItemFragment
+        mediaDetails {
+          ...MediaDetailsFragment
+        }
+      }
+    }
+  }
+}

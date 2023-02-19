@@ -1,0 +1,11 @@
+fragment MediaItemFragment on MediaItem {
+  __typename
+  altText
+  uri
+  title
+  sourceUrl
+  databaseId
+  id
+  srcSet
+  slug
+}
