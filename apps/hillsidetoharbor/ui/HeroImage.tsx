@@ -1,3 +1,4 @@
+import { safeNumberParser } from "@/lib/safe-number-parser";
 import { HeroCPTUIProps } from "@/types/home-props";
 import {
   blurDataURLShimmer,
@@ -19,34 +20,24 @@ export const preload = ({
   void HeroImageComponent({ ...props });
 };
 export type SafeNumber = `${number}` | number;
-
 const HeroImageComponent = cache(
   ({ heroImage, cta, subCta }: HeroCPTUIProps) => {
     return (
       <div className='relative isolate mx-auto overflow-hidden bg-gray-900  py-24 px-6 transition-all sm:pt-20 sm:pb-32 lg:px-8'>
         <Image
           className={cn(
-            `absolute inset-0 -z-10 h-full w-full object-cover object-bottom`
+            `absolute inset-0 -z-10 h-full w-full bg-fixed object-cover object-bottom`
           )}
           style={{ objectFit: "cover" }}
           quality={100}
+          loading='eager'
           priority={true}
           alt='Tennessee Harbor'
           height={heroImage.mediaDetails.height}
           width={heroImage.mediaDetails.width}
           blurDataURL={blurDataURLShimmer({
-            h:
-              typeof heroImage.mediaDetails.height === "string"
-                ? heroImage.mediaDetails.height?.includes(".") === true
-                  ? Number.parseFloat(heroImage.mediaDetails.height)
-                  : Number.parseInt(heroImage.mediaDetails.height, 10)
-                : heroImage.mediaDetails.height,
-            w:
-              typeof heroImage.mediaDetails.width === "string"
-                ? heroImage.mediaDetails.width.includes(".") === true
-                  ? Number.parseFloat(heroImage.mediaDetails.width)
-                  : Number.parseInt(heroImage.mediaDetails.width, 10)
-                : heroImage.mediaDetails.width
+            h: safeNumberParser(heroImage.mediaDetails.height),
+            w: safeNumberParser(heroImage.mediaDetails.width)
           })}
           placeholder='blur'
           src={heroImage.sourceUrl}
@@ -97,22 +88,21 @@ const HeroImageComponent = cache(
             </linearGradient>
           </defs>
         </svg>
-
-        <div className='font-kaisei-tokumin mx-auto max-w-[75vw] transform-gpu select-none gap-y-10 bg-gradient-to-r from-white/[0.175] via-white/[0.5]  to-white/[0.175] pt-14 pb-4  text-center align-bottom transition-transform  delay-200 duration-500 ease-in-out [flex:auto] sm:max-w-2xl'>
+        <div className='mx-auto max-w-[75vw] transform-gpu select-none gap-y-10 bg-gradient-to-r from-white/[0.2] via-white/[0.5] to-white/[0.2] pt-14 pb-4 text-center align-bottom transition-transform delay-200 duration-500 ease-in-out [flex:auto] sm:max-w-2xl sm:from-white/[0.175] sm:via-white/[0.5] sm:to-white/[0.175]'>
           <div className='sr-only sm:not-sr-only sm:mx-auto sm:mb-5 sm:mt-auto sm:h-fit sm:min-h-fit sm:w-fit sm:flex-auto sm:content-center sm:pb-8 sm:text-center'>
             <HillsideToHarborHorizontal
               width={435}
               height={187}
-              className='sm:-my-10 sm:mx-auto  sm:flex-shrink sm:object-scale-down sm:object-center sm:align-top sm:transition-all sm:duration-150 sm:ease-in-out'
+              className='sm:-my-10 sm:mx-auto sm:flex-shrink sm:object-scale-down sm:object-center sm:align-top sm:transition-all sm:duration-150 sm:ease-in-out'
             />
           </div>
-          <div className='mx-auto mt-auto h-fit min-h-fit w-fit flex-auto content-center pb-8 text-center sm:hidden'>
-            <HillsideToHarborVertical className=' mx-auto h-min w-[70%]  flex-shrink object-scale-down object-center align-top transition-all duration-150 ease-in-out' />
+          <div className='mx-auto mt-auto h-fit min-h-fit w-fit flex-auto content-center pb-2 text-center sm:hidden'>
+            <HillsideToHarborVertical className=' mx-auto h-min w-[60%]  flex-shrink object-scale-down object-center align-top transition-all duration-150 ease-in-out' />
           </div>
-          <h3 className='text-h2hTurquoise 4xs:text-base 2xs:text-xl font-caveat rounded-lg from-transparent via-white/20 to-transparent text-sm font-medium leading-8 transition-colors ease-in-out sm:mt-6 sm:pt-2 sm:text-3xl lg:text-4xl [h3:text-3xl]'>
+          <h3 className='text-h2hTurquoise 4xs:text-sm xs:text-sm font-caveat rounded-lg from-transparent via-white/20 to-transparent text-[0.6275rem] font-medium leading-[0.75rem] transition-colors ease-in-out [h3:text-3xl] sm:mt-6 sm:pt-2 sm:text-3xl lg:text-4xl'>
             {cta.toUpperCase()}&nbsp;
             <hr className='mx-auto mt-[0.4375rem] w-[75%] pb-[0.2675rem]' />
-            <p className='font-montserrat 4xs:text-sm sm:w-[100%] smxs:text-base mx-auto w-[75%] text-xs font-normal text-gray-100 sm:text-lg lg:text-xl'>
+            <p className='font-montserrat smxs:text-base mx-auto w-[75%] text-[0.6275rem] font-normal leading-[0.75rem] text-gray-100 sm:w-[100%] sm:text-lg lg:text-xl'>
               {subCta}
             </p>
           </h3>

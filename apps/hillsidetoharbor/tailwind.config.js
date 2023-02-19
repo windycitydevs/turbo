@@ -20,28 +20,28 @@ module.exports = {
   ],
   future: { hoverOnlyWhenSupported: true },
   theme: {
+    screens: {
+      "8xs": "200px",
+      "7xs": "225px",
+      "6xs": "250px",
+      "5xs": "275px",
+      "4xs": "300px",
+      "3xs": "325px",
+      "2xs": "350px",
+      xs: "375px",
+      smxs: "475px",
+      ...defaultTheme.screens,
+      "3xl": "1820px",
+      "4xl": "2040px",
+      "5xl": "2360px",
+      "6xl": "2780px"
+    },
     extend: {
       maxWidth: {
         "10xl": "173.75rem", // 2780 px
         "9xl": "121rem", // 1936px
         "8xl": "96rem" // 1536px
       },
-      // screens: {
-      //   "8xs": { min: "224.99px" },
-      //   "7xs": { min: "249.99px" },
-      //   "6xs": { min: "250px" },
-      //   "5xs": { min: "275px" },
-      //   "4xs": { min: "300px" },
-      //   "3xs": { min: "325px" },
-      //   "2xs": { min: "350px" },
-      //   xs: { min: "375px" },
-      //   smxs: { min: "475px" },
-      //   "2xl": { min: "1536px" },
-      //   "3xl": { min: "1820px" },
-      //   "4xl": { min: "2040px" },
-      //   "5xl": { min: "2360px" },
-      //   "6xl": { min: "2780px" }
-      // },
       colors: {
         iconGray: "#272729",
         basicallyBlack: "#141415",
