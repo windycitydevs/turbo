@@ -26,7 +26,7 @@ const HeroImageComponent = cache(
       <div className='relative isolate mx-auto overflow-hidden bg-gray-900  py-24 px-6 transition-all sm:pt-20 sm:pb-32 lg:px-8'>
         <Image
           className={cn(
-            `absolute inset-0 -z-10 h-full w-full bg-fixed object-cover object-bottom`
+            `absolute inset-0 -z-10 h-full w-full bg-fixed object-cover object-center`
           )}
           style={{ objectFit: "cover" }}
           quality={100}
