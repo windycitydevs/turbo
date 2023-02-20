@@ -51,6 +51,14 @@ export type HeroCPTUIProps = {
   heroImage: MediaItemProps;
 };
 
+
+export type AboutSectionProps = {
+  __typename: "Page_About";
+  fieldGroupName: string;
+  abouttextarea: string;
+  aboutimage: MediaItemProps;
+};
+
 export type HomePageProps = {
   __typename: "Page";
   title: string;
@@ -68,6 +76,7 @@ export type HomePageProps = {
   seo: SeoProps;
   featuredImage: FeaturedImageProps;
   hero: HeroCPTUIProps;
+  about: AboutSectionProps;
 };
 
 export type HomeProps = {

@@ -1,3 +1,4 @@
+# import AboutFragment from "../Fragments/AboutFragment.graphql";
 # import HeroFragment from "../Fragments/HeroFragment.graphql";
 # import MediaDetailsFragment from "../Fragments/MediaDetailsFragment.graphql";
 # import MediaItemFragment from "../Fragments/MediaItemFragment.graphql";
@@ -33,6 +34,15 @@ query Home($id: ID!, $idType: PageIdType!) {
         }
       }
       heroImage {
+        ...MediaItemFragment
+        mediaDetails {
+          ...MediaDetailsFragment
+        }
+      }
+    }
+    about {
+      ...AboutFragment
+      aboutimage {
         ...MediaItemFragment
         mediaDetails {
           ...MediaDetailsFragment

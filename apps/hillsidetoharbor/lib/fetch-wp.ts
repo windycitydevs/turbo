@@ -1,11 +1,17 @@
 import { PageIdType } from "@/gql/graphql";
 import type { HomeProps } from "@/types/home-props";
 
-const API_URL =
-  process.env.WORDPRESS_API_URL ?? "";
+const API_URL = process.env.WORDPRESS_API_URL ?? "";
 
 export const QueryObject = {
-  home: `fragment MediaDetailsFragment on MediaDetails {
+  home: `
+  fragment AboutFragment on Page_About {
+    __typename
+    fieldGroupName
+    abouttextarea
+  }
+
+  fragment MediaDetailsFragment on MediaDetails {
     __typename
     width
     height
@@ -69,7 +75,7 @@ export const QueryObject = {
     databaseId
     id
   }
-  
+
   query Home($id: ID!, $idType: PageIdType!) {
     page(idType: $idType, id: $id) {
       ...PageFragment
@@ -97,6 +103,15 @@ export const QueryObject = {
           }
         }
         heroImage {
+          ...MediaItemFragment
+          mediaDetails {
+            ...MediaDetailsFragment
+          }
+        }
+      }
+      about {
+        ...AboutFragment
+        aboutimage {
           ...MediaItemFragment
           mediaDetails {
             ...MediaDetailsFragment
