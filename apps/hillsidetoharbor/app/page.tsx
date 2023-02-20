@@ -1,5 +1,7 @@
 import { getHomePageData } from "@/lib/fetch-wp";
 import AboutUs, { preloadAboutUs } from "@/ui/About";
+import ContactUs from "@/ui/ContactUs";
+import Email from "@/ui/Email";
 import HeroImageComponent, { preload } from "@/ui/HeroImage";
 import Subhero, { preloadSubHero } from "@/ui/Subhero";
 
@@ -18,6 +20,7 @@ export default async function Page() {
       <HeroImageComponent {...data.page.hero} />
       <Subhero {...data.page.hero} />
       <AboutUs {...data.page.about} />
+      <Email />
     </>
   );
 }
