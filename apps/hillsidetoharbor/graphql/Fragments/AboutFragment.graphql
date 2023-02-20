@@ -1,0 +1,5 @@
+fragment AboutFragment on Page_About {
+  __typename
+  fieldGroupName
+  abouttextarea
+}

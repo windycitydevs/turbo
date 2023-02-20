@@ -5705,6 +5705,8 @@ export type MediaDetailsSizesArgs = {
 /** The mediaItem type */
 export type MediaItem = ContentNode & DatabaseIdentifier & HierarchicalContentNode & HierarchicalNode & Node & NodeWithAuthor & NodeWithComments & NodeWithTemplate & NodeWithTitle & UniformResourceIdentifiable & {
   __typename?: 'MediaItem';
+  /** Added to the GraphQL Schema because the ACF Field Group &quot;About Section&quot; was set to Show in GraphQL. */
+  about?: Maybe<MediaItem_About>;
   /** Alternative text to display when resource is not displayed */
   altText?: Maybe<Scalars['String']>;
   /** Returns ancestors of the node. Default ordered as lowest (closest to the child) to highest (closest to the root). */
@@ -6071,6 +6073,17 @@ export type MediaItemToCommentConnectionWhereArgs = {
   status?: InputMaybe<Scalars['String']>;
   /** Include comments for a specific user ID. */
   userId?: InputMaybe<Scalars['ID']>;
+};
+
+/** Field Group */
+export type MediaItem_About = AcfFieldGroup & {
+  __typename?: 'MediaItem_About';
+  /** About section image */
+  aboutimage?: Maybe<MediaItem>;
+  /** About section text */
+  abouttextarea?: Maybe<Scalars['String']>;
+  /** The name of the ACF Field Group */
+  fieldGroupName?: Maybe<Scalars['String']>;
 };
 
 /** Field Group */
@@ -7376,6 +7389,8 @@ export enum OrderEnum {
 /** The page type */
 export type Page = ContentNode & DatabaseIdentifier & HierarchicalContentNode & HierarchicalNode & MenuItemLinkable & Node & NodeWithAuthor & NodeWithComments & NodeWithContentEditor & NodeWithFeaturedImage & NodeWithPageAttributes & NodeWithRevisions & NodeWithTemplate & NodeWithTitle & Previewable & UniformResourceIdentifiable & {
   __typename?: 'Page';
+  /** Added to the GraphQL Schema because the ACF Field Group &quot;About Section&quot; was set to Show in GraphQL. */
+  about?: Maybe<Page_About>;
   /** Returns ancestors of the node. Default ordered as lowest (closest to the child) to highest (closest to the root). */
   ancestors?: Maybe<HierarchicalContentNodeToContentNodeAncestorsConnection>;
   /** Connection between the NodeWithAuthor type and the User type */
@@ -7775,6 +7790,17 @@ export type PageToRevisionConnectionWhereArgs = {
 };
 
 /** Field Group */
+export type Page_About = AcfFieldGroup & {
+  __typename?: 'Page_About';
+  /** About section image */
+  aboutimage?: Maybe<MediaItem>;
+  /** About section text */
+  abouttextarea?: Maybe<Scalars['String']>;
+  /** The name of the ACF Field Group */
+  fieldGroupName?: Maybe<Scalars['String']>;
+};
+
+/** Field Group */
 export type Page_Hero = AcfFieldGroup & {
   __typename?: 'Page_Hero';
   cta?: Maybe<Scalars['String']>;
@@ -8016,6 +8042,8 @@ export enum PluginStatusEnum {
 /** The post type */
 export type Post = ContentNode & DatabaseIdentifier & MenuItemLinkable & Node & NodeWithAuthor & NodeWithComments & NodeWithContentEditor & NodeWithExcerpt & NodeWithFeaturedImage & NodeWithRevisions & NodeWithTemplate & NodeWithTitle & NodeWithTrackbacks & Previewable & UniformResourceIdentifiable & {
   __typename?: 'Post';
+  /** Added to the GraphQL Schema because the ACF Field Group &quot;About Section&quot; was set to Show in GraphQL. */
+  about?: Maybe<Post_About>;
   /** Connection between the NodeWithAuthor type and the User type */
   author?: Maybe<NodeWithAuthorToUserConnectionEdge>;
   /** The database identifier of the author of the node */
@@ -11538,6 +11566,17 @@ export type PostTypeSeo = {
   twitterDescription?: Maybe<Scalars['String']>;
   twitterImage?: Maybe<MediaItem>;
   twitterTitle?: Maybe<Scalars['String']>;
+};
+
+/** Field Group */
+export type Post_About = AcfFieldGroup & {
+  __typename?: 'Post_About';
+  /** About section image */
+  aboutimage?: Maybe<MediaItem>;
+  /** About section text */
+  abouttextarea?: Maybe<Scalars['String']>;
+  /** The name of the ACF Field Group */
+  fieldGroupName?: Maybe<Scalars['String']>;
 };
 
 /** Field Group */
@@ -17448,6 +17487,8 @@ export type WritingSettings = {
   useSmilies?: Maybe<Scalars['Boolean']>;
 };
 
+export type AboutFragmentFragment = { __typename: 'Page_About', fieldGroupName?: string | null, abouttextarea?: string | null } & { ' $fragmentName'?: 'AboutFragmentFragment' };
+
 export type AvatarFragmentFragment = { __typename: 'Avatar', width?: number | null, height?: number | null, default?: string | null, foundAvatar?: boolean | null, size?: number | null, url?: string | null, scheme?: string | null, forceDefault?: boolean | null } & { ' $fragmentName'?: 'AvatarFragmentFragment' };
 
 export type HeroFragmentFragment = { __typename: 'Page_Hero', fieldGroupName?: string | null, subCta?: string | null, cta?: string | null } & { ' $fragmentName'?: 'HeroFragmentFragment' };
@@ -17521,10 +17562,20 @@ export type HomeQuery = { __typename?: 'RootQuery', page?: (
         & { ' $fragmentRefs'?: { 'MediaItemFragmentFragment': MediaItemFragmentFragment } }
       ) | null }
       & { ' $fragmentRefs'?: { 'HeroFragmentFragment': HeroFragmentFragment } }
+    ) | null, about?: (
+      { __typename?: 'Page_About', aboutimage?: (
+        { __typename?: 'MediaItem', mediaDetails?: (
+          { __typename?: 'MediaDetails' }
+          & { ' $fragmentRefs'?: { 'MediaDetailsFragmentFragment': MediaDetailsFragmentFragment } }
+        ) | null }
+        & { ' $fragmentRefs'?: { 'MediaItemFragmentFragment': MediaItemFragmentFragment } }
+      ) | null }
+      & { ' $fragmentRefs'?: { 'AboutFragmentFragment': AboutFragmentFragment } }
     ) | null }
     & { ' $fragmentRefs'?: { 'PageFragmentFragment': PageFragmentFragment } }
   ) | null };
 
+export const AboutFragmentFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"AboutFragment"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Page_About"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"fieldGroupName"}},{"kind":"Field","name":{"kind":"Name","value":"abouttextarea"}}]}}]} as unknown as DocumentNode<AboutFragmentFragment, unknown>;
 export const AvatarFragmentFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"AvatarFragment"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Avatar"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}},{"kind":"Field","name":{"kind":"Name","value":"default"}},{"kind":"Field","name":{"kind":"Name","value":"foundAvatar"}},{"kind":"Field","name":{"kind":"Name","value":"size"}},{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"scheme"}},{"kind":"Field","name":{"kind":"Name","value":"forceDefault"}}]}}]} as unknown as DocumentNode<AvatarFragmentFragment, unknown>;
 export const HeroFragmentFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"HeroFragment"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Page_Hero"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"fieldGroupName"}},{"kind":"Field","name":{"kind":"Name","value":"subCta"}},{"kind":"Field","name":{"kind":"Name","value":"cta"}}]}}]} as unknown as DocumentNode<HeroFragmentFragment, unknown>;
 export const LoginPayloadFragmentFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"LoginPayloadFragment"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"LoginPayload"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"authToken"}},{"kind":"Field","name":{"kind":"Name","value":"refreshToken"}},{"kind":"Field","name":{"kind":"Name","value":"clientMutationId"}}]}}]} as unknown as DocumentNode<LoginPayloadFragmentFragment, unknown>;
@@ -17536,4 +17587,4 @@ export const PostTypeSeoFragmentFragmentDoc = {"kind":"Document","definitions":[
 export const SubHeroFragmentFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"SubHeroFragment"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Page_Hero_subHeroImages3"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"subHeroImageCta"}},{"kind":"Field","name":{"kind":"Name","value":"subHeroImageSubCta"}},{"kind":"Field","name":{"kind":"Name","value":"fieldGroupName"}}]}}]} as unknown as DocumentNode<SubHeroFragmentFragment, unknown>;
 export const UserFragmentFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"UserFragment"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"User"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"capKey"}},{"kind":"Field","name":{"kind":"Name","value":"databaseId"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"username"}},{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"uri"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"lastName"}},{"kind":"Field","name":{"kind":"Name","value":"nicename"}},{"kind":"Field","name":{"kind":"Name","value":"nickname"}},{"kind":"Field","name":{"kind":"Name","value":"jwtUserSecret"}},{"kind":"Field","name":{"kind":"Name","value":"jwtAuthExpiration"}},{"kind":"Field","name":{"kind":"Name","value":"jwtRefreshToken"}},{"kind":"Field","name":{"kind":"Name","value":"isJwtAuthSecretRevoked"}},{"kind":"Field","name":{"kind":"Name","value":"description"}}]}}]} as unknown as DocumentNode<UserFragmentFragment, unknown>;
 export const LoginDocument = {"kind":"Document", "definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"Login"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"input"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"LoginInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"login"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"input"},"value":{"kind":"Variable","name":{"kind":"Name","value":"input"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"LoginPayloadFragment"}},{"kind":"Field","name":{"kind":"Name","value":"user"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"UserFragment"}},{"kind":"Field","name":{"kind":"Name","value":"avatar"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"AvatarFragment"}}]}}]}}]}}]}},...LoginPayloadFragmentFragmentDoc.definitions,...UserFragmentFragmentDoc.definitions,...AvatarFragmentFragmentDoc.definitions]} as unknown as DocumentNode<LoginMutation, LoginMutationVariables>;
-export const HomeDocument = {"kind":"Document", "definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"Home"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"ID"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"idType"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"PageIdType"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"page"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"idType"},"value":{"kind":"Variable","name":{"kind":"Name","value":"idType"}}},{"kind":"Argument","name":{"kind":"Name","value":"id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"PageFragment"}},{"kind":"Field","name":{"kind":"Name","value":"seo"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"PostTypeSeoFragment"}}]}},{"kind":"Field","name":{"kind":"Name","value":"featuredImage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"NodeWithFeaturedImageToMediaItemConnectionEdgeFragment"}},{"kind":"Field","name":{"kind":"Name","value":"node"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"MediaItemFragment"}},{"kind":"Field","name":{"kind":"Name","value":"mediaDetails"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"MediaDetailsFragment"}}]}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"hero"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"HeroFragment"}},{"kind":"Field","name":{"kind":"Name","value":"subHeroImages3"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"SubHeroFragment"}},{"kind":"Field","name":{"kind":"Name","value":"subHeroImage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"MediaItemFragment"}},{"kind":"Field","name":{"kind":"Name","value":"mediaDetails"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"MediaDetailsFragment"}}]}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"heroImage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"MediaItemFragment"}},{"kind":"Field","name":{"kind":"Name","value":"mediaDetails"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"MediaDetailsFragment"}}]}}]}}]}}]}}]}},...PageFragmentFragmentDoc.definitions,...PostTypeSeoFragmentFragmentDoc.definitions,...NodeWithFeaturedImageToMediaItemConnectionEdgeFragmentFragmentDoc.definitions,...MediaItemFragmentFragmentDoc.definitions,...MediaDetailsFragmentFragmentDoc.definitions,...HeroFragmentFragmentDoc.definitions,...SubHeroFragmentFragmentDoc.definitions]} as unknown as DocumentNode<HomeQuery, HomeQueryVariables>;
+export const HomeDocument = {"kind":"Document", "definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"Home"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"ID"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"idType"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"PageIdType"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"page"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"idType"},"value":{"kind":"Variable","name":{"kind":"Name","value":"idType"}}},{"kind":"Argument","name":{"kind":"Name","value":"id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"PageFragment"}},{"kind":"Field","name":{"kind":"Name","value":"seo"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"PostTypeSeoFragment"}}]}},{"kind":"Field","name":{"kind":"Name","value":"featuredImage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"NodeWithFeaturedImageToMediaItemConnectionEdgeFragment"}},{"kind":"Field","name":{"kind":"Name","value":"node"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"MediaItemFragment"}},{"kind":"Field","name":{"kind":"Name","value":"mediaDetails"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"MediaDetailsFragment"}}]}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"hero"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"HeroFragment"}},{"kind":"Field","name":{"kind":"Name","value":"subHeroImages3"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"SubHeroFragment"}},{"kind":"Field","name":{"kind":"Name","value":"subHeroImage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"MediaItemFragment"}},{"kind":"Field","name":{"kind":"Name","value":"mediaDetails"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"MediaDetailsFragment"}}]}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"heroImage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"MediaItemFragment"}},{"kind":"Field","name":{"kind":"Name","value":"mediaDetails"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"MediaDetailsFragment"}}]}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"about"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"AboutFragment"}},{"kind":"Field","name":{"kind":"Name","value":"aboutimage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"MediaItemFragment"}},{"kind":"Field","name":{"kind":"Name","value":"mediaDetails"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"MediaDetailsFragment"}}]}}]}}]}}]}}]}},...PageFragmentFragmentDoc.definitions,...PostTypeSeoFragmentFragmentDoc.definitions,...NodeWithFeaturedImageToMediaItemConnectionEdgeFragmentFragmentDoc.definitions,...MediaItemFragmentFragmentDoc.definitions,...MediaDetailsFragmentFragmentDoc.definitions,...HeroFragmentFragmentDoc.definitions,...SubHeroFragmentFragmentDoc.definitions,...AboutFragmentFragmentDoc.definitions]} as unknown as DocumentNode<HomeQuery, HomeQueryVariables>;
