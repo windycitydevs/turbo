@@ -99,10 +99,10 @@ const HeroImageComponent = cache(
           <div className='mx-auto mt-auto h-fit min-h-fit w-fit flex-auto content-center pb-2 text-center sm:hidden'>
             <HillsideToHarborVertical className=' mx-auto h-min w-[60%]  flex-shrink object-scale-down object-center align-top transition-all duration-150 ease-in-out' />
           </div>
-          <h3 className='text-h2hTurquoise 4xs:text-sm xs:text-sm font-caveat rounded-lg from-transparent via-white/20 to-transparent text-[0.6275rem] font-medium leading-[0.75rem] transition-colors ease-in-out [h3:text-3xl] sm:mt-6 sm:pt-2 sm:text-3xl lg:text-4xl'>
+          <h3 className='text-h2hTurquoise 4xs:text-sm xs:text-sm font-basis-grotesque-pro rounded-lg from-transparent via-white/20 to-transparent text-[0.6275rem] font-medium leading-[0.75rem] transition-colors ease-in-out [h3:text-3xl] sm:mt-6 sm:pt-2 sm:text-3xl lg:text-4xl'>
             {cta.toUpperCase()}&nbsp;
             <hr className='mx-auto mt-[0.4375rem] w-[75%] pb-[0.2675rem]' />
-            <p className='font-montserrat smxs:text-base mx-auto w-[75%] text-[0.6275rem] font-normal leading-[0.75rem] text-gray-100 sm:w-[100%] sm:text-lg lg:text-xl'>
+            <p className='font-basis-grotesque-pro smxs:text-base mx-auto w-[75%] text-[0.6275rem] font-normal leading-[0.75rem] text-gray-100 sm:w-[100%] sm:text-lg lg:text-xl'>
               {subCta}
             </p>
           </h3>

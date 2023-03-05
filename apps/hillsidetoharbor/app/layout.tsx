@@ -1,40 +1,63 @@
 import { DefaultHead } from "@/ui/DefaultHead";
 import type { NextFontWithVariable } from "@next/font";
-import { Caveat, Inter, Montserrat } from "@next/font/google";
-import { HillsideToHarborHorizontal, Nav } from "@windycitydevs/ui";
-
 import localFont from "@next/font/local";
+import { HillsideToHarborHorizontal } from "@windycitydevs/ui";
 import Link from "next/link";
 import { ReactNode } from "react";
 import "../styles/globals.css";
 
-const inter = Inter<"--font-inter">({
-  subsets: ["latin", "latin-ext"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-  display: "swap",
-  variable: "--font-inter"
-});
-
-const montserrat = Montserrat<"--font-montserrat">({
-  variable: "--font-montserrat",
-  subsets: ["latin", "latin-ext"],
-  display: "swap"
-});
-
-const caveat = Caveat<"--font-caveat">({
-  variable: "--font-caveat",
-  subsets: ["latin", "latin-ext"],
-  display: "swap",
-  weight: "variable"
-});
-
-const indieFlower = localFont<"--font-flower">({
-  variable: "--font-flower",
+const DomainDisplayCondensed = localFont<"--font-domain-display-condensed">({
+  variable: "--font-domain-display-condensed",
   display: "swap",
   src: [
-    { path: "./fonts/IndieFlower-Regular.ttf" },
     {
-      path: "./fonts/IndieFlower.woff2"
+      path: "./fonts/DomaineDisplayCondensedWeb-Medium.woff"
+    },
+    {
+      path: "./fonts/DomaineDisplayCondensedWeb-Medium.woff2"
+    }
+  ]
+});
+
+const BasisGrotesquePro = localFont<"--font-basis-grotesque-pro">({
+  variable: "--font-basis-grotesque-pro",
+  display: "swap",
+  src: [
+    {
+      path: "./fonts/basis-grotesque-pro-bold-italic.ttf"
+    },
+    {
+      path: "./fonts/basis-grotesque-pro-bold-italic.woff"
+    },
+    {
+      path: "./fonts/basis-grotesque-pro-bold-italic.woff2"
+    },
+    {
+      path: "./fonts/basis-grotesque-pro-bold.ttf"
+    },
+    {
+      path: "./fonts/basis-grotesque-pro-bold.woff"
+    },
+    {
+      path: "./fonts/basis-grotesque-pro-bold.woff2"
+    },
+    {
+      path: "./fonts/basis-grotesque-pro-italic.ttf"
+    },
+    {
+      path: "./fonts/basis-grotesque-pro-italic.woff"
+    },
+    {
+      path: "./fonts/basis-grotesque-pro-italic.woff2"
+    },
+    {
+      path: "./fonts/basis-grotesque-pro.ttf"
+    },
+    {
+      path: "./fonts/basis-grotesque-pro.woff"
+    },
+    {
+      path: "./fonts/basis-grotesque-pro.woff2"
     }
   ]
 });
@@ -65,7 +88,7 @@ export default async function RootLayout({
   children: ReactNode;
 }) {
   return (
-    <html>
+    <html className='h-full'>
       <head>
         <DefaultHead />
         <title>Hillside To Harbor</title>
@@ -75,12 +98,12 @@ export default async function RootLayout({
         />
       </head>
       <body
-        className={`max-w-10xl mx-auto  overflow-y-scroll scroll-smooth ${inter.variable} ${montserrat.variable} ${kaiseiTokumin.variable} ${indieFlower.variable} ${caveat.variable} font-montserrat`}>
-        <Nav
+        className={`max-w-10xl mx-auto h-full overflow-y-scroll scroll-smooth ${DomainDisplayCondensed.variable} ${BasisGrotesquePro.variable} ${kaiseiTokumin.variable} font-basis-grotesque-pro`}>
+        {/* <Nav
           variantEmail='secondary'
           variantPhone='secondary'
           logo='HillsidetoharborLogo'
-        />
+        /> */}
         <div className='bg-accents-0'>{children}</div>{" "}
         <footer className='bg-accents-1 z-20 mt-auto flex w-full items-center justify-center border-t py-10'>
           <span className='sr-only'>back to top</span>

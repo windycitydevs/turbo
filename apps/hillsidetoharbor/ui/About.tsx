@@ -10,7 +10,7 @@ export const preloadAboutUs = ({ ...props }: Parameters<typeof AboutUs>[0]) => {
 
 const AboutUs = cache(({ aboutimage, abouttextarea }: AboutSectionProps) => {
   return (
-    <div className='relative bg-gray-100 font-montserrat '>
+    <div className='relative bg-gray-100 font-basis-grotesque-pro '>
       <div className='relative h-80 overflow-hidden grayscale bg-h2hPinkOrange md:absolute md:left-0 md:h-full md:w-1/3 lg:w-1/3'>
         <Image
           className='h-full w-full object-cover bg-blend-multiply'
