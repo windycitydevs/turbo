@@ -30,7 +30,11 @@ module.exports = {
       "2xs": "350px",
       xs: "375px",
       smxs: "475px",
-      ...defaultTheme.screens,
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+      "2xl": "1440px",
       "3xl": "1820px",
       "4xl": "2040px",
       "5xl": "2360px",
@@ -46,6 +50,7 @@ module.exports = {
         iconGray: "#272729",
         basicallyBlack: "#141415",
         pencilPurple: "#3B2DB0",
+        neutral: "#F9F2E8",
         "wcd-blue": "#B3DDF2",
         "akane-red": "#ea5532",
         h2hDarkGreen: "#4E5F4F",
@@ -74,14 +79,9 @@ module.exports = {
         )}, 50px, ${theme("colors.gray.800")} 50%)`
       }),
       fontFamily: {
-        "kaisei-tokumin": [
-          "var(--font-kaisei-tokumin)",
-          ...defaultTheme.fontFamily.sans
-        ],
-        inter: ["var(--font-inter)", ...defaultTheme.fontFamily.sans],
-        montserrat: ["var(--font-montserrat)", ...defaultTheme.fontFamily.sans],
-        flower: ["var(--font-flower)", ...defaultTheme.fontFamily.serif],
-        caveat: ["var(--font-caveat)", ...defaultTheme.fontFamily.serif]
+        "basis-grotesque-pro": ["var(--font-basis-grotesque-pro)", ...defaultTheme.fontFamily.sans],
+        "domain-display-condensed": ["var(--font-domain-display-condensed)", ...defaultTheme.fontFamily.serif],
+        "kaisei-tokumin": ["var(--font-kaisei-tokumin)", ...defaultTheme.fontFamily.sans]
       },
       animation: {
         wiggle: "wiggle 10s ease-in-out infinite",

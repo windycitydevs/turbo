@@ -11,7 +11,7 @@ export const preloadSubHero = ({
 
 export const SubHeroTwo = cache(({ subHeroImages3 }: HeroCPTUIProps) => {
   return (
-    <div className='bg-h2hDarkGreen font-montserrat isolate mx-auto w-full justify-items-center overflow-hidden  py-4 sm:py-6 lg:px-8'>
+    <div className='bg-h2hDarkGreen font-basis-grotesque-pro isolate mx-auto w-full justify-items-center overflow-hidden  py-4 sm:py-6 lg:px-8'>
       <div className='sm:max-w-8xl mx-auto flex w-full max-w-2xl flex-row justify-center px-6 lg:px-8'>
         <ul
           role='list'
