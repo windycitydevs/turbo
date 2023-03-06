@@ -11,7 +11,6 @@ export default async function ParamsHandler(
         : props
       : "";
 
-    console.log(req.rawHeaders || "");
   console.log(req.query || "");
   console.log(req.cookies || "");
   try {
@@ -39,9 +38,7 @@ export default async function ParamsHandler(
         country
       }
     } as const;
-    return res
-      .status(200)
-      .json((resObj));
+    return res.status(200).json(resObj);
   } catch (err) {
     console.error(`${err ?? ""}`);
     return res.status(500);
