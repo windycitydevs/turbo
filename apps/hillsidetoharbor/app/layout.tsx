@@ -6,8 +6,8 @@ import Link from "next/link";
 import { ReactNode } from "react";
 import "../styles/globals.css";
 
-const DomainDisplayCondensed = localFont<"--font-domain-display-condensed">({
-  variable: "--font-domain-display-condensed",
+const DomainDisplayCondensed = localFont<"--font-domaine-display-condensed">({
+  variable: "--font-domaine-display-condensed",
   display: "swap",
   src: [
     {
@@ -99,11 +99,6 @@ export default async function RootLayout({
       </head>
       <body
         className={`max-w-10xl bg-neutral mx-auto h-full overflow-y-scroll scroll-smooth ${DomainDisplayCondensed.variable} ${BasisGrotesquePro.variable} ${kaiseiTokumin.variable} font-basis-grotesque-pro`}>
-        {/* <Nav
-          variantEmail='secondary'
-          variantPhone='secondary'
-          logo='HillsidetoharborLogo'
-        /> */}
         <div className='bg-accents-0'>{children}</div>{" "}
         <footer className='bg-accents-1 z-20 mt-auto flex w-full items-center justify-center border-t py-10'>
           <span className='sr-only'>back to top</span>
