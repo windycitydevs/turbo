@@ -9,12 +9,11 @@ const nextConfig = {
     loader: "default",
     formats: ["image/avif", "image/webp"],
     remotePatterns: [
-      { hostname: "**.sanity.io" },
+      { hostname: "**.cloudfront.net" },
       { hostname: "**.unsplash.com" },
       { hostname: "**.hillsidetoharbor.biz" },
       { hostname: "**.hillsidetoharbor.com" },
-      { hostname: "wpengine.com" },
-      { hostname: "res.cloudinary.com" }
+      { hostname: "turbo-hillsidetoharbor.vercel.app" }
     ]
   }
 };

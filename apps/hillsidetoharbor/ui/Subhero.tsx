@@ -20,7 +20,7 @@ export const SubHeroTwo = cache(({ subHeroImages3 }: HeroCPTUIProps) => {
             <li
               key={sub.subHeroImage.databaseId}
               className={clsx(
-                "mx-auto max-w-[85%] scale-[0.9] flex-col py-4 my-auto sm:max-w-none",
+                "mx-auto my-auto max-w-[85%] scale-[0.9] flex-col py-4 sm:max-w-none",
                 i !== 2
                   ? "border-separate border-b-[1px] border-white sm:border-b-[0px]"
                   : ""

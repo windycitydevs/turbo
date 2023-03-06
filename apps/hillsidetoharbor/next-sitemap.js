@@ -1,9 +1,7 @@
 const siteUrl =
-  process.env.NODE_ENV != "development"
-    ? process.env.NODE_ENV != "production"
-      ? "http://localhost:3000"
-      : `https://${process.env.VERCEL_URL}`
-    : `https://${process.env.VERCEL_URL}`;
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:3000"
+    : `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`;
 
 // @ts-check
 /** @type {import('next-sitemap').IConfig} */

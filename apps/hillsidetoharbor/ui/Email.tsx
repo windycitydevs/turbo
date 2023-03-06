@@ -6,7 +6,7 @@ const Email = () => {
       <div className='absolute inset-0'>
         <div className='absolute inset-y-0 left-0 w-1/3 bg-gray-50' />
       </div>
-      <div className='relative mx-auto max-w-10xl lg:grid lg:grid-cols-5'>
+      <div className='max-w-10xl relative mx-auto lg:grid lg:grid-cols-5'>
         <div className='bg-gray-50 py-16 px-6 lg:col-span-2 lg:px-8 lg:py-24 xl:pr-12'>
           <div className='mx-auto max-w-lg'>
             <h2 className='text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl'>
@@ -58,7 +58,9 @@ const Email = () => {
           <div className='mx-auto max-w-lg lg:max-w-none'>
             <form action='#' method='POST' className='grid grid-cols-1 gap-y-6'>
               <div>
-                <label htmlFor='full-name' className='block text-sm font-medium text-gray-700'>
+                <label
+                  htmlFor='full-name'
+                  className='block text-sm font-medium text-gray-700'>
                   Full name
                 </label>
                 <input
@@ -66,12 +68,14 @@ const Email = () => {
                   name='full-name'
                   id='full-name'
                   autoComplete='name'
-                  className='block w-full rounded-md border-gray-300 py-3 px-4 placeholder-gray-500 shadow-sm focus:border-h2hTurquoise focus:ring-h2hTurquoise'
+                  className='focus:border-h2hTurquoise focus:ring-h2hTurquoise block w-full rounded-md border-gray-300 py-3 px-4 placeholder-gray-500 shadow-sm'
                   placeholder='Full name'
                 />
               </div>
               <div>
-                <label htmlFor='email' className='block text-sm font-medium text-gray-700'>
+                <label
+                  htmlFor='email'
+                  className='block text-sm font-medium text-gray-700'>
                   Email
                 </label>
                 <input
@@ -79,12 +83,14 @@ const Email = () => {
                   name='email'
                   type='email'
                   autoComplete='email'
-                  className='block w-full rounded-md border-gray-300 py-3 px-4 placeholder-gray-500 shadow-sm focus:border-h2hTurquoise focus:ring-h2hTurquoise'
+                  className='focus:border-h2hTurquoise focus:ring-h2hTurquoise block w-full rounded-md border-gray-300 py-3 px-4 placeholder-gray-500 shadow-sm'
                   placeholder='Email'
                 />
               </div>
               <div>
-                <label htmlFor='phone' className='block text-sm font-medium text-gray-700'>
+                <label
+                  htmlFor='phone'
+                  className='block text-sm font-medium text-gray-700'>
                   Phone
                 </label>
                 <input
@@ -92,19 +98,21 @@ const Email = () => {
                   name='phone'
                   id='phone'
                   autoComplete='tel'
-                  className='block w-full rounded-md border-gray-300 py-3 px-4 placeholder-gray-500 shadow-sm focus:border-h2hTurquoise focus:ring-h2hTurquoise'
+                  className='focus:border-h2hTurquoise focus:ring-h2hTurquoise block w-full rounded-md border-gray-300 py-3 px-4 placeholder-gray-500 shadow-sm'
                   placeholder='Phone'
                 />
               </div>
               <div>
-                <label htmlFor='message' className='block text-sm font-medium text-gray-700'>
+                <label
+                  htmlFor='message'
+                  className='block text-sm font-medium text-gray-700'>
                   Message
                 </label>
                 <textarea
                   id='message'
                   name='message'
                   rows={4}
-                  className='block w-full rounded-md border-gray-300 py-3 px-4 placeholder-gray-500 shadow-sm focus:border-h2hTurquoise focus:ring-h2hTurquoise'
+                  className='focus:border-h2hTurquoise focus:ring-h2hTurquoise block w-full rounded-md border-gray-300 py-3 px-4 placeholder-gray-500 shadow-sm'
                   placeholder='Message'
                   defaultValue={""}
                 />

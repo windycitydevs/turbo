@@ -3,12 +3,17 @@ import compression from "compression";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import express, { static as eStatic } from "express";
+import expressWinston from "express-winston";
 import fs from "fs";
 import morgan from "morgan";
 import { join } from "path";
+import winston from "winston";
 
-export class Mount<T extends express.Application = express.Application> {
-  constructor(private app: T) {}
+export class Mount<
+  T extends express.Application = express.Application,
+  V extends winston.Logger = winston.Logger
+> {
+  constructor(private app: T, private loggerService: V) {}
 
   protected logger() {
     return fs.createWriteStream(join(process.cwd(), "api.log"), {
@@ -16,7 +21,11 @@ export class Mount<T extends express.Application = express.Application> {
     });
   }
 
-  protected internals(app: T, writeStream: fs.WriteStream) {
+  protected internals(
+    app: T,
+    writeStream: fs.WriteStream,
+    loggerService: winston.Logger
+  ) {
     app
       .get("/message/:name", (req, res) => {
         return res.json({ message: `hello ${req.params.name}` });
@@ -25,6 +34,16 @@ export class Mount<T extends express.Application = express.Application> {
         return res.json({ ok: true });
       });
     return app
+      .use(
+        expressWinston.logger({
+          winstonInstance: loggerService
+        })
+      )
+      .use(
+        expressWinston.errorLogger({
+          winstonInstance: loggerService
+        })
+      )
       .use(compression())
       .use(cookieParser())
       .use(
@@ -87,6 +106,6 @@ export class Mount<T extends express.Application = express.Application> {
   }
 
   public async mounting() {
-    return this.internals(this.app, this.logger());
+    return this.internals(this.app, this.logger(), this.loggerService);
   }
 }

@@ -51,7 +51,6 @@ export type HeroCPTUIProps = {
   heroImage: MediaItemProps;
 };
 
-
 export type AboutSectionProps = {
   __typename: "Page_About";
   fieldGroupName: string;

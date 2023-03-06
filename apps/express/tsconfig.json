@@ -12,10 +12,10 @@
     "resolveJsonModule": true,
     "moduleResolution": "NodeNext",
     "target": "ESNext",
-    "lib": ["esnext", "DOM", "DOM.Iterable"],
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
     "esModuleInterop": true,
     "rootDir": "./api"
   },
   "exclude": ["node_modules"],
-  "include": ["api", "api/**/*.ts"]
+  "include": ["api", "../public", "../middleware.ts"]
 }

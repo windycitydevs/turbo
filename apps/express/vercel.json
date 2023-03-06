@@ -5,5 +5,106 @@
       "source": "/api/(.*)",
       "destination": "/(.*)"
     }
+  ],
+  "headers": [
+    {
+      "source": "/android-chrome-192x192.png",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, must-revalidate=1987200"
+        }
+      ]
+    },
+    {
+      "source": "/android-chrome-512x512.png",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, must-revalidate=1987200"
+        }
+      ]
+    },
+    {
+      "source": "/apple-touch-icon.png",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, must-revalidate=1987200"
+        }
+      ]
+    },
+    {
+      "source": "/browserconfig.xml",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, must-revalidate=1987200"
+        }
+      ]
+    },
+    {
+      "source": "/favicon-16x16.png",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, must-revalidate=1987200"
+        }
+      ]
+    },
+    {
+      "source": "/favicon-32x32.png",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, must-revalidate=1987200"
+        }
+      ]
+    },
+    {
+      "source": "/favicon.ico",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, must-revalidate=1987200"
+        }
+      ]
+    },
+    {
+      "source": "/index.html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, must-revalidate=1987200"
+        }
+      ]
+    },
+    {
+      "source": "/mstile-150x150.png",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, must-revalidate=1987200"
+        }
+      ]
+    },
+    {
+      "source": "/safari-pinned-tab.svg",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, must-revalidate=1987200"
+        }
+      ]
+    },
+    {
+      "source": "/site.webmanifest",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, must-revalidate=1987200"
+        }
+      ]
+    }
   ]
 }

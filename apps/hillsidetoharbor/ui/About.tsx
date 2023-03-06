@@ -10,8 +10,8 @@ export const preloadAboutUs = ({ ...props }: Parameters<typeof AboutUs>[0]) => {
 
 const AboutUs = cache(({ aboutimage, abouttextarea }: AboutSectionProps) => {
   return (
-    <div className='relative bg-gray-100 font-basis-grotesque-pro '>
-      <div className='relative h-80 overflow-hidden grayscale bg-h2hPinkOrange md:absolute md:left-0 md:h-full md:w-1/3 lg:w-1/3'>
+    <div className='font-basis-grotesque-pro relative bg-gray-100 '>
+      <div className='bg-h2hPinkOrange relative h-80 overflow-hidden grayscale md:absolute md:left-0 md:h-full md:w-1/3 lg:w-1/3'>
         <Image
           className='h-full w-full object-cover bg-blend-multiply'
           src={aboutimage.sourceUrl}
@@ -49,15 +49,17 @@ const AboutUs = cache(({ aboutimage, abouttextarea }: AboutSectionProps) => {
         </svg>
       </div>
       <div className='relative mx-auto max-w-7xl py-24 sm:py-32 lg:py-40 lg:px-8'>
-        
         <div className='pr-6 pl-6 md:ml-auto md:w-2/3 md:pl-16 lg:w-2/3 lg:pl-12 lg:pr-0 xl:pl-32'>
-          <h4 className='mt-2 text-4xl font-bold tracking-tight text-h2hTurquoise'>
+          <h4 className='text-h2hTurquoise mt-2 text-4xl font-bold tracking-tight'>
             About Us
           </h4>
-          <p className='mt-6 text-base leading-7 text-gray-800 ' dangerouslySetInnerHTML={{__html: abouttextarea}} />
+          <p
+            className='mt-6 text-base leading-7 text-gray-800 '
+            dangerouslySetInnerHTML={{ __html: abouttextarea }}
+          />
           <div className='mt-8'>
             <a
-              className='inline-flex rounded-md bg-h2hTurquoise/90 px-3.5 py-1.5 text-base font-semibold leading-7 text-white shadow-sm hover:bg-h2hTurquoise/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white'
+              className='bg-h2hTurquoise/90 hover:bg-h2hTurquoise/80 inline-flex rounded-md px-3.5 py-1.5 text-base font-semibold leading-7 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white'
               href={`mailto:contact@hillsidetoharbor.com`}
               target='_blank'
               rel='noreferrer noopener'>
