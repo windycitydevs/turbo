@@ -83,8 +83,8 @@ module.exports = {
           "var(--font-basis-grotesque-pro)",
           ...defaultTheme.fontFamily.sans
         ],
-        "domain-display-condensed": [
-          "var(--font-domain-display-condensed)",
+        "domaine-display-condensed": [
+          "var(--font-domaine-display-condensed)",
           ...defaultTheme.fontFamily.serif
         ],
         "kaisei-tokumin": [
