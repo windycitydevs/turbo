@@ -79,9 +79,18 @@ module.exports = {
         )}, 50px, ${theme("colors.gray.800")} 50%)`
       }),
       fontFamily: {
-        "basis-grotesque-pro": ["var(--font-basis-grotesque-pro)", ...defaultTheme.fontFamily.sans],
-        "domain-display-condensed": ["var(--font-domain-display-condensed)", ...defaultTheme.fontFamily.serif],
-        "kaisei-tokumin": ["var(--font-kaisei-tokumin)", ...defaultTheme.fontFamily.sans]
+        "basis-grotesque-pro": [
+          "var(--font-basis-grotesque-pro)",
+          ...defaultTheme.fontFamily.sans
+        ],
+        "domain-display-condensed": [
+          "var(--font-domain-display-condensed)",
+          ...defaultTheme.fontFamily.serif
+        ],
+        "kaisei-tokumin": [
+          "var(--font-kaisei-tokumin)",
+          ...defaultTheme.fontFamily.sans
+        ]
       },
       animation: {
         wiggle: "wiggle 10s ease-in-out infinite",

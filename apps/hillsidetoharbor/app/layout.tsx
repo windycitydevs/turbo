@@ -98,7 +98,7 @@ export default async function RootLayout({
         />
       </head>
       <body
-        className={`max-w-10xl mx-auto h-full bg-neutral overflow-y-scroll scroll-smooth ${DomainDisplayCondensed.variable} ${BasisGrotesquePro.variable} ${kaiseiTokumin.variable} font-basis-grotesque-pro`}>
+        className={`max-w-10xl bg-neutral mx-auto h-full overflow-y-scroll scroll-smooth ${DomainDisplayCondensed.variable} ${BasisGrotesquePro.variable} ${kaiseiTokumin.variable} font-basis-grotesque-pro`}>
         {/* <Nav
           variantEmail='secondary'
           variantPhone='secondary'

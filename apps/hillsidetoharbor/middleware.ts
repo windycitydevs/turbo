@@ -3,7 +3,7 @@ import type { NextRequest } from "next/server";
 import { NextResponse, userAgent, userAgentFromString } from "next/server";
 
 // RegExp used to test if a pathname is coming from _next or public directories
-const STATIC_FILE = /\.(.*)$/;
+// const STATIC_FILE = /\.(.*)$/;
 
 export default function middleware(req: NextRequest) {
   // extract geolocation info, including iso3166-2 country code
@@ -126,9 +126,9 @@ export default function middleware(req: NextRequest) {
   url.searchParams.set("ua", ua);
   url.searchParams.set("tz", tz);
   getLoc ? url.searchParams.set("loc", getLoc) : null;
-  if (STATIC_FILE.test(req.nextUrl.pathname) === true) {
-    return;
-  }
+  // if (STATIC_FILE.test(req.nextUrl.pathname) === true) {
+  //   return;
+  // }
   return NextResponse.rewrite(url);
 }
 
@@ -140,7 +140,5 @@ export default function middleware(req: NextRequest) {
  */
 
 export const config = {
-  matcher: [
-    "/((?!_next/static|_next/image|favicon.ico).*)"
-  ]
+  matcher: ["/((?!_next/static|_next/image|favicon.ico).*)"]
 };

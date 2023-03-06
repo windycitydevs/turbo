@@ -8,13 +8,13 @@ export type InferNestedTypeInArrayOfRefs<T> = T extends Array<
 export default function mergeRefs<T = unknown>(
   refs: (MutableRefObject<T> | LegacyRef<T>)[]
 ): RefCallback<T> {
-  return (value) => {
+  return value => {
     refs.forEach(ref => {
       if (typeof ref === "function") {
-        ref(value) ;
+        ref(value);
       } else if (ref != null) {
         (ref as MutableRefObject<T | null>).current = value;
       }
-    })
-  }
+    });
+  };
 }
