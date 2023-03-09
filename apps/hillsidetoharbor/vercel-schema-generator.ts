@@ -1,4 +1,4 @@
-import fsSync, { promises as fsAsync } from "fs";
+import fsSync from "fs";
 import { join } from "path";
 
 const getMetadata = fsSync.readdirSync(join(process.cwd(), "public/favicon"), {
@@ -11,13 +11,7 @@ const getPublicRootData = fsSync
     encoding: "utf-8",
     withFileTypes: false
   })
-  .filter(
-    data =>
-      data.split(/([.])/gim).length >= 2 &&
-      !data.includes("sitemap") &&
-      !data.includes("fonts") &&
-      !data.includes("favicon")
-  );
+  .filter(data => data.split(/([.])/gim).length >= 2);
 
 const cacheControlHeaders = [
   {
@@ -44,17 +38,26 @@ const publicRootData = () =>
 
 const appendDataSources = siteMetadata().concat(publicRootData());
 
-/* generate `vercel.json` from the workup */
-(async function VercelIIFE() {
-  return await fsAsync.writeFile(
-    join(process.cwd(), "vercel.json"),
-    JSON.stringify(
-      {
-        $schema: "https://openapi.vercel.sh/vercel.json",
-        headers: appendDataSources
-      },
-      null,
-      2
-    )
+const ws = fsSync.createWriteStream(join(process.cwd(), "vercel.json"), {
+  autoClose: true
+});
+
+/**
+ * generate `vercel.json` from workup
+ */
+(function VercelIIFE() {
+  return ws.write(
+    Buffer.from(
+      Buffer.from(
+        JSON.stringify(
+          {
+            $schema: "https://openapi.vercel.sh/vercel.json",
+            headers: appendDataSources
+          },
+          null,
+          2
+        )
+      ).toJSON().data
+    ).valueOf() satisfies Uint8Array
   );
 })();
