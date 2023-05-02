@@ -13,15 +13,15 @@ const Email = () => {
               Get in touch
             </h2>
             <p className='mt-3 text-lg leading-6 text-gray-500'>
-              Nullam risus blandit ac aliquam justo ipsum. Quam mauris volutpat
-              massa dictumst amet. Sapien tortor lacus arcu.
+              {/* Nullam risus blandit ac aliquam justo ipsum. Quam mauris volutpat
+              massa dictumst amet. Sapien tortor lacus arcu. */}
             </p>
             <dl className='mt-8 text-base text-gray-500'>
               <div>
                 <dt className='sr-only'>Postal address</dt>
                 <dd>
-                  <p>742 Evergreen Terrace</p>
-                  <p>Springfield, OR 12345</p>
+                  <p>{"2042 Town Center Blvd #114"}</p>
+                  <p>{"Knoxville, TN 37922"}</p>
                 </dd>
               </div>
               <div className='mt-6'>
@@ -31,7 +31,7 @@ const Email = () => {
                     className='h-6 w-6 flex-shrink-0 text-gray-400'
                     aria-hidden='true'
                   />
-                  <span className='ml-3'>+1 (555) 123-4567</span>
+                  <span className='ml-3'>{"(865)-214-9643"}</span>
                 </dd>
               </div>
               <div className='mt-3'>
@@ -41,7 +41,7 @@ const Email = () => {
                     className='h-6 w-6 flex-shrink-0 text-gray-400'
                     aria-hidden='true'
                   />
-                  <span className='ml-3'>support@example.com</span>
+                  <span className='ml-3'>{"contact@hillsidetoHarbor.com"}</span>
                 </dd>
               </div>
             </dl>
