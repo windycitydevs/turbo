@@ -27,31 +27,32 @@ const Email = () => {
               <div className='mt-6'>
                 <dt className='sr-only'>Phone number</dt>
                 <dd className='flex'>
+                <a rel="noopener" target={"_blank"} className='ml-3' href="tel:+18652149643"> 
                   <PhoneIcon
                     className='h-6 w-6 flex-shrink-0 text-gray-400'
                     aria-hidden='true'
                   />
-                  <span className='ml-3'>{"(865)-214-9643"}</span>
+                  <span className='ml-3'>{"(865)-214-9643"}</span></a>
                 </dd>
               </div>
               <div className='mt-3'>
                 <dt className='sr-only'>Email</dt>
                 <dd className='flex'>
-                  <EnvelopeIcon
+                <a rel="noopener" target={"_blank"} className='ml-3'>   <EnvelopeIcon
                     className='h-6 w-6 flex-shrink-0 text-gray-400'
                     aria-hidden='true'
                   />
-                  <span className='ml-3'>{"contact@hillsidetoHarbor.com"}</span>
+                  <span className="ml-3">{"mailto:contact@hillsidetoHarbor.com"}</span></a>
                 </dd>
               </div>
             </dl>
-            <p className='mt-6 text-base text-gray-500'>
+            {/* <p className='mt-6 text-base text-gray-500'>
               Looking for careers?{" "}
               <a href='#' className='font-medium text-gray-700 underline'>
                 View all job openings
               </a>
               .
-            </p>
+            </p> */}
           </div>
         </div>
         <div className='bg-white py-16 px-6 lg:col-span-3 lg:py-24 lg:px-8 xl:pl-12'>
