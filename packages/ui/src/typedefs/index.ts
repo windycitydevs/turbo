@@ -1,7 +1,9 @@
 export {
- type ConditionalToRequired,
- type Depth,
- type ExcludeFieldEnumerable,
+  inferObj,
+  objInference,
+  type ConditionalToRequired,
+  type Depth,
+  type ExcludeFieldEnumerable,
   type FieldToConditionallyNever,
   type InferDepth,
   type RemoveFields,
@@ -9,7 +11,5 @@ export {
   type Unenumerate,
   type UnwrapPromise,
   type Without,
-  type XOR,
-  inferObj,
-  objInference
+  type XOR
 } from "./helpers";

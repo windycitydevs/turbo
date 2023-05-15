@@ -1,4 +1,4 @@
-import { ArrowRightIcon } from "@heroicons/react/outline";
+import ArrowRight from "./vectors/ArrowRight";
 
 export const ExternalLink = ({
   children,
@@ -14,7 +14,7 @@ export const ExternalLink = ({
       rel='noopener noreferrer'
       className='inline-flex gap-x-2 rounded-lg bg-gray-700 px-3 py-1 text-sm font-medium text-gray-100 hover:bg-gray-500 hover:text-white'>
       <div>{children}</div>
-      <ArrowRightIcon className='block w-4' />
+      <ArrowRight className='block w-4' />
     </a>
   );
 };

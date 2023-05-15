@@ -1,4 +1,4 @@
-import { XIcon } from "@heroicons/react/solid";
+import XMark from "./vectors/XMark";
 
 export default function Example() {
   return (
@@ -54,7 +54,7 @@ export default function Example() {
           type='button'
           className='-m-3 p-3 focus-visible:outline-offset-[-4px]'>
           <span className='sr-only'>Dismiss</span>
-          <XIcon className='h-5 w-5 text-gray-900' aria-hidden='true' />
+          <XMark className='h-5 w-5 text-gray-900' aria-hidden='true' />
         </button>
       </div>
     </div>

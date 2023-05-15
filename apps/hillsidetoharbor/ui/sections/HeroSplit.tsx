@@ -80,7 +80,7 @@ export const HeroSplit = () => {
     <>
       <div
         // onLoad={useCallbackData}
-        className='grid relative h-screen min-h-[80vh] grid-cols-1 grid-rows-2 lg:grid-cols-2 lg:grid-rows-1 max-h-[1680px]'>
+        className='relative grid h-screen max-h-[1680px] min-h-[80vh] grid-cols-1 grid-rows-2 lg:grid-cols-2 lg:grid-rows-1'>
         <div className='bg-neutral relative flex h-full w-full'>
           <div className='relative mx-auto flex w-full flex-col items-center justify-center p-8 sm:p-12'>
             <HeroLogo
@@ -95,7 +95,7 @@ export const HeroSplit = () => {
           <div className='relative flex w-full flex-col-reverse items-start justify-start pr-8 sm:py-6 sm:pr-12'>
             <div className='flex flex-row-reverse'>
               <span className='inline-flex items-start justify-around space-x-2'>
-                <span className='font-basis-grotesque-pro text-neutral max-2xl ml-5 inline-block text-left align-bottom text-[6.66666666666667vw] font-medium leading-[6.944444vw] tracking-[-0.06rem] lg:max-w-4xl 6xl:text-[12rem] 6xl:leading-[12.25rem]'>
+                <span className='font-basis-grotesque-pro text-neutral max-2xl 6xl:text-[12rem] 6xl:leading-[12.25rem] ml-5 inline-block text-left align-bottom text-[6.66666666666667vw] font-medium leading-[6.944444vw] tracking-[-0.06rem] lg:max-w-4xl'>
                   {"Helping You Navigate Challenging Situations"}
                   <svg
                     width='12'
