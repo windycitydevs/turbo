@@ -1,6 +1,6 @@
 /* eslint-disable */
-import { TypedDocumentNode as DocumentNode } from "@graphql-typed-document-node/core";
-import * as types from "./graphql";
+import * as types from './graphql';
+import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core';
 
 /**
  * Map of all GraphQL operations in the project.
@@ -13,32 +13,19 @@ import * as types from "./graphql";
  * Therefore it is highly recommended to use the babel or swc plugin for production.
  */
 const documents = {
-  "fragment AboutFragment on Page_About {\n  __typename\n  fieldGroupName\n  abouttextarea\n}":
-    types.AboutFragmentFragmentDoc,
-  "fragment AvatarFragment on Avatar {\n  __typename\n  width\n  height\n  default\n  foundAvatar\n  size\n  url\n  scheme\n  forceDefault\n}":
-    types.AvatarFragmentFragmentDoc,
-  "fragment HeroFragment on Page_Hero {\n  __typename\n  fieldGroupName\n  subCta\n  cta\n}":
-    types.HeroFragmentFragmentDoc,
-  "fragment LoginPayloadFragment on LoginPayload {\n  __typename\n  authToken\n  refreshToken\n  clientMutationId\n}":
-    types.LoginPayloadFragmentFragmentDoc,
-  "fragment MediaDetailsFragment on MediaDetails {\n  __typename\n  width\n  height\n}":
-    types.MediaDetailsFragmentFragmentDoc,
-  "fragment MediaItemFragment on MediaItem {\n  __typename\n  altText\n  uri\n  title\n  sourceUrl\n  databaseId\n  id\n  srcSet\n  slug\n}":
-    types.MediaItemFragmentFragmentDoc,
-  "fragment NodeWithFeaturedImageToMediaItemConnectionEdgeFragment on NodeWithFeaturedImageToMediaItemConnectionEdge {\n  __typename\n  cursor\n}":
-    types.NodeWithFeaturedImageToMediaItemConnectionEdgeFragmentFragmentDoc,
-  "fragment PageFragment on Page {\n  __typename\n  title\n  content\n  previewRevisionId\n  previewRevisionDatabaseId\n  isPreview\n  isFrontPage\n  uri\n  slug\n  guid\n  modifiedGmt\n  guid\n  databaseId\n  id\n}":
-    types.PageFragmentFragmentDoc,
-  "fragment PostTypeSeoFragment on PostTypeSEO {\n  __typename\n  metaDesc\n  readingTime\n  metaKeywords\n  focuskw\n  metaRobotsNofollow\n}":
-    types.PostTypeSeoFragmentFragmentDoc,
-  "fragment SubHeroFragment on Page_Hero_subHeroImages3 {\n  __typename\n  subHeroImageCta\n  subHeroImageSubCta\n  fieldGroupName\n}":
-    types.SubHeroFragmentFragmentDoc,
-  "fragment UserFragment on User {\n  __typename\n  capKey\n  databaseId\n  id\n  email\n  username\n  url\n  uri\n  slug\n  name\n  lastName\n  nicename\n  nickname\n  jwtUserSecret\n  jwtAuthExpiration\n  jwtRefreshToken\n  isJwtAuthSecretRevoked\n  description\n}":
-    types.UserFragmentFragmentDoc,
-  "mutation Login($input: LoginInput!) {\n  login(input: $input) {\n    ...LoginPayloadFragment\n    user {\n      ...UserFragment\n      avatar {\n        ...AvatarFragment\n      }\n    }\n  }\n}":
-    types.LoginDocument,
-  "query Home($id: ID!, $idType: PageIdType!) {\n  page(idType: $idType, id: $id) {\n    ...PageFragment\n    seo {\n      ...PostTypeSeoFragment\n    }\n    featuredImage {\n      ...NodeWithFeaturedImageToMediaItemConnectionEdgeFragment\n      node {\n        ...MediaItemFragment\n        mediaDetails {\n          ...MediaDetailsFragment\n        }\n      }\n    }\n    hero {\n      ...HeroFragment\n      subHeroImages3 {\n        ...SubHeroFragment\n        subHeroImage {\n          ...MediaItemFragment\n          mediaDetails {\n            ...MediaDetailsFragment\n          }\n        }\n      }\n      heroImage {\n        ...MediaItemFragment\n        mediaDetails {\n          ...MediaDetailsFragment\n        }\n      }\n    }\n    about {\n      ...AboutFragment\n      aboutimage {\n        ...MediaItemFragment\n        mediaDetails {\n          ...MediaDetailsFragment\n        }\n      }\n    }\n  }\n}":
-    types.HomeDocument
+    "fragment AboutFragment on Page_About {\n  __typename\n  fieldGroupName\n  abouttextarea\n}": types.AboutFragmentFragmentDoc,
+    "fragment AvatarFragment on Avatar {\n  __typename\n  width\n  height\n  default\n  foundAvatar\n  size\n  url\n  scheme\n  forceDefault\n}": types.AvatarFragmentFragmentDoc,
+    "fragment HeroFragment on Page_Hero {\n  __typename\n  fieldGroupName\n  subCta\n  cta\n}": types.HeroFragmentFragmentDoc,
+    "fragment LoginPayloadFragment on LoginPayload {\n  __typename\n  authToken\n  refreshToken\n  clientMutationId\n}": types.LoginPayloadFragmentFragmentDoc,
+    "fragment MediaDetailsFragment on MediaDetails {\n  __typename\n  width\n  height\n}": types.MediaDetailsFragmentFragmentDoc,
+    "fragment MediaItemFragment on MediaItem {\n  __typename\n  altText\n  uri\n  title\n  sourceUrl\n  databaseId\n  id\n  srcSet\n  slug\n}": types.MediaItemFragmentFragmentDoc,
+    "fragment NodeWithFeaturedImageToMediaItemConnectionEdgeFragment on NodeWithFeaturedImageToMediaItemConnectionEdge {\n  __typename\n  cursor\n}": types.NodeWithFeaturedImageToMediaItemConnectionEdgeFragmentFragmentDoc,
+    "fragment PageFragment on Page {\n  __typename\n  title\n  content\n  previewRevisionId\n  previewRevisionDatabaseId\n  isPreview\n  isFrontPage\n  uri\n  slug\n  guid\n  modifiedGmt\n  guid\n  databaseId\n  id\n}": types.PageFragmentFragmentDoc,
+    "fragment PostTypeSeoFragment on PostTypeSEO {\n  __typename\n  metaDesc\n  readingTime\n  metaKeywords\n  focuskw\n  metaRobotsNofollow\n}": types.PostTypeSeoFragmentFragmentDoc,
+    "fragment SubHeroFragment on Page_Hero_subHeroImages3 {\n  __typename\n  subHeroImageCta\n  subHeroImageSubCta\n  fieldGroupName\n}": types.SubHeroFragmentFragmentDoc,
+    "fragment UserFragment on User {\n  __typename\n  capKey\n  databaseId\n  id\n  email\n  username\n  url\n  uri\n  slug\n  name\n  lastName\n  nicename\n  nickname\n  jwtUserSecret\n  jwtAuthExpiration\n  jwtRefreshToken\n  isJwtAuthSecretRevoked\n  description\n}": types.UserFragmentFragmentDoc,
+    "mutation Login($input: LoginInput!) {\n  login(input: $input) {\n    ...LoginPayloadFragment\n    user {\n      ...UserFragment\n      avatar {\n        ...AvatarFragment\n      }\n    }\n  }\n}": types.LoginDocument,
+    "query Home($id: ID!, $idType: PageIdType!) {\n  page(idType: $idType, id: $id) {\n    ...PageFragment\n    seo {\n      ...PostTypeSeoFragment\n    }\n    featuredImage {\n      ...NodeWithFeaturedImageToMediaItemConnectionEdgeFragment\n      node {\n        ...MediaItemFragment\n        mediaDetails {\n          ...MediaDetailsFragment\n        }\n      }\n    }\n    hero {\n      ...HeroFragment\n      subHeroImages3 {\n        ...SubHeroFragment\n        subHeroImage {\n          ...MediaItemFragment\n          mediaDetails {\n            ...MediaDetailsFragment\n          }\n        }\n      }\n      heroImage {\n        ...MediaItemFragment\n        mediaDetails {\n          ...MediaDetailsFragment\n        }\n      }\n    }\n    about {\n      ...AboutFragment\n      aboutimage {\n        ...MediaItemFragment\n        mediaDetails {\n          ...MediaDetailsFragment\n        }\n      }\n    }\n  }\n}": types.HomeDocument,
 };
 
 /**
@@ -58,85 +45,58 @@ export function graphql(source: string): unknown;
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(
-  source: "fragment AboutFragment on Page_About {\n  __typename\n  fieldGroupName\n  abouttextarea\n}"
-): (typeof documents)["fragment AboutFragment on Page_About {\n  __typename\n  fieldGroupName\n  abouttextarea\n}"];
+export function graphql(source: "fragment AboutFragment on Page_About {\n  __typename\n  fieldGroupName\n  abouttextarea\n}"): (typeof documents)["fragment AboutFragment on Page_About {\n  __typename\n  fieldGroupName\n  abouttextarea\n}"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(
-  source: "fragment AvatarFragment on Avatar {\n  __typename\n  width\n  height\n  default\n  foundAvatar\n  size\n  url\n  scheme\n  forceDefault\n}"
-): (typeof documents)["fragment AvatarFragment on Avatar {\n  __typename\n  width\n  height\n  default\n  foundAvatar\n  size\n  url\n  scheme\n  forceDefault\n}"];
+export function graphql(source: "fragment AvatarFragment on Avatar {\n  __typename\n  width\n  height\n  default\n  foundAvatar\n  size\n  url\n  scheme\n  forceDefault\n}"): (typeof documents)["fragment AvatarFragment on Avatar {\n  __typename\n  width\n  height\n  default\n  foundAvatar\n  size\n  url\n  scheme\n  forceDefault\n}"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(
-  source: "fragment HeroFragment on Page_Hero {\n  __typename\n  fieldGroupName\n  subCta\n  cta\n}"
-): (typeof documents)["fragment HeroFragment on Page_Hero {\n  __typename\n  fieldGroupName\n  subCta\n  cta\n}"];
+export function graphql(source: "fragment HeroFragment on Page_Hero {\n  __typename\n  fieldGroupName\n  subCta\n  cta\n}"): (typeof documents)["fragment HeroFragment on Page_Hero {\n  __typename\n  fieldGroupName\n  subCta\n  cta\n}"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(
-  source: "fragment LoginPayloadFragment on LoginPayload {\n  __typename\n  authToken\n  refreshToken\n  clientMutationId\n}"
-): (typeof documents)["fragment LoginPayloadFragment on LoginPayload {\n  __typename\n  authToken\n  refreshToken\n  clientMutationId\n}"];
+export function graphql(source: "fragment LoginPayloadFragment on LoginPayload {\n  __typename\n  authToken\n  refreshToken\n  clientMutationId\n}"): (typeof documents)["fragment LoginPayloadFragment on LoginPayload {\n  __typename\n  authToken\n  refreshToken\n  clientMutationId\n}"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(
-  source: "fragment MediaDetailsFragment on MediaDetails {\n  __typename\n  width\n  height\n}"
-): (typeof documents)["fragment MediaDetailsFragment on MediaDetails {\n  __typename\n  width\n  height\n}"];
+export function graphql(source: "fragment MediaDetailsFragment on MediaDetails {\n  __typename\n  width\n  height\n}"): (typeof documents)["fragment MediaDetailsFragment on MediaDetails {\n  __typename\n  width\n  height\n}"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(
-  source: "fragment MediaItemFragment on MediaItem {\n  __typename\n  altText\n  uri\n  title\n  sourceUrl\n  databaseId\n  id\n  srcSet\n  slug\n}"
-): (typeof documents)["fragment MediaItemFragment on MediaItem {\n  __typename\n  altText\n  uri\n  title\n  sourceUrl\n  databaseId\n  id\n  srcSet\n  slug\n}"];
+export function graphql(source: "fragment MediaItemFragment on MediaItem {\n  __typename\n  altText\n  uri\n  title\n  sourceUrl\n  databaseId\n  id\n  srcSet\n  slug\n}"): (typeof documents)["fragment MediaItemFragment on MediaItem {\n  __typename\n  altText\n  uri\n  title\n  sourceUrl\n  databaseId\n  id\n  srcSet\n  slug\n}"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(
-  source: "fragment NodeWithFeaturedImageToMediaItemConnectionEdgeFragment on NodeWithFeaturedImageToMediaItemConnectionEdge {\n  __typename\n  cursor\n}"
-): (typeof documents)["fragment NodeWithFeaturedImageToMediaItemConnectionEdgeFragment on NodeWithFeaturedImageToMediaItemConnectionEdge {\n  __typename\n  cursor\n}"];
+export function graphql(source: "fragment NodeWithFeaturedImageToMediaItemConnectionEdgeFragment on NodeWithFeaturedImageToMediaItemConnectionEdge {\n  __typename\n  cursor\n}"): (typeof documents)["fragment NodeWithFeaturedImageToMediaItemConnectionEdgeFragment on NodeWithFeaturedImageToMediaItemConnectionEdge {\n  __typename\n  cursor\n}"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(
-  source: "fragment PageFragment on Page {\n  __typename\n  title\n  content\n  previewRevisionId\n  previewRevisionDatabaseId\n  isPreview\n  isFrontPage\n  uri\n  slug\n  guid\n  modifiedGmt\n  guid\n  databaseId\n  id\n}"
-): (typeof documents)["fragment PageFragment on Page {\n  __typename\n  title\n  content\n  previewRevisionId\n  previewRevisionDatabaseId\n  isPreview\n  isFrontPage\n  uri\n  slug\n  guid\n  modifiedGmt\n  guid\n  databaseId\n  id\n}"];
+export function graphql(source: "fragment PageFragment on Page {\n  __typename\n  title\n  content\n  previewRevisionId\n  previewRevisionDatabaseId\n  isPreview\n  isFrontPage\n  uri\n  slug\n  guid\n  modifiedGmt\n  guid\n  databaseId\n  id\n}"): (typeof documents)["fragment PageFragment on Page {\n  __typename\n  title\n  content\n  previewRevisionId\n  previewRevisionDatabaseId\n  isPreview\n  isFrontPage\n  uri\n  slug\n  guid\n  modifiedGmt\n  guid\n  databaseId\n  id\n}"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(
-  source: "fragment PostTypeSeoFragment on PostTypeSEO {\n  __typename\n  metaDesc\n  readingTime\n  metaKeywords\n  focuskw\n  metaRobotsNofollow\n}"
-): (typeof documents)["fragment PostTypeSeoFragment on PostTypeSEO {\n  __typename\n  metaDesc\n  readingTime\n  metaKeywords\n  focuskw\n  metaRobotsNofollow\n}"];
+export function graphql(source: "fragment PostTypeSeoFragment on PostTypeSEO {\n  __typename\n  metaDesc\n  readingTime\n  metaKeywords\n  focuskw\n  metaRobotsNofollow\n}"): (typeof documents)["fragment PostTypeSeoFragment on PostTypeSEO {\n  __typename\n  metaDesc\n  readingTime\n  metaKeywords\n  focuskw\n  metaRobotsNofollow\n}"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(
-  source: "fragment SubHeroFragment on Page_Hero_subHeroImages3 {\n  __typename\n  subHeroImageCta\n  subHeroImageSubCta\n  fieldGroupName\n}"
-): (typeof documents)["fragment SubHeroFragment on Page_Hero_subHeroImages3 {\n  __typename\n  subHeroImageCta\n  subHeroImageSubCta\n  fieldGroupName\n}"];
+export function graphql(source: "fragment SubHeroFragment on Page_Hero_subHeroImages3 {\n  __typename\n  subHeroImageCta\n  subHeroImageSubCta\n  fieldGroupName\n}"): (typeof documents)["fragment SubHeroFragment on Page_Hero_subHeroImages3 {\n  __typename\n  subHeroImageCta\n  subHeroImageSubCta\n  fieldGroupName\n}"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(
-  source: "fragment UserFragment on User {\n  __typename\n  capKey\n  databaseId\n  id\n  email\n  username\n  url\n  uri\n  slug\n  name\n  lastName\n  nicename\n  nickname\n  jwtUserSecret\n  jwtAuthExpiration\n  jwtRefreshToken\n  isJwtAuthSecretRevoked\n  description\n}"
-): (typeof documents)["fragment UserFragment on User {\n  __typename\n  capKey\n  databaseId\n  id\n  email\n  username\n  url\n  uri\n  slug\n  name\n  lastName\n  nicename\n  nickname\n  jwtUserSecret\n  jwtAuthExpiration\n  jwtRefreshToken\n  isJwtAuthSecretRevoked\n  description\n}"];
+export function graphql(source: "fragment UserFragment on User {\n  __typename\n  capKey\n  databaseId\n  id\n  email\n  username\n  url\n  uri\n  slug\n  name\n  lastName\n  nicename\n  nickname\n  jwtUserSecret\n  jwtAuthExpiration\n  jwtRefreshToken\n  isJwtAuthSecretRevoked\n  description\n}"): (typeof documents)["fragment UserFragment on User {\n  __typename\n  capKey\n  databaseId\n  id\n  email\n  username\n  url\n  uri\n  slug\n  name\n  lastName\n  nicename\n  nickname\n  jwtUserSecret\n  jwtAuthExpiration\n  jwtRefreshToken\n  isJwtAuthSecretRevoked\n  description\n}"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(
-  source: "mutation Login($input: LoginInput!) {\n  login(input: $input) {\n    ...LoginPayloadFragment\n    user {\n      ...UserFragment\n      avatar {\n        ...AvatarFragment\n      }\n    }\n  }\n}"
-): (typeof documents)["mutation Login($input: LoginInput!) {\n  login(input: $input) {\n    ...LoginPayloadFragment\n    user {\n      ...UserFragment\n      avatar {\n        ...AvatarFragment\n      }\n    }\n  }\n}"];
+export function graphql(source: "mutation Login($input: LoginInput!) {\n  login(input: $input) {\n    ...LoginPayloadFragment\n    user {\n      ...UserFragment\n      avatar {\n        ...AvatarFragment\n      }\n    }\n  }\n}"): (typeof documents)["mutation Login($input: LoginInput!) {\n  login(input: $input) {\n    ...LoginPayloadFragment\n    user {\n      ...UserFragment\n      avatar {\n        ...AvatarFragment\n      }\n    }\n  }\n}"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(
-  source: "query Home($id: ID!, $idType: PageIdType!) {\n  page(idType: $idType, id: $id) {\n    ...PageFragment\n    seo {\n      ...PostTypeSeoFragment\n    }\n    featuredImage {\n      ...NodeWithFeaturedImageToMediaItemConnectionEdgeFragment\n      node {\n        ...MediaItemFragment\n        mediaDetails {\n          ...MediaDetailsFragment\n        }\n      }\n    }\n    hero {\n      ...HeroFragment\n      subHeroImages3 {\n        ...SubHeroFragment\n        subHeroImage {\n          ...MediaItemFragment\n          mediaDetails {\n            ...MediaDetailsFragment\n          }\n        }\n      }\n      heroImage {\n        ...MediaItemFragment\n        mediaDetails {\n          ...MediaDetailsFragment\n        }\n      }\n    }\n    about {\n      ...AboutFragment\n      aboutimage {\n        ...MediaItemFragment\n        mediaDetails {\n          ...MediaDetailsFragment\n        }\n      }\n    }\n  }\n}"
-): (typeof documents)["query Home($id: ID!, $idType: PageIdType!) {\n  page(idType: $idType, id: $id) {\n    ...PageFragment\n    seo {\n      ...PostTypeSeoFragment\n    }\n    featuredImage {\n      ...NodeWithFeaturedImageToMediaItemConnectionEdgeFragment\n      node {\n        ...MediaItemFragment\n        mediaDetails {\n          ...MediaDetailsFragment\n        }\n      }\n    }\n    hero {\n      ...HeroFragment\n      subHeroImages3 {\n        ...SubHeroFragment\n        subHeroImage {\n          ...MediaItemFragment\n          mediaDetails {\n            ...MediaDetailsFragment\n          }\n        }\n      }\n      heroImage {\n        ...MediaItemFragment\n        mediaDetails {\n          ...MediaDetailsFragment\n        }\n      }\n    }\n    about {\n      ...AboutFragment\n      aboutimage {\n        ...MediaItemFragment\n        mediaDetails {\n          ...MediaDetailsFragment\n        }\n      }\n    }\n  }\n}"];
+export function graphql(source: "query Home($id: ID!, $idType: PageIdType!) {\n  page(idType: $idType, id: $id) {\n    ...PageFragment\n    seo {\n      ...PostTypeSeoFragment\n    }\n    featuredImage {\n      ...NodeWithFeaturedImageToMediaItemConnectionEdgeFragment\n      node {\n        ...MediaItemFragment\n        mediaDetails {\n          ...MediaDetailsFragment\n        }\n      }\n    }\n    hero {\n      ...HeroFragment\n      subHeroImages3 {\n        ...SubHeroFragment\n        subHeroImage {\n          ...MediaItemFragment\n          mediaDetails {\n            ...MediaDetailsFragment\n          }\n        }\n      }\n      heroImage {\n        ...MediaItemFragment\n        mediaDetails {\n          ...MediaDetailsFragment\n        }\n      }\n    }\n    about {\n      ...AboutFragment\n      aboutimage {\n        ...MediaItemFragment\n        mediaDetails {\n          ...MediaDetailsFragment\n        }\n      }\n    }\n  }\n}"): (typeof documents)["query Home($id: ID!, $idType: PageIdType!) {\n  page(idType: $idType, id: $id) {\n    ...PageFragment\n    seo {\n      ...PostTypeSeoFragment\n    }\n    featuredImage {\n      ...NodeWithFeaturedImageToMediaItemConnectionEdgeFragment\n      node {\n        ...MediaItemFragment\n        mediaDetails {\n          ...MediaDetailsFragment\n        }\n      }\n    }\n    hero {\n      ...HeroFragment\n      subHeroImages3 {\n        ...SubHeroFragment\n        subHeroImage {\n          ...MediaItemFragment\n          mediaDetails {\n            ...MediaDetailsFragment\n          }\n        }\n      }\n      heroImage {\n        ...MediaItemFragment\n        mediaDetails {\n          ...MediaDetailsFragment\n        }\n      }\n    }\n    about {\n      ...AboutFragment\n      aboutimage {\n        ...MediaItemFragment\n        mediaDetails {\n          ...MediaDetailsFragment\n        }\n      }\n    }\n  }\n}"];
 
 export function graphql(source: string) {
   return (documents as any)[source] ?? {};
 }
 
-export type DocumentType<TDocumentNode extends DocumentNode<any, any>> =
-  TDocumentNode extends DocumentNode<infer TType, any> ? TType : never;
+export type DocumentType<TDocumentNode extends DocumentNode<any, any>> = TDocumentNode extends DocumentNode<  infer TType,  any>  ? TType  : never;

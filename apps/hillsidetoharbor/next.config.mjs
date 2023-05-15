@@ -13,6 +13,7 @@ const nextConfig = {
       { hostname: "**.unsplash.com" },
       { hostname: "**.hillsidetoharbor.biz" },
       { hostname: "**.hillsidetoharbor.com" },
+      { hostname: "*.tailwindcss.com" },
       { hostname: "turbo-hillsidetoharbor.vercel.app" }
     ]
   }
