@@ -1,13 +1,13 @@
 import type { FC, SVGProps } from "react";
 import type { RemoveFields } from "../../../typedefs/helpers";
 
+
 const HillsideToHarborHorizontal: FC<
   RemoveFields<SVGProps<SVGSVGElement>, "viewBox" | "fill" | "xmlns">
 > = ({ ...svg }) => (
   <svg
     {...svg}
-    width={typeof svg?.width === "undefined" ? "217.5" : svg.width}
-    height={typeof svg?.height === "undefined" ? "93.5" : svg.height}
+
     viewBox='0 0 870 374'
     fill='none'
     xmlns='http://www.w3.org/2000/svg'>
@@ -96,11 +96,7 @@ const HillsideToHarborHorizontal: FC<
     </g>
     <defs>
       <clipPath id='clip0_407_50'>
-        <rect
-          width={typeof svg?.width === "undefined" ? "217.2575" : svg.width}
-          height={typeof svg?.height === "undefined" ? "93.35" : svg.height}
-          fill='white'
-        />
+        <rect width='869.03' height='373.4' fill='white' />
       </clipPath>
     </defs>
   </svg>
