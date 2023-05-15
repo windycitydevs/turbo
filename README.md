@@ -6,6 +6,10 @@
 
 ### _Deployed Apps_
 
+#### [Hillside To Harbor Real Estate LLC](https://github.com/windycitydevs/turbo/tree/main/apps/express/README.md)
+
+- [Source Code](https://github.com/windycitydevs/turbo/tree/main/apps/hillsidetoharbor)
+
 #### [Verel Deployed Express App ft testing](https://github.com/windycitydevs/turbo/tree/main/apps/express/README.md)
 
 - [Source Code](https://github.com/windycitydevs/turbo/tree/main/apps/express)
