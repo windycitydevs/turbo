@@ -176,7 +176,7 @@ export default async function RootLayout({
       <body
         className={`max-w-10xl bg-neutral font-basis-grotesque-pro mx-auto h-full overflow-y-scroll scroll-smooth`}>
         <div className='bg-accents-0'>{children}</div>{" "}
-        <footer className='bg-accents-1 z-20 mt-auto w-full flex items-center justify-center border-t py-10'>
+        <footer className='bg-accents-1 z-20 mt-auto flex w-full items-center justify-center border-t py-10'>
           <span className='sr-only'>back to top</span>
           <Link
             href='/'

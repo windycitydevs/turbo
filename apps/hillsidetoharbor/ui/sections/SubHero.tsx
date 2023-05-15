@@ -5,7 +5,7 @@ import PuzzlePiece from "../vectors/PuzzlePiece";
 
 const SubHero: FC = () => {
   return (
-    <div className='isolate overflow-visible bg-white relative'>
+    <div className='relative isolate overflow-visible bg-white'>
       <div className='flow-root pb-16 pt-24 sm:pt-[5rem]'>
         <div className='mx-auto my-0 max-w-[85rem] px-[2.5rem] align-top lg:pb-[5rem]'>
           <div className='font-basis-grotesque-pro relative mx-auto grid max-w-md grid-cols-1 gap-x-[1.25rem] gap-y-8 lg:mx-0 lg:my-0 lg:-mb-14 lg:max-w-full lg:grid-cols-3 '>

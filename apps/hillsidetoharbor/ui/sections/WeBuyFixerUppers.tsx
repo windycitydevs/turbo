@@ -4,7 +4,7 @@ const WeBuyFixerUppers: FC = () => {
   return (
     <section className='relative h-screen max-h-[1304px] bg-[#EEEFE6]'>
       <div className='isolate flow-root max-h-fit bg-[#EEEFE6]'>
-        <h1 className='6xl:text-[10rem] 6xl:leading-[8rem] absolute left-0 ml-[5.55555555555556%] mt-[5.55555555555556%] w-[40.25%] max-w-full font-domaine-display-condensed text-[5.56vw] font-semibold leading-[6vw]  text-[#4E5F4F]'>
+        <h1 className='6xl:text-[10rem] 6xl:leading-[8rem] font-domaine-display-condensed absolute left-0 ml-[5.55555555555556%] mt-[5.55555555555556%] w-[40.25%] max-w-full text-[5.56vw] font-semibold leading-[6vw]  text-[#4E5F4F]'>
           We Buy Fixer Uppers
         </h1>
         <svg
@@ -14,7 +14,7 @@ const WeBuyFixerUppers: FC = () => {
           xmlns='http://www.w3.org/2000/svg'>
           <circle cx='81' cy='81' r='81' fill='#F49A7A' />
         </svg>
-        <p className='6xl:text-[2.5rem] font-basis-grotesque-pro 6xl:leading-[3.85rem] absolute top-[52.60736196319018%] left-[50.69%] h-[8.0555556%] max-h-[232px] w-[34.166666667%] max-w-full text-[1.458333vw] font-normal leading-[2.04166666666667vw] tracking-[-0.06em] text-[#313A2E]'>
+        <p className='6xl:text-[2.5rem] font-basis-grotesque-pro 6xl:leading-[3.85rem] absolute left-[50.69%] top-[52.60736196319018%] h-[8.0555556%] max-h-[232px] w-[34.166666667%] max-w-full text-[1.458333vw] font-normal leading-[2.04166666666667vw] tracking-[-0.06em] text-[#313A2E]'>
           {
             "We are a family owned business, not a large corporation. At Hillside to Harbor you aren't just a number, you're treated as a respected client. We are committed to helping our community and the people in it be successful."
           }

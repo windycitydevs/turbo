@@ -49,8 +49,7 @@ export const Boundary = ({
         "border-wcd-cyan": color === "cyan",
         "border-wcd-violet": color === "violet",
         "border-wcd-orange": color === "orange",
-        "text-wcd-pink animate-[rerender_1s_ease-in-out_1]":
-          animateRerendering
+        "text-wcd-pink animate-[rerender_1s_ease-in-out_1]": animateRerendering
       })}>
       <></>
       {children}

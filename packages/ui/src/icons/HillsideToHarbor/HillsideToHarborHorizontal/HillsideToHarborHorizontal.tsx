@@ -1,13 +1,11 @@
 import type { FC, SVGProps } from "react";
 import type { RemoveFields } from "../../../typedefs/helpers";
 
-
 const HillsideToHarborHorizontal: FC<
   RemoveFields<SVGProps<SVGSVGElement>, "viewBox" | "fill" | "xmlns">
 > = ({ ...svg }) => (
   <svg
     {...svg}
-
     viewBox='0 0 870 374'
     fill='none'
     xmlns='http://www.w3.org/2000/svg'>

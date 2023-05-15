@@ -1,6 +1,7 @@
 import { getHomePageData } from "@/lib/fetch-wp";
 import AboutUs from "@/ui/About";
 import Email from "@/ui/Email";
+import Cta from "@/ui/sections/Cta";
 import { HeroSplit } from "@/ui/sections/HeroSplit";
 import SubHero from "@/ui/sections/SubHero";
 import WeBuyFixerUppers from "@/ui/sections/WeBuyFixerUppers";
@@ -19,6 +20,7 @@ export default async function Page() {
       <SubHero />
       <WeBuyFixerUppers />
       <WeCreateWinWins />
+      <Cta />
       <AboutUs {...data.page.about} />
       <Email />
     </>

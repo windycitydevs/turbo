@@ -14,7 +14,7 @@ const WeCreateWinWins = () => {
           />
         </svg>
         <svg
-          className='absolute right-0 top-0 h-[40.9027778vw] max-h-[1178px] 6xl:w-[36.5%] w-[33.828%] max-w-full'
+          className='6xl:w-[36.5%] absolute right-0 top-0 h-[40.9027778vw] max-h-[1178px] w-[33.828%] max-w-full'
           viewBox='0 0 382 589'
           fill='none'
           xmlns='http://www.w3.org/2000/svg'>
