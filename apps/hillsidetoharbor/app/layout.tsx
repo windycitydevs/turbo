@@ -144,7 +144,7 @@ const DomainDisplayCondensed = localFont({
       style: "normal"
     }
   ]
-});
+}) satisfies NextFontWithVariable;
 
 const SohneBuch = localFont<"--font-sohne-buch">({
   variable: "--font-sohne-buch",

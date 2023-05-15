@@ -1,11 +1,13 @@
-import type { FC } from "react";
-import type { UI } from "../../../typedefs/namespace";
+import type { FC, SVGProps } from "react";
+import type { RemoveFields } from "../../../typedefs/helpers";
 
 const HillsideToHarborHorizontal: FC<
-  UI.Helpers.RemoveFields<UI.TSX.JSXSelect<"svg">, "viewBox" | "fill" | "xmlns">
+  RemoveFields<SVGProps<SVGSVGElement>, "viewBox" | "fill" | "xmlns">
 > = ({ ...svg }) => (
   <svg
     {...svg}
+    width={typeof svg?.width === "undefined" ? "217.5" : svg.width}
+    height={typeof svg?.height === "undefined" ? "93.5" : svg.height}
     viewBox='0 0 870 374'
     fill='none'
     xmlns='http://www.w3.org/2000/svg'>
@@ -94,15 +96,14 @@ const HillsideToHarborHorizontal: FC<
     </g>
     <defs>
       <clipPath id='clip0_407_50'>
-        <rect width='869.03' height='373.4' fill='white' />
+        <rect
+          width={typeof svg?.width === "undefined" ? "217.2575" : svg.width}
+          height={typeof svg?.height === "undefined" ? "93.35" : svg.height}
+          fill='white'
+        />
       </clipPath>
     </defs>
   </svg>
 );
-
-HillsideToHarborHorizontal.defaultProps = {
-  width: "870",
-  height: "374"
-};
 
 export default HillsideToHarborHorizontal;

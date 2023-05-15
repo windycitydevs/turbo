@@ -2,13 +2,12 @@ import { safeNumberParser } from "@/lib/safe-number-parser";
 import type { AboutSectionProps } from "@/types/home-props";
 import { blurDataURLShimmer } from "@windycitydevs/ui";
 import Image from "next/image";
-import { cache } from "react";
 
 export const preloadAboutUs = ({ ...props }: Parameters<typeof AboutUs>[0]) => {
   void AboutUs({ ...props });
 };
 
-const AboutUs = cache(({ aboutimage, abouttextarea }: AboutSectionProps) => {
+const AboutUs = ({ aboutimage, abouttextarea }: AboutSectionProps) => {
   return (
     <div className='font-basis-grotesque-pro relative bg-gray-100 '>
       <div className='bg-h2hPinkOrange relative h-80 overflow-hidden grayscale md:absolute md:left-0 md:h-full md:w-1/3 lg:w-1/3'>
@@ -70,7 +69,7 @@ const AboutUs = cache(({ aboutimage, abouttextarea }: AboutSectionProps) => {
       </div>
     </div>
   );
-});
+};
 
 export default AboutUs;
 

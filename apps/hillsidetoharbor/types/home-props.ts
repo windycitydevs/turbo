@@ -1,4 +1,6 @@
-import { SafeNumber } from "./wp-types";
+export type SafeNumber = `${number}` | number;
+
+export type PageIdType = "URI" | "ID" | "DATABASE_ID";
 
 export type MediaDetailsProps = {
   __typename: "MediaDetails";

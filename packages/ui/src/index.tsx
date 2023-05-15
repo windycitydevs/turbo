@@ -74,18 +74,27 @@ export { default as blurDataURLShimmer } from "./lib/shimmer";
 export { default as SubHero } from "./molecules/SubHero";
 // types
 export { default as WcdEnums } from "./typedefs/enum";
+export {
+  inferObj,
+  objInference,
+  type ConditionalToRequired,
+  type Depth,
+  type ExcludeFieldEnumerable,
+  type FieldToConditionallyNever,
+  type InferDepth,
+  type RemoveFields,
+  type RequiredToConditional,
+  type Unenumerate,
+  type UnwrapPromise,
+  type Without,
+  type XOR
+} from "./typedefs/helpers";
 export { default as UI } from "./typedefs/namespace";
 // utils
 export { default as CaseHelpers } from "./utils/CaseHelpers";
 export { default as CountsSorter } from "./utils/CountsSorter";
 export { default as DateTimeHelper } from "./utils/DateTimeHelper";
 export { default as MergeRefs } from "./utils/MergeRefs";
-export {
-  inferObj,
-  objInference,
-  type Depth,
-  type InferDepth
-} from "./utils/ObjectInference";
 export {
   default as safeLdJsonReplacer,
   toJson
