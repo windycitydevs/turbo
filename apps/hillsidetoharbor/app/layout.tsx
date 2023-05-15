@@ -32,6 +32,7 @@ export const metadata = {
     follow: true,
     index: true
   },
+  verification: { yandex: "233588648fdd9692" },
   openGraph: {
     title: "Hillside To Harbor | Helping You Navigate Challenging Situations",
     description: `Helping You Navigate Challenging Situations - ${getSiteUrl(

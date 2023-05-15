@@ -7,10 +7,10 @@ import { join } from "path";
 // however, NODE_ENV is equal to dev when nextjs is spun up
 
 export const defaultProductionUrl =
-  "https://turbo-hillsidetoharbor.vercel.app" as const;
+  "https://www.hillsidetoharbor.com" as const;
 
 export const defaultPreviewUrl =
-  "https://dev-turbo-hillsidetoharbor.vercel.app" as const;
+  "https://dev.hillsidetoharbor.com" as const;
 
 export const defaultLocalUrl = "http://localhost:3000" as const;
 

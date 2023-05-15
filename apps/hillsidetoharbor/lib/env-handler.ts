@@ -1,8 +1,8 @@
 export const getProductionUrl =
-  "https://turbo-hillsidetoharbor.vercel.app" as const;
+  "https://www.hillsidetoharbor.com" as const;
 
 export const getPreviewUrl =
-  "https://dev-turbo-hillsidetoharbor.vercel.app" as const;
+  "https://dev.hillsidetoharbor.com" as const;
 
 export const getLocalUrl = "http://localhost:3000" as const;
 

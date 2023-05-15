@@ -3,8 +3,8 @@ const handleUrl = env =>
   !env
     ? "http://localhost:3000"
     : process.env.VERCEL_ENV === "production"
-    ? "https://turbo-hillsidetoharbor.vercel.app"
-    : "https://dev-turbo-hillsidetoharbor.vercel.app";
+    ? "https://www.hillsidetoharbor.com"
+    : "https://dev.hillsidetoharbor.com";
 
 // @ts-check
 /** @type {import('next-sitemap').IConfig} */
