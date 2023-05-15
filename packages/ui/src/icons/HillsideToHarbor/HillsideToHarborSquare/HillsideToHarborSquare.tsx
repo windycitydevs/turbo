@@ -1,8 +1,8 @@
-import type { FC } from "react";
-import type { UI } from "../../../typedefs/namespace";
+import type { FC, SVGProps } from "react";
+import type { RemoveFields } from "../../../typedefs/helpers";
 
 const HillsideToHarborSquare: FC<
-  UI.Helpers.RemoveFields<UI.TSX.JSXSelect<"svg">, "viewBox" | "fill" | "xmlns">
+  RemoveFields<SVGProps<SVGSVGElement>, "viewBox" | "fill" | "xmlns">
 > = ({ ...svg }) => (
   <svg
     {...svg}
@@ -39,10 +39,5 @@ const HillsideToHarborSquare: FC<
     </defs>
   </svg>
 );
-
-HillsideToHarborSquare.defaultProps = {
-  width: "400",
-  height: "400"
-};
 
 export default HillsideToHarborSquare;
