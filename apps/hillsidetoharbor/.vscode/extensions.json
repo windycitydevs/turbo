@@ -1,0 +1,14 @@
+{
+    // List of extensions recommended for users of this workspace
+    "recommendations": [
+        "bradlc.vscode-tailwindcss",
+        "esbenp.prettier-vscode",
+        "meganrogge.template-string-converter",
+        "pflannery.vscode-versionlens",
+        "ms-vscode.vscode-typescript-next",
+        "donjayamanne.githistory",
+        "ipatalas.vscode-postfix-ts"
+    ],
+    // List of extensions recommended by VS Code not recommended for users of this workspace
+    "unwantedRecommendations": []
+}

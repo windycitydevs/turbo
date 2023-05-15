@@ -1,45 +1,37 @@
-import { NewspaperIcon, PhoneIcon } from "@heroicons/react/solid";
-import type { UI } from "@windycitydevs/ui";
 import Image from "next/image";
-import type { SVGProps } from "react";
-
-export const LifebuoyIcon = ({ ...svg }: UI.TSX.ReactMapped["svg"]) => (
-  <svg
-    xmlns='http://www.w3.org/2000/svg'
-    viewBox='0 0 20 20'
-    fill='currentColor'
-    {...svg}>
-    <path
-      fillRule='evenodd'
-      d='M7.171 4.146l1.947 2.466a3.514 3.514 0 011.764 0l1.947-2.466a6.52 6.52 0 00-5.658 0zm8.683 3.025l-2.466 1.947c.15.578.15 1.186 0 1.764l2.466 1.947a6.52 6.52 0 000-5.658zm-3.025 8.683l-1.947-2.466c-.578.15-1.186.15-1.764 0l-1.947 2.466a6.52 6.52 0 005.658 0zM4.146 12.83l2.466-1.947a3.514 3.514 0 010-1.764L4.146 7.171a6.52 6.52 0 000 5.658zM5.63 3.297a8.01 8.01 0 018.738 0 8.031 8.031 0 012.334 2.334 8.01 8.01 0 010 8.738 8.033 8.033 0 01-2.334 2.334 8.01 8.01 0 01-8.738 0 8.032 8.032 0 01-2.334-2.334 8.01 8.01 0 010-8.738A8.03 8.03 0 015.63 3.297zm5.198 4.882a2.008 2.008 0 00-2.243.407 1.994 1.994 0 00-.407 2.243 1.993 1.993 0 00.992.992 2.008 2.008 0 002.243-.407c.176-.175.31-.374.407-.585a2.008 2.008 0 00-.407-2.243 1.993 1.993 0 00-.585-.407z'
-      clipRule='evenodd'
-    />
-  </svg>
-);
+import { type ContactUsIconProps } from "./vectors/Helpers";
+import Lifebuoy, { type LifebuoyProps } from "./vectors/Lifebuoy";
+import NewspaperIcon, { type NewsPaperProps } from "./vectors/Newspaper";
+import PhoneIcon from "./vectors/Phone";
+type TargetProps<T extends 0 | 1 | 2 = 0 | 1 | 2> = [
+  ContactUsIconProps,
+  LifebuoyProps,
+  NewsPaperProps
+][T];
 
 const cards = [
   {
     name: "Sales",
     description:
       "Consectetur vel non. Rerum ut consequatur nobis unde. Enim est quo corrupti consequatur.",
-    icon: PhoneIcon
+    icon: ({ ...props }: TargetProps<0>) => <PhoneIcon {...props} />
   },
   {
     name: "Technical Support",
     description:
       "Quod possimus sit modi rerum exercitationem quaerat atque tenetur ullam.",
-    icon: LifebuoyIcon
+    icon: ({ ...props }: TargetProps<1>) => <Lifebuoy {...props} />
   },
   {
     name: "Media Inquiries",
     description:
       "Ratione et porro eligendi est sed ratione rerum itaque. Placeat accusantium impedit eum odit.",
-    icon: NewspaperIcon
+    icon: ({ ...props }: TargetProps<2>) => <NewspaperIcon {...props} />
   }
 ] satisfies {
-  name: string;
+  name: "Sales" | "Technical Support" | "Media Inquiries";
   description: string;
-  icon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+  icon: ({ ...props }: TargetProps<0 | 1 | 2>) => JSX.Element;
 }[];
 
 export default function ContactUs() {
@@ -77,7 +69,7 @@ export default function ContactUs() {
       <svg
         viewBox='0 0 1097 845'
         aria-hidden='true'
-        className='absolute left-1/2 -top-52 -z-10 w-[68.5625rem] -translate-x-1/2 transform-gpu blur-3xl sm:top-[-28rem] sm:ml-16 sm:translate-x-0'>
+        className='absolute -top-52 left-1/2 -z-10 w-[68.5625rem] -translate-x-1/2 transform-gpu blur-3xl sm:top-[-28rem] sm:ml-16 sm:translate-x-0'>
         <path
           fill='url(#49c00522-612e-41d3-bb32-ce7d1fa28850)'
           fillOpacity='.2'

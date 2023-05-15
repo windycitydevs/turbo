@@ -1,12 +1,15 @@
-const siteUrl =
-  process.env.NODE_ENV === "development"
+/**@param {string|undefined} env */
+const handleUrl = env =>
+  !env
     ? "http://localhost:3000"
-    : `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`;
+    : process.env.VERCEL_ENV === "production"
+    ? "https://turbo-hillsidetoharbor.vercel.app"
+    : "https://dev-turbo-hillsidetoharbor.vercel.app";
 
 // @ts-check
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: siteUrl,
+  siteUrl: handleUrl(process.env.NODE_ENV),
   changefreq: "daily",
   generateIndexSitemap: false,
   priority: 0.9,

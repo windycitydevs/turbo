@@ -3,3 +3,4 @@ storybook-static
 .next
 dist
 .changeset
+apps/hillsidetoharbor/og

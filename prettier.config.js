@@ -12,13 +12,5 @@ module.exports = {
   bracketSpacing: true,
   quoteProps: "as-needed",
   printWidth: 80,
-  plugins: [require("prettier-plugin-tailwindcss")],
-  overrides: [
-    {
-      files: ["*yaml", "*yml"],
-      options: {
-        singleQuote: false
-      }
-    }
-  ]
+  plugins: [require("prettier-plugin-tailwindcss")]
 };

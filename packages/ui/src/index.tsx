@@ -77,12 +77,19 @@ export { default as WcdEnums } from "./typedefs/enum";
 export { default as UI } from "./typedefs/namespace";
 // utils
 export { default as CaseHelpers } from "./utils/CaseHelpers";
+export { default as CountsSorter } from "./utils/CountsSorter";
 export { default as DateTimeHelper } from "./utils/DateTimeHelper";
 export { default as MergeRefs } from "./utils/MergeRefs";
-export { default as queryParamHandler } from "./utils/q-param-handler";
+export {
+  inferObj,
+  objInference,
+  type Depth,
+  type InferDepth
+} from "./utils/ObjectInference";
 export {
   default as safeLdJsonReplacer,
   toJson
 } from "./utils/SafeJsonLdReplacer";
 export { default as toSlug } from "./utils/Slugify";
 export { default as useIsomorphicLayoutEffect } from "./utils/UseIsomorphicLayoutEffect";
+export { default as queryParamHandler } from "./utils/q-param-handler";

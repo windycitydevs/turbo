@@ -28,7 +28,7 @@ const AboutUs = cache(({ aboutimage, abouttextarea }: AboutSectionProps) => {
         <svg
           viewBox='0 0 926 676'
           aria-hidden='true'
-          className='absolute left-24 -bottom-24 w-[57.875rem] transform-gpu blur-[118px]'>
+          className='absolute -bottom-24 left-24 w-[57.875rem] transform-gpu blur-[118px]'>
           <path
             fill='url(#60c3c621-93e0-4a09-a0e6-4c228a0116d8)'
             fillOpacity='.4'
@@ -48,8 +48,8 @@ const AboutUs = cache(({ aboutimage, abouttextarea }: AboutSectionProps) => {
           </defs>
         </svg>
       </div>
-      <div className='relative mx-auto max-w-7xl py-24 sm:py-32 lg:py-40 lg:px-8'>
-        <div className='pr-6 pl-6 md:ml-auto md:w-2/3 md:pl-16 lg:w-2/3 lg:pl-12 lg:pr-0 xl:pl-32'>
+      <div className='relative mx-auto max-w-7xl py-24 sm:py-32 lg:px-8 lg:py-40'>
+        <div className='pl-6 pr-6 md:ml-auto md:w-2/3 md:pl-16 lg:w-2/3 lg:pl-12 lg:pr-0 xl:pl-32'>
           <h4 className='text-h2hTurquoise mt-2 text-4xl font-bold tracking-tight'>
             About Us
           </h4>

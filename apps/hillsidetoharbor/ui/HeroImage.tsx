@@ -19,11 +19,13 @@ export const preload = ({
 }: Parameters<typeof HeroImageComponent>[0]) => {
   void HeroImageComponent({ ...props });
 };
+
 export type SafeNumber = `${number}` | number;
+
 const HeroImageComponent = cache(
   ({ heroImage, cta, subCta }: HeroCPTUIProps) => {
     return (
-      <div className='relative isolate mx-auto overflow-hidden bg-gray-900  py-24 px-6 transition-all sm:pt-20 sm:pb-32 lg:px-8'>
+      <div className='relative isolate mx-auto overflow-hidden bg-gray-900  px-6 py-24 transition-all sm:pb-32 sm:pt-20 lg:px-8'>
         <Image
           className={cn(
             `absolute inset-0 -z-10 h-full w-full bg-fixed object-cover object-center`
@@ -69,7 +71,7 @@ const HeroImageComponent = cache(
           xmlns='http://www.w3.org/2000/svg'
           viewBox='0 0 1097 845'
           aria-hidden='true'
-          className='absolute left-1/2 -top-52 -z-10 w-[68.5625rem] -translate-x-1/2 transform-gpu blur-3xl sm:top-[-28rem] sm:ml-16 sm:translate-x-0'>
+          className='absolute -top-52 left-1/2 -z-10 w-[68.5625rem] -translate-x-1/2 transform-gpu blur-3xl sm:top-[-28rem] sm:ml-16 sm:translate-x-0'>
           <path
             fill='url(#8ddc7edb-8983-4cd7-bccb-79ad21097d70)'
             fillOpacity='.2'
@@ -88,7 +90,7 @@ const HeroImageComponent = cache(
             </linearGradient>
           </defs>
         </svg>
-        <div className='mx-auto max-w-[75vw] transform-gpu select-none gap-y-10 bg-gradient-to-r from-white/[0.2] via-white/[0.5] to-white/[0.2] pt-14 pb-4 text-center align-bottom transition-transform delay-200 duration-500 ease-in-out [flex:auto] sm:max-w-2xl sm:from-white/[0.175] sm:via-white/[0.5] sm:to-white/[0.175]'>
+        <div className='mx-auto max-w-[75vw] transform-gpu select-none gap-y-10 bg-gradient-to-r from-white/[0.2] via-white/[0.5] to-white/[0.2] pb-4 pt-14 text-center align-bottom transition-transform delay-200 duration-500 ease-in-out [flex:auto] sm:max-w-2xl sm:from-white/[0.175] sm:via-white/[0.5] sm:to-white/[0.175]'>
           <div className='sr-only sm:not-sr-only sm:mx-auto sm:mb-5 sm:mt-auto sm:h-fit sm:min-h-fit sm:w-fit sm:flex-auto sm:content-center sm:pb-8 sm:text-center'>
             <HillsideToHarborHorizontal
               width={435}
@@ -113,30 +115,3 @@ const HeroImageComponent = cache(
 );
 
 export default HeroImageComponent;
-/**
-         <Image
-          className={cn(`absolute inset-0 -z-10 h-full w-full object-cover`)}
-          style={{ objectFit: "cover" }}
-          quality={100}
-          priority={true}
-          alt='archer'
-          height={heroImage.mediaDetails.height}
-          width={heroImage.mediaDetails.width}
-          blurDataURL={blurDataURLShimmer({
-            h:
-              typeof heroImage.mediaDetails.height === "string"
-                ? heroImage.mediaDetails.height?.includes(".") === true
-                  ? Number.parseFloat(heroImage.mediaDetails.height)
-                  : Number.parseInt(heroImage.mediaDetails.height, 10)
-                : heroImage.mediaDetails.height,
-            w:
-              typeof heroImage.mediaDetails.width === "string"
-                ? heroImage.mediaDetails.width.includes(".") === true
-                  ? Number.parseFloat(heroImage.mediaDetails.width)
-                  : Number.parseInt(heroImage.mediaDetails.width, 10)
-                : heroImage.mediaDetails.width
-          })}
-          placeholder='blur'
-          src={heroImage.sourceUrl}
-        />
- */

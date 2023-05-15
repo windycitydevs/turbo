@@ -58,7 +58,7 @@ const Nav: FC<NavProps> = ({
   return (
     <nav
       className={clsx(
-        "bg-background font-gotham shadow-magical relative z-20 mx-auto w-full justify-between border-b border-gray-200 py-5 px-10",
+        "bg-background font-gotham shadow-magical relative z-20 mx-auto w-full justify-between border-b border-gray-200 px-10 py-5",
         className ? className : ""
       )}
       {...rest}>
@@ -78,7 +78,7 @@ const Nav: FC<NavProps> = ({
             </div>
           </div>
         </div>
-        <div className='md:justify-stretch md:justify-stretch sr-only md:not-sr-only md:mx-10 md:mt-0 md:flex md:flex-row md:space-y-0 md:space-x-3'>
+        <div className='sr-only md:not-sr-only md:mx-10 md:mt-0 md:flex md:flex-row md:justify-stretch md:justify-stretch md:space-x-3 md:space-y-0'>
           <span className='text-accents-5 ml-2 flex h-full cursor-not-allowed items-center outline-1 '>
             <Button
               variant={variantPhone ?? "secondary"}

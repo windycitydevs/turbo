@@ -29,7 +29,7 @@ export const SubHeroTwo = cache(({ subHeroImages3 }: HeroCPTUIProps) => {
                 {sub.subHeroImageCta}
               </h3>
               <Image
-                className='my-2 mx-auto aspect-square h-auto w-10/12 border-collapse self-center rounded-full border-2 border-gray-100 object-cover drop-shadow-sm sm:w-full'
+                className='mx-auto my-2 aspect-square h-auto w-10/12 border-collapse self-center rounded-full border-2 border-gray-100 object-cover drop-shadow-sm sm:w-full'
                 src={sub.subHeroImage.sourceUrl}
                 alt={sub.subHeroImage.altText ?? sub.subHeroImageCta}
                 quality={100}
