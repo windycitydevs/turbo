@@ -1,8 +1,6 @@
-export const getProductionUrl =
-  "https://www.hillsidetoharbor.com" as const;
+export const getProductionUrl = "https://www.hillsidetoharbor.com" as const;
 
-export const getPreviewUrl =
-  "https://dev.hillsidetoharbor.com" as const;
+export const getPreviewUrl = "https://dev.hillsidetoharbor.com" as const;
 
 export const getLocalUrl = "http://localhost:3000" as const;
 

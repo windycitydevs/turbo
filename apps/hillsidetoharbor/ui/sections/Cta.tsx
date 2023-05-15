@@ -1,32 +1,36 @@
 "use client";
 import { Inspector } from "@windycitydevs/ui";
-import React, { FormEvent, useCallback, useEffect, useState } from "react";
+import React, { FormEvent, useCallback, useState } from "react";
 import useSWR from "swr";
-import useSWRMutation from 'swr/mutation'
 
 const fetcher = (input: RequestInfo, init?: RequestInit): Promise<any> =>
   fetch(input, init).then(res => res.json());
-type SWRProps = {  emailState: string;
-  firstNameState: string;
-  lastNameState: string;
-  phoneNumberState: string;
-  messageState: string;
-  isSubmitted: boolean;}
-type FetcherOptions = { options: Readonly<{ 
+type SWRProps = {
   emailState: string;
   firstNameState: string;
   lastNameState: string;
   phoneNumberState: string;
   messageState: string;
   isSubmitted: boolean;
- }> }
+};
+type FetcherOptions = {
+  options: Readonly<{
+    emailState: string;
+    firstNameState: string;
+    lastNameState: string;
+    phoneNumberState: string;
+    messageState: string;
+    isSubmitted: boolean;
+  }>;
+};
 
 function useSwrSync({
   emailState,
-  firstNameState, 
-  isSubmitted, 
-  lastNameState, 
-  messageState, phoneNumberState
+  firstNameState,
+  isSubmitted,
+  lastNameState,
+  messageState,
+  phoneNumberState
 }: {
   emailState: string;
   firstNameState: string;
@@ -34,9 +38,14 @@ function useSwrSync({
   phoneNumberState: string;
   messageState: string;
   isSubmitted: boolean;
-  }) {
-
-  const {data, isValidating, error} = useSWR(isSubmitted ? `/api/contact?email=${emailState}&firstName=${firstNameState}&lastName=${lastNameState}&phoneNumber=${phoneNumberState}&messageState=${messageState}` : null, fetcher, {})
+}) {
+  const { data, isValidating, error } = useSWR(
+    isSubmitted
+      ? `/api/contact?email=${emailState}&firstName=${firstNameState}&lastName=${lastNameState}&phoneNumber=${phoneNumberState}&messageState=${messageState}`
+      : null,
+    fetcher,
+    {}
+  );
 }
 export function Cta() {
   const [emailState, setEmailState] = useState<string | null>(null);
