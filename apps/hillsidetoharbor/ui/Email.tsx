@@ -7,7 +7,7 @@ const Email = () => {
         <div className='absolute inset-y-0 left-0 w-1/3 bg-gray-50' />
       </div>
       <div className='max-w-10xl relative mx-auto lg:grid lg:grid-cols-5'>
-        <div className='bg-gray-50 py-16 px-6 lg:col-span-2 lg:px-8 lg:py-24 xl:pr-12'>
+        <div className='bg-gray-50 px-6 py-16 lg:col-span-2 lg:px-8 lg:py-24 xl:pr-12'>
           <div className='mx-auto max-w-lg'>
             <h2 className='text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl'>
               Get in touch
@@ -27,22 +27,32 @@ const Email = () => {
               <div className='mt-6'>
                 <dt className='sr-only'>Phone number</dt>
                 <dd className='flex'>
-                <a rel="noopener" target={"_blank"} className='ml-3' href="tel:+18652149643"> 
-                  <PhoneIcon
-                    className='h-6 w-6 flex-shrink-0 text-gray-400'
-                    aria-hidden='true'
-                  />
-                  <span className='ml-3'>{"(865)-214-9643"}</span></a>
+                  <a
+                    rel='noopener'
+                    target={"_blank"}
+                    className='ml-3'
+                    href='tel:+18652149643'>
+                    <PhoneIcon
+                      className='h-6 w-6 flex-shrink-0 text-gray-400'
+                      aria-hidden='true'
+                    />
+                    <span className='ml-3'>{"(865)-214-9643"}</span>
+                  </a>
                 </dd>
               </div>
               <div className='mt-3'>
                 <dt className='sr-only'>Email</dt>
                 <dd className='flex'>
-                <a rel="noopener" target={"_blank"} className='ml-3'>   <EnvelopeIcon
-                    className='h-6 w-6 flex-shrink-0 text-gray-400'
-                    aria-hidden='true'
-                  />
-                  <span className="ml-3">{"mailto:contact@hillsidetoHarbor.com"}</span></a>
+                  <a rel='noopener' target={"_blank"} className='ml-3'>
+                    {" "}
+                    <EnvelopeIcon
+                      className='h-6 w-6 flex-shrink-0 text-gray-400'
+                      aria-hidden='true'
+                    />
+                    <span className='ml-3'>
+                      {"mailto:contact@hillsidetoHarbor.com"}
+                    </span>
+                  </a>
                 </dd>
               </div>
             </dl>
@@ -55,7 +65,7 @@ const Email = () => {
             </p> */}
           </div>
         </div>
-        <div className='bg-white py-16 px-6 lg:col-span-3 lg:py-24 lg:px-8 xl:pl-12'>
+        <div className='bg-white px-6 py-16 lg:col-span-3 lg:px-8 lg:py-24 xl:pl-12'>
           <div className='mx-auto max-w-lg lg:max-w-none'>
             <form action='#' method='POST' className='grid grid-cols-1 gap-y-6'>
               <div>
@@ -69,7 +79,7 @@ const Email = () => {
                   name='full-name'
                   id='full-name'
                   autoComplete='name'
-                  className='focus:border-h2hTurquoise focus:ring-h2hTurquoise block w-full rounded-md border-gray-300 py-3 px-4 placeholder-gray-500 shadow-sm'
+                  className='focus:border-h2hTurquoise focus:ring-h2hTurquoise block w-full rounded-md border-gray-300 px-4 py-3 placeholder-gray-500 shadow-sm'
                   placeholder='Full name'
                 />
               </div>
@@ -84,7 +94,7 @@ const Email = () => {
                   name='email'
                   type='email'
                   autoComplete='email'
-                  className='focus:border-h2hTurquoise focus:ring-h2hTurquoise block w-full rounded-md border-gray-300 py-3 px-4 placeholder-gray-500 shadow-sm'
+                  className='focus:border-h2hTurquoise focus:ring-h2hTurquoise block w-full rounded-md border-gray-300 px-4 py-3 placeholder-gray-500 shadow-sm'
                   placeholder='Email'
                 />
               </div>
@@ -99,7 +109,7 @@ const Email = () => {
                   name='phone'
                   id='phone'
                   autoComplete='tel'
-                  className='focus:border-h2hTurquoise focus:ring-h2hTurquoise block w-full rounded-md border-gray-300 py-3 px-4 placeholder-gray-500 shadow-sm'
+                  className='focus:border-h2hTurquoise focus:ring-h2hTurquoise block w-full rounded-md border-gray-300 px-4 py-3 placeholder-gray-500 shadow-sm'
                   placeholder='Phone'
                 />
               </div>
@@ -113,7 +123,7 @@ const Email = () => {
                   id='message'
                   name='message'
                   rows={4}
-                  className='focus:border-h2hTurquoise focus:ring-h2hTurquoise block w-full rounded-md border-gray-300 py-3 px-4 placeholder-gray-500 shadow-sm'
+                  className='focus:border-h2hTurquoise focus:ring-h2hTurquoise block w-full rounded-md border-gray-300 px-4 py-3 placeholder-gray-500 shadow-sm'
                   placeholder='Message'
                   defaultValue={""}
                 />
@@ -121,7 +131,7 @@ const Email = () => {
               <div>
                 <button
                   type='submit'
-                  className='inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-6 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'>
+                  className='inline-flex justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'>
                   Submit
                 </button>
               </div>

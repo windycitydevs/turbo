@@ -69,7 +69,7 @@ const SubHeroScaffold: FC<{
       <svg
         viewBox='0 0 1097 845'
         aria-hidden='true'
-        className='absolute left-1/2 -top-52 -z-10 w-[68.5625rem] -translate-x-1/2 transform-gpu blur-3xl sm:top-[-28rem] sm:ml-16 sm:translate-x-0'>
+        className='absolute -top-52 left-1/2 -z-10 w-[68.5625rem] -translate-x-1/2 transform-gpu blur-3xl sm:top-[-28rem] sm:ml-16 sm:translate-x-0'>
         <path
           fill='url(#49c00522-612e-41d3-bb32-ce7d1fa28850)'
           fillOpacity='.2'

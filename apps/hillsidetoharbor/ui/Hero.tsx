@@ -15,8 +15,8 @@ export const Hero: FC<PropsWithChildren> = ({ children }) => {
         />
       </div>
       <div
-        className='font-kaisei-tokumin relative mx-auto origin-center py-28
-    px-4 align-middle'>
+        className='font-kaisei-tokumin relative mx-auto origin-center px-4
+    py-28 align-middle'>
         <h1>Hero GIF from the EDGE</h1>
         <h3
           className='absolute top-0 font-normal uppercase

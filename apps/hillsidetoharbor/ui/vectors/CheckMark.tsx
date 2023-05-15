@@ -1,8 +1,8 @@
-import type { UI } from "@windycitydevs/ui";
-import type { FC } from "react";
+import type { RemoveFields } from "@/types/helpers";
+import type { FC, SVGProps } from "react";
 
 const CheckMark: FC<
-  UI.Helpers.RemoveFields<UI.TSX.JSXSelect<"svg">, "viewBox" | "fill" | "xmlns">
+  RemoveFields<SVGProps<SVGSVGElement>, "xmlns" | "viewBox" | "fill">
 > = ({ ...svg }) => (
   <svg
     {...svg}

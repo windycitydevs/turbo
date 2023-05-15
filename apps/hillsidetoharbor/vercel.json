@@ -128,6 +128,15 @@
       ]
     },
     {
+      "source": "/H2HOG.png",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, must-revalidate=1987200"
+        }
+      ]
+    },
+    {
       "source": "/VerticalWithTextSquare.png",
       "headers": [
         {
@@ -191,6 +200,15 @@
       ]
     },
     {
+      "source": "/favicon.ico",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, must-revalidate=1987200"
+        }
+      ]
+    },
+    {
       "source": "/hero.avif",
       "headers": [
         {
@@ -246,6 +264,15 @@
     },
     {
       "source": "/sanity.svg",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, must-revalidate=1987200"
+        }
+      ]
+    },
+    {
+      "source": "/sitemap.xml",
       "headers": [
         {
           "key": "Cache-Control",

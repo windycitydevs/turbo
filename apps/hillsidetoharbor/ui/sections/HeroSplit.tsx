@@ -1,94 +1,86 @@
-"use client";
-import {
-  useCallback,
-  useState,
-  type MouseEvent as ReactMouseEvent,
-  type SyntheticEvent
-} from "react";
-import useSWR from "swr";
 import HeroLogo from "../logos/HeroLogo";
 
-export type ResProps = {
-  readonly userSpecifications: string;
-  readonly ua: string;
-  readonly userDevice: string;
-  readonly viewport: string;
-  readonly data: {
-    readonly lat: string;
-    readonly lng: string;
-    readonly ip: string;
-    readonly browser: string;
-    readonly city: string;
-    readonly country: string;
-  };
-};
+// export type ResProps = {
+//   readonly userSpecifications: string;
+//   readonly ua: string;
+//   readonly userDevice: string;
+//   readonly viewport: string;
+//   readonly data: {
+//     readonly lat: string;
+//     readonly lng: string;
+//     readonly ip: string;
+//     readonly browser: string;
+//     readonly city: string;
+//     readonly country: string;
+//   };
+// };
 
-export const fetcher = (
-  input: RequestInfo,
-  init?: RequestInit
-): Promise<ResProps> =>
-  fetch(input, init).then(res => res.json() satisfies Promise<ResProps>);
+// export const fetcher = (
+//   input: RequestInfo,
+//   init?: RequestInit
+// ): Promise<ResProps> =>
+//   fetch(input, init).then(res => res.json() satisfies Promise<ResProps>);
 
-export const useSWRHook = ({ userAgentKnown }: { userAgentKnown: boolean }) => {
-  const { data, error, isLoading, isValidating } = useSWR(
-    userAgentKnown === false
-      ? process.env.NODE_ENV !== "development"
-        ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/params`
-        : "/api/params"
-      : null,
-    fetcher,
-    {
-      refreshInterval: 100000,
-      fetcher: fetcher
-    }
-  );
+// export const useSWRHook = ({ userAgentKnown }: { userAgentKnown: boolean }) => {
+//   const { data, error, isLoading, isValidating } = useSWR(
+//     userAgentKnown === false
+//       ? process.env.NODE_ENV !== "development"
+//         ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/params`
+//         : "/api/params"
+//       : null,
+//     fetcher,
+//     {
+//       refreshInterval: 100000,
+//       fetcher: fetcher
+//     }
+//   );
 
-  return {
-    data,
-    error,
-    isLoading,
-    isValidating
-  };
-};
+//   return {
+//     data,
+//     error,
+//     isLoading,
+//     isValidating
+//   };
+// };
 
 export const HeroSplit = () => {
-  const [uaKnown, setUaKnown] = useState<boolean>(false);
-  const { data, error, isLoading, isValidating } = useSWRHook({
-    userAgentKnown: uaKnown
-  });
+  // const [uaKnown, setUaKnown] = useState<boolean>(false);
+  // const { data, error, isLoading, isValidating } = useSWRHook({
+  //   userAgentKnown: uaKnown
+  // });
 
-  const [visible, setIsVisible] = useState<boolean>(true);
+  // const [visible, setIsVisible] = useState<boolean>(true);
 
-  const useCallbackClick = useCallback(
-    (e: ReactMouseEvent<HTMLButtonElement, MouseEvent>) => {
-      e.preventDefault();
-      if (visible === true) {
-        setIsVisible(false);
-      }
-    },
-    [visible]
-  );
+  // const useCallbackClick = useCallback(
+  //   (e: ReactMouseEvent<HTMLButtonElement, MouseEvent>) => {
+  //     e.preventDefault();
+  //     if (visible === true) {
+  //       setIsVisible(false);
+  //     }
+  //   },
+  //   [visible]
+  // );
 
-  const useCallbackData = useCallback(
-    (e: SyntheticEvent<HTMLDivElement, Event>) => {
-      e.preventDefault();
-      if (
-        typeof data !== "undefined" &&
-        data?.userDevice?.substring(0).length > 1
-      ) {
-        setUaKnown(true);
-      } else {
-        return;
-      }
-    },
-    [data]
-  );
-  console.log(`[user-data]: ${data ?? {}}` ?? "");
+  // const useCallbackData = useCallback(
+  //   (e: SyntheticEvent<HTMLDivElement, Event>) => {
+  //     e.preventDefault();
+  //     if (
+  //       typeof data !== "undefined" &&
+  //       data?.userDevice?.substring(0).length > 1
+  //     ) {
+  //       setUaKnown(true);
+  //     } else {
+  //       return;
+  //     }
+  //   },
+  //   [data]
+  // );
+  // console.log(`[user-data]: ${data ?? {}}` ?? "");
   return (
     <>
       <div
-        onLoad={useCallbackData}
-        className='grid h-screen min-h-[80vh] grid-cols-1 grid-rows-2 lg:grid-cols-2 lg:grid-rows-1'>
+        // onLoad={useCallbackData}
+        className='grid relative h-screen min-h-[80vh] grid-cols-1 grid-rows-2 lg:grid-cols-2 lg:grid-rows-1 max-h-[1680px]'>
         <div className='bg-neutral relative flex h-full w-full'>
           <div className='relative mx-auto flex w-full flex-col items-center justify-center p-8 sm:p-12'>
             <HeroLogo
@@ -99,11 +91,11 @@ export const HeroSplit = () => {
           </div>
         </div>
         <div className='relative flex'>
-          <div className='bg-h2hDarkGreen absolute inset-0 h-full w-full object-cover  object-center lg:border-collapse lg:border-l-4 lg:border-b-4 lg:border-l-white lg:border-b-white'></div>
+          <div className='bg-h2hDarkGreen absolute inset-0 h-full w-full object-cover  object-center lg:border-collapse lg:border-b-4 lg:border-l-4 lg:border-b-white lg:border-l-white'></div>
           <div className='relative flex w-full flex-col-reverse items-start justify-start pr-8 sm:py-6 sm:pr-12'>
             <div className='flex flex-row-reverse'>
               <span className='inline-flex items-start justify-around space-x-2'>
-                <span className='font-basis-grotesque-pro text-neutral max-2xl ml-5 inline-block text-left align-bottom text-[3.5rem] font-medium leading-[100%] tracking-[-0.06em] lg:max-w-4xl lg:text-[6rem] lg:leading-[6.25rem]'>
+                <span className='font-basis-grotesque-pro text-neutral max-2xl ml-5 inline-block text-left align-bottom text-[6.66666666666667vw] font-medium leading-[6.944444vw] tracking-[-0.06rem] lg:max-w-4xl 6xl:text-[12rem] 6xl:leading-[12.25rem]'>
                   {"Helping You Navigate Challenging Situations"}
                   <svg
                     width='12'

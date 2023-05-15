@@ -3,6 +3,8 @@ import AboutUs, { preloadAboutUs } from "@/ui/About";
 import Email from "@/ui/Email";
 import { HeroSplit } from "@/ui/sections/HeroSplit";
 import SubHero from "@/ui/sections/SubHero";
+import WeBuyFixerUppers from "@/ui/sections/WeBuyFixerUppers";
+import WeCreateWinWins from "@/ui/sections/WeCreateWinWins";
 // import Subhero, { preloadSubHero } from "@/ui/Subhero";
 
 async function getData() {
@@ -18,10 +20,10 @@ export default async function Page() {
     <>
       <HeroSplit />
       <SubHero />
+      <WeBuyFixerUppers />
+      <WeCreateWinWins />
       <AboutUs {...data.page.about} />
       <Email />
     </>
   );
 }
-
-export const revalidate = 60;

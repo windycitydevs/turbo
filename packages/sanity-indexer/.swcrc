@@ -1,0 +1,29 @@
+{
+    "$schema": "https://json.schemastore.org/swcrc",
+    "module": {
+      "type": "es6"
+    },
+    "jsc": {
+      "target": "es2022",
+      "loose": true,
+      "parser": {
+        "dts": true,
+        "syntax": "typescript",
+        "tsx": true,
+        "dynamicImport": true
+      },
+      "transform": {
+        "react": {
+          "pragma": "React.createElement",
+          "pragmaFrag": "React.Fragment",
+          "runtime": "automatic",
+          "throwIfNamespace": true,
+          "development": false,
+          "useBuiltins": false
+        }
+      },
+      "externalHelpers": true,
+      "keepClassNames": true
+    },
+    "minify": false
+  }

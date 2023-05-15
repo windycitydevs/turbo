@@ -11,7 +11,7 @@ export const preload = () => {
 
 const VideoComponent = cache(() => {
   return (
-    <div className='relative isolate mx-auto overflow-hidden bg-gray-900 py-24 px-6 sm:py-32 lg:px-8'>
+    <div className='relative isolate mx-auto overflow-hidden bg-gray-900 px-6 py-24 sm:py-32 lg:px-8'>
       <Image
         className={cn(`absolute inset-0 -z-10 h-full w-full object-cover`)}
         style={{ objectFit: "contain" }}
@@ -58,7 +58,7 @@ const VideoComponent = cache(() => {
         xmlns='http://www.w3.org/2000/svg'
         viewBox='0 0 1097 845'
         aria-hidden='true'
-        className='absolute left-1/2 -top-52 -z-10 w-[68.5625rem] -translate-x-1/2 transform-gpu blur-3xl sm:top-[-28rem] sm:ml-16 sm:translate-x-0'>
+        className='absolute -top-52 left-1/2 -z-10 w-[68.5625rem] -translate-x-1/2 transform-gpu blur-3xl sm:top-[-28rem] sm:ml-16 sm:translate-x-0'>
         <path
           fill='url(#8ddc7edb-8983-4cd7-bccb-79ad21097d70)'
           fillOpacity='.2'
@@ -90,4 +90,4 @@ const VideoComponent = cache(() => {
 });
 
 export default VideoComponent;
-// ${Buffer.from(Buffer.from((swrData?.data  ? swrData.data : "").valueOf() as string).toJSON().data).valueOf()}`
+

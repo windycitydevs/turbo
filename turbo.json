@@ -13,31 +13,12 @@
         ".next/**"
       ]
     },
-    "drisdell#build": {
-      "dependsOn": [
-        "^build"
-      ],
-      "outputs": [
-        ".next/**"
-      ]
-    },
     "express#build": {
       "dependsOn": [
         "^build"
       ],
       "outputs": [
         "dist/**"
-      ],
-      "env": [
-        "PORT"
-      ]
-    },
-    "faderoom#build": {
-      "dependsOn": [
-        "^build"
-      ],
-      "outputs": [
-        ".next/**"
       ],
       "env": [
         "PORT"
