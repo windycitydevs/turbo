@@ -1,11 +1,13 @@
 import { getSiteUrl } from "@/lib/env-handler";
 import { DefaultHead } from "@/ui/DefaultHead";
+import * as gtag from "@/utils/analytics";
 import { HillsideToHarborHorizontal } from "@windycitydevs/ui";
 import cn from "clsx";
 import type { Metadata } from "next";
 import type { NextFontWithVariable } from "next/dist/compiled/@next/font/dist/types";
 import localFont from "next/font/local";
 import Link from "next/link";
+import Script from "next/script";
 import type { ReactNode } from "react";
 import "./global.css";
 
@@ -188,6 +190,29 @@ export default async function RootLayout({
           </Link>
         </footer>
       </body>
+      <Script
+        async
+        strategy='worker'
+        id='gtag-init'
+        key={"gtag-init".concat(gtag.GA_TRACKING_ID ?? "").trim()}
+        dangerouslySetInnerHTML={{
+          __html: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${gtag.GA_TRACKING_ID}', {
+            page_path: window.location.pathname,
+          });
+         `
+        }}
+      />
+      <Script
+        async
+        id={gtag.GA_TRACKING_ID}
+        data-test={gtag.GA_TRACKING_ID}
+        strategy='afterInteractive'
+        src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`}
+      />
     </html>
   );
 }

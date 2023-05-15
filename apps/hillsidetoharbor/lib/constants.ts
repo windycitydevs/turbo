@@ -6,11 +6,9 @@ import { join } from "path";
 // this file is for running prebuild scripts -- NODE_ENV is undefined when ran locally from the terminal
 // however, NODE_ENV is equal to dev when nextjs is spun up
 
-export const defaultProductionUrl =
-  "https://www.hillsidetoharbor.com" as const;
+export const defaultProductionUrl = "https://www.hillsidetoharbor.com" as const;
 
-export const defaultPreviewUrl =
-  "https://dev.hillsidetoharbor.com" as const;
+export const defaultPreviewUrl = "https://dev.hillsidetoharbor.com" as const;
 
 export const defaultLocalUrl = "http://localhost:3000" as const;
 
