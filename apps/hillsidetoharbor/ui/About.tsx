@@ -3,9 +3,9 @@ import type { AboutSectionProps } from "@/types/home-props";
 import { blurDataURLShimmer } from "@windycitydevs/ui";
 import Image from "next/image";
 
-export const preloadAboutUs = ({ ...props }: Parameters<typeof AboutUs>[0]) => {
-  void AboutUs({ ...props });
-};
+// export const preloadAboutUs = ({ ...props }: Parameters<typeof AboutUs>[0]) => {
+//   void AboutUs({ ...props });
+// };
 
 const AboutUs = ({ aboutimage, abouttextarea }: AboutSectionProps) => {
   return (

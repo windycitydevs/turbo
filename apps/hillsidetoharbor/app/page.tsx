@@ -1,5 +1,5 @@
 import { getHomePageData } from "@/lib/fetch-wp";
-import AboutUs, { preloadAboutUs } from "@/ui/About";
+import AboutUs from "@/ui/About";
 import Email from "@/ui/Email";
 import { HeroSplit } from "@/ui/sections/HeroSplit";
 import SubHero from "@/ui/sections/SubHero";
@@ -13,8 +13,6 @@ async function getData() {
 export default async function Page() {
   const [data] = await Promise.all([getData()]);
   // preloadSubHero(data.page.hero);
-  preloadAboutUs(data.page.about);
-
   return (
     <>
       <HeroSplit />
