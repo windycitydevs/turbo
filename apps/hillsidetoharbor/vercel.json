@@ -155,43 +155,7 @@
       ]
     },
     {
-      "source": "/WCD-Next-Wpgraphql.png",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=604800, must-revalidate=1987200"
-        }
-      ]
-    },
-    {
-      "source": "/archer.gif",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=604800, must-revalidate=1987200"
-        }
-      ]
-    },
-    {
-      "source": "/architecture.jpg",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=604800, must-revalidate=1987200"
-        }
-      ]
-    },
-    {
       "source": "/break_iterator.wasm",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=604800, must-revalidate=1987200"
-        }
-      ]
-    },
-    {
-      "source": "/doge-404.jpg",
       "headers": [
         {
           "key": "Cache-Control",
@@ -236,34 +200,7 @@
       ]
     },
     {
-      "source": "/next.svg",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=604800, must-revalidate=1987200"
-        }
-      ]
-    },
-    {
-      "source": "/og.svg",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=604800, must-revalidate=1987200"
-        }
-      ]
-    },
-    {
       "source": "/robots.txt",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=604800, must-revalidate=1987200"
-        }
-      ]
-    },
-    {
-      "source": "/sanity.svg",
       "headers": [
         {
           "key": "Cache-Control",
@@ -282,60 +219,6 @@
     },
     {
       "source": "/tennessee-autumn.webp",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=604800, must-revalidate=1987200"
-        }
-      ]
-    },
-    {
-      "source": "/wcd-square.png",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=604800, must-revalidate=1987200"
-        }
-      ]
-    },
-    {
-      "source": "/wcd-square.svg",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=604800, must-revalidate=1987200"
-        }
-      ]
-    },
-    {
-      "source": "/wcd.png",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=604800, must-revalidate=1987200"
-        }
-      ]
-    },
-    {
-      "source": "/wcd.svg",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=604800, must-revalidate=1987200"
-        }
-      ]
-    },
-    {
-      "source": "/wp-headless-config-wp-config-php.png",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=604800, must-revalidate=1987200"
-        }
-      ]
-    },
-    {
-      "source": "/wpgraphql.svg",
       "headers": [
         {
           "key": "Cache-Control",
