@@ -1,40 +1,48 @@
-import { PageIdType } from "@/gql/graphql";
+import {
+  PageIdType,
+  type SubmitGfFormInput,
+  type SubmitGfFormPayload
+} from "@/gql/graphql";
 import type { HomeProps } from "@/types/home-props";
 
 const API_URL = process.env.WORDPRESS_API_URL ?? "";
 type InputProps = {
   input: {
-      id: string;
-      clientMutationId: string;
-      entryMeta: {
-          createdById: number;
-          dateCreatedGmt: string;
-          ip: string;
-          sourceUrl: string;
-          userAgent: string;
-      };
-      fieldValues: ({
+    id: string;
+    clientMutationId: string;
+    entryMeta: {
+      createdById: number;
+      dateCreatedGmt: string;
+      ip: string;
+      sourceUrl: string;
+      userAgent: string;
+    };
+    fieldValues: (
+      | {
           id: number;
           nameValues: {
-              first: string;
-              last: string;
+            first: string;
+            last: string;
           };
           emailValues?: undefined;
           value?: undefined;
-      } | {
+        }
+      | {
           id: number;
           emailValues: {
-              value: string;
+            value: string;
           };
           nameValues?: undefined;
           value?: undefined;
-      } | {
+        }
+      | {
           id: number;
           value: string;
           nameValues?: undefined;
           emailValues?: undefined;
-      })[];
-      saveAsDraft: boolean;
+        }
+    )[];
+    saveAsDraft: boolean;
   };
 };
 
@@ -316,4 +324,12 @@ export const getHomePageData = async ({
     variables: { id: id, idType: PageIdType[idType] }
   });
   return data;
+};
+
+export const getContactFormSubmissionData = async (
+  props: SubmitGfFormInput
+) => {
+  const data = await fetchAPI<SubmitGfFormPayload>("submitForm", {
+    variables: { input: props }
+  });
 };

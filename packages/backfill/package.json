@@ -68,7 +68,7 @@
     "package:test": "tsx src/bin.ts --groq Article"
   },
   "devDependencies": {
-    "@types/node": "^20.1.4",
+    "@types/node": "^20.1.5",
     "@types/react": "^18.2.6",
     "@types/yargs": "^17.0.24",
     "@vercel/ncc": "^0.36.1",
@@ -95,7 +95,7 @@
     "algoliasearch": "^4.17.0",
     "axios": "^1.4.0",
     "chalk": "^5.2.0",
-    "groq": "^3.10.3",
+    "groq": "^3.11.0",
     "yargs": "^17.7.2"
   }
 }

@@ -1,9 +1,18 @@
 import { geolocation, ipAddress } from "@vercel/edge";
-import type { NextRequest } from "next/server";
-import { NextResponse, userAgent, userAgentFromString } from "next/server";
+import {
+  NextResponse,
+  userAgent,
+  userAgentFromString,
+  type NextRequest
+} from "next/server";
 
+type Without<T, U> = { [P in Exclude<keyof T, keyof U>]?: never };
+
+type XOR<T, U> = T | U extends object
+  ? (Without<T, U> & U) | (Without<U, T> & T)
+  : T | U;
 // RegExp used to test if a pathname is coming from _next or public directories
-// const STATIC_FILE = /\.(.*)$/;
+const PUBLIC_FILE = /\.(.*)$/;
 
 export default function middleware(req: NextRequest) {
   // extract geolocation info, including iso3166-2 country code
@@ -14,19 +23,16 @@ export default function middleware(req: NextRequest) {
   const ip = ipAddress(req);
 
   // extract nextUrl, headers, referrer, and token (if authenticated)
-  const { nextUrl: url, headers, referrer } = req;
+  const { nextUrl: url, headers } = req;
 
   // use headers to extract userAgent et al
   const { ua, device, engine, os, browser, isBot, cpu } = userAgent({
     headers: headers
   });
 
+  const auth = headers.get("Authorization") || null;
+
   const getUAData = userAgentFromString(ua);
-  const iPhoneiPadParser = (props: string | null) =>
-    props != null ? props.split(/([;])/gim)[0]?.split(/([(])/gim)[2] : null;
-  const deviceSpecificationParser = (props: string | null) =>
-    props != null ? props.split(/([(])/gim)[2]?.split(/([)])/gim)[0] : null;
-  const handleApple = iPhoneiPadParser(ua);
 
   const matchedPath = url.pathname || "";
   const operatingSystem = os?.name || "Windows";
@@ -62,50 +68,18 @@ export default function middleware(req: NextRequest) {
 
   const engineName = engine?.name || "";
 
-  const viewport:
-    | `desktop`
-    | `mobile`
-    | `tablet`
-    | `wearable`
-    | `smarttv`
-    | `embedded`
-    | `console`
-    | `unknown` =
-    typeof device?.type !== "undefined"
-      ? device.type === "desktop"
-        ? "desktop"
-        : device.type === `mobile`
-        ? "mobile"
-        : device.type === "tablet"
-        ? "tablet"
-        : device.type === "wearable"
-        ? "wearable"
-        : device.type === "smarttv"
-        ? "smarttv"
-        : device.type === "embedded"
-        ? "embedded"
-        : device.type === "console"
-        ? "console"
-        : "desktop"
-      : "unknown";
+  const viewport: XOR<`mobile`, `desktop`> =
+    device?.type === "mobile" ? "mobile" : "desktop";
 
-  const getLoc = headers.get("accept-language")?.split(",")[0] || "en-US";
   const code = url.searchParams.get("code");
   headers.set("Access-Control-Allow-Origin", "*");
-
-  url.searchParams.set(
-    "userDevice",
-    handleApple || getUAData.device.model || ""
+  headers.set(
+    "Authorization",
+    `Bearer ${process.env.WORDPRESS_AUTH_REFRESH_TOKEN}`
   );
-  url.searchParams.set(
-    "userSpecifications",
-    deviceSpecificationParser(ua) || ""
-  );
-  url.searchParams.set("referrer", referrer);
   url.searchParams.set("browserName", userBrowserName);
   url.searchParams.set("browserVersion", userBrowserVersion);
   url.searchParams.set("match", matchedPath);
-  url.searchParams.set("locale", getLoc);
   url.searchParams.set("viewport", viewport);
   url.searchParams.set("deviceModel", deviceModel);
   url.searchParams.set("deviceVendor", deviceVendor);
@@ -120,12 +94,10 @@ export default function middleware(req: NextRequest) {
   url.searchParams.set("city", cityVercel);
   url.searchParams.set("region", regionVercel);
   url.searchParams.set("lat", latVercel);
-
   code ? url.searchParams.set("code", code) : null;
   url.searchParams.set("lng", lngVercel);
   url.searchParams.set("ua", ua);
   url.searchParams.set("tz", tz);
-  getLoc ? url.searchParams.set("loc", getLoc) : null;
   // if (STATIC_FILE.test(req.nextUrl.pathname) === true) {
   //   return;
   // }
@@ -134,11 +106,10 @@ export default function middleware(req: NextRequest) {
 
 /**
  * Match all request paths except for the ones starting with:
- * - api (API routes)
  * - _next/static (static files)
  * - favicon.ico (favicon file)
  */
 
-export const config = {
-  matcher: ["/((?!_next/static|_next/image|favicon.ico).*)"]
-};
+// export const config = {
+//   matcher: ["/((?!_next/static|_next/image|favicon.ico).*)"]
+// };
