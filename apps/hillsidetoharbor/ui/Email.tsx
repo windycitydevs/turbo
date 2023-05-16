@@ -36,7 +36,7 @@ const Email = () => {
                       className='h-6 w-6 flex-shrink-0 text-gray-400'
                       aria-hidden='true'
                     />
-                    <span className='ml-3'>{"(865)-214-9643"}</span>
+                    <span className='ml-3'>{"(865)-214-6943"}</span>
                   </a>
                 </dd>
               </div>
