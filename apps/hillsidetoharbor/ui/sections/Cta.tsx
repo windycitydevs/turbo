@@ -1,29 +1,18 @@
 "use client";
-import { SubmitGfFormPayload } from "@/gql/graphql";
+import type { SubmitGfFormPayload } from "@/gql/graphql";
 import cn from "clsx";
-import React, { FormEvent, useCallback, useEffect, useState } from "react";
+import {
+  useCallback,
+  useEffect,
+  useState,
+  type FormEvent,
+  type ChangeEvent as ReactChangeEvent,
+  type MouseEvent as ReactMouseEvent
+} from "react";
 import useSWR from "swr";
 
 const fetcher = (input: RequestInfo, init?: RequestInit): Promise<any> =>
   fetch(input, init).then(res => res.json());
-type SWRProps = {
-  emailState: string;
-  firstNameState: string;
-  lastNameState: string;
-  phoneNumberState: string;
-  messageState: string;
-  isSubmitted: boolean;
-};
-type FetcherOptions = {
-  options: Readonly<{
-    emailState: string;
-    firstNameState: string;
-    lastNameState: string;
-    phoneNumberState: string;
-    messageState: string;
-    isSubmitted: boolean;
-  }>;
-};
 
 function UseSwrSync({
   emailState,
@@ -71,34 +60,9 @@ export function Cta() {
     messageState: message ?? "",
     phoneNumberState: phoneNumberState ?? ""
   });
-  function getData() {
-    if (
-      emailState &&
-      firstNameState &&
-      lastNameState &&
-      phoneNumberState &&
-      message
-    ) {
-      const { data, isValidating, error } = UseSwrSync({
-        emailState,
-        firstNameState,
-        isSubmitted,
-        lastNameState,
-        messageState: message,
-        phoneNumberState
-      });
-      return { data, isValidating, error, success: true };
-    } else {
-      return {
-        data: undefined,
-        isValidating: false,
-        error: undefined,
-        success: false
-      };
-    }
-  }
+
   const firstNameCb = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
+    (e: ReactChangeEvent<HTMLInputElement>) => {
       e.preventDefault();
       if (firstNameState !== e.currentTarget.value)
         setfirstNameState(e.currentTarget.value);
@@ -107,7 +71,7 @@ export function Cta() {
   );
 
   const lastNameCb = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
+    (e: ReactChangeEvent<HTMLInputElement>) => {
       e.preventDefault();
       if (lastNameState !== e.currentTarget.value)
         setLastNameState(e.currentTarget.value);
@@ -116,7 +80,7 @@ export function Cta() {
   );
 
   const textAreaCb = useCallback(
-    (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    (e: ReactChangeEvent<HTMLTextAreaElement>) => {
       e.preventDefault();
       if (message !== e.currentTarget.value) setMessage(e.currentTarget.value);
       return e.currentTarget;
@@ -125,7 +89,7 @@ export function Cta() {
   );
 
   const emailCb = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
+    (e: ReactChangeEvent<HTMLInputElement>) => {
       e.preventDefault();
       if (emailState !== e.currentTarget.value) {
         e.currentTarget.value.substring(0).length >= 6 &&
@@ -144,7 +108,7 @@ export function Cta() {
   );
 
   const phoneCb = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
+    (e: ReactChangeEvent<HTMLInputElement>) => {
       e.preventDefault();
       if (phoneNumberState !== e.currentTarget.value)
         setPhoneNumberState(e.currentTarget.value);
@@ -159,7 +123,7 @@ export function Cta() {
     console.log(Object.fromEntries(variables));
   }, []);
 
-  const btnCb = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  const btnCb = async (e: ReactMouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
     setLoading(true);
     setIsSubmitted(true);
@@ -230,7 +194,7 @@ export function Cta() {
               onSubmit={cb}
               className='px-6 pb-24 pt-16 sm:pb-32 lg:px-8 lg:py-20'>
               <div className='mx-auto max-w-xl lg:mr-0 lg:max-w-lg'>
-                <div className='grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2 font-basis-grotesque-pro'>
+                <div className='font-basis-grotesque-pro grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2'>
                   <div>
                     <label htmlFor='first-name' className='sr-only'>
                       First Name
@@ -239,11 +203,17 @@ export function Cta() {
                       <input
                         placeholder='First Name'
                         type='text'
+                        readOnly={!!hasSubmitted}
                         onChange={firstNameCb}
                         name='first-name'
                         id='first-name'
                         autoComplete='given-name'
-                        className={cn(hasSubmitted === true ? "cursor-default bg-gray-50" : "cursor-text",'focus:ring-h2hDarkGreen block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6')}
+                        className={cn(
+                          hasSubmitted === true
+                            ? "cursor-default bg-gray-50"
+                            : "cursor-text",
+                          "focus:ring-h2hDarkGreen block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
+                        )}
                       />
                     </div>
                   </div>
@@ -256,10 +226,16 @@ export function Cta() {
                         type='text'
                         onChange={lastNameCb}
                         placeholder='Last Name'
+                        readOnly={!!hasSubmitted}
                         name='last-name'
                         id='last-name'
                         autoComplete='family-name'
-                        className={cn(hasSubmitted === true ? "cursor-default bg-gray-50" : "cursor-text",'focus:ring-h2hDarkGreen block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6')}
+                        className={cn(
+                          hasSubmitted === true
+                            ? "cursor-default bg-gray-50"
+                            : "cursor-text",
+                          "focus:ring-h2hDarkGreen block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
+                        )}
                       />
                     </div>
                   </div>
@@ -272,10 +248,16 @@ export function Cta() {
                         onChange={emailCb}
                         placeholder='Email'
                         type='email'
+                        readOnly={!!hasSubmitted}
                         name='email'
                         id='email'
                         autoComplete='email'
-                        className={cn(hasSubmitted === true ? "cursor-default bg-gray-50" : "cursor-text",'focus:ring-h2hDarkGreen block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6')}
+                        className={cn(
+                          hasSubmitted === true
+                            ? "cursor-default bg-gray-50"
+                            : "cursor-text",
+                          "focus:ring-h2hDarkGreen block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
+                        )}
                       />
                       <div className='pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3'>
                         {invalidEmail === true ? (
@@ -299,13 +281,6 @@ export function Cta() {
                         )}
                       </div>
                     </div>
-                    {invalidEmail === true ? (
-                      <p className='mt-2 text-sm text-red-600' id='email-error'>
-                        Not a valid email address.
-                      </p>
-                    ) : (
-                      <p className='mt-2'></p>
-                    )}
                   </div>
                   <div className='sm:col-span-2'>
                     <label htmlFor='phone-number' className='sr-only'>
@@ -316,10 +291,16 @@ export function Cta() {
                         placeholder='Phone Number'
                         type='tel'
                         onChange={phoneCb}
+                        readOnly={!!hasSubmitted}
                         name='phone-number'
                         id='phone-number'
                         autoComplete='tel'
-                        className={cn(hasSubmitted === true ? "cursor-default bg-gray-50" : "cursor-text",'focus:ring-h2hDarkGreen block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6')}
+                        className={cn(
+                          hasSubmitted === true
+                            ? "cursor-default bg-gray-50"
+                            : "cursor-text",
+                          "focus:ring-h2hDarkGreen block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
+                        )}
                       />
                     </div>
                   </div>
@@ -335,7 +316,12 @@ export function Cta() {
                         rows={5}
                         readOnly={!!hasSubmitted}
                         onChange={textAreaCb}
-                        className={cn(hasSubmitted === true ? "cursor-default bg-gray-50" : "cursor-text",'focus:ring-h2hDarkGreen block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6')}
+                        className={cn(
+                          hasSubmitted === true
+                            ? "cursor-default bg-gray-50"
+                            : "cursor-text",
+                          "focus:ring-h2hDarkGreen block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
+                        )}
                         defaultValue={""}
                       />
                     </div>
@@ -368,12 +354,17 @@ export function Cta() {
                     </div>
                   </div>
                 ) : (
-                  <div className='mx-auto relative py-8 justify-center flex flex-row w-full'>
-                
+                  <div className='relative mx-auto flex w-full flex-row justify-center py-8'>
                     <button
                       type='submit'
-                        onClick={btnCb}
-                        disabled={!emailState && !firstNameState && !lastNameState && !message && !phoneNumberState}
+                      onClick={btnCb}
+                      disabled={
+                        !emailState &&
+                        !firstNameState &&
+                        !lastNameState &&
+                        !message &&
+                        !phoneNumberState
+                      }
                       className={cn(
                         "font-basis-grotesque-pro z-10 rounded-md bg-[#313A2E] px-[1vw] py-[0.4vw] text-[1.5rem] tracking-[-0.05em]  text-white  "
                       )}>
