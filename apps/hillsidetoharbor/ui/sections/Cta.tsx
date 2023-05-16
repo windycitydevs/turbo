@@ -1,6 +1,7 @@
 "use client";
-import { Inspector } from "@windycitydevs/ui";
-import React, { FormEvent, useCallback, useState } from "react";
+import { SubmitGfFormPayload } from "@/gql/graphql";
+import cn from "clsx";
+import React, { FormEvent, useCallback, useEffect, useState } from "react";
 import useSWR from "swr";
 
 const fetcher = (input: RequestInfo, init?: RequestInit): Promise<any> =>
@@ -24,7 +25,7 @@ type FetcherOptions = {
   }>;
 };
 
-function useSwrSync({
+function UseSwrSync({
   emailState,
   firstNameState,
   isSubmitted,
@@ -39,13 +40,15 @@ function useSwrSync({
   messageState: string;
   isSubmitted: boolean;
 }) {
-  const { data, isValidating, error } = useSWR(
-    isSubmitted
-      ? `/api/contact?email=${emailState}&firstName=${firstNameState}&lastName=${lastNameState}&phoneNumber=${phoneNumberState}&messageState=${messageState}`
+  const { data, isValidating, error } = useSWR<SubmitGfFormPayload>(
+    isSubmitted === true
+      ? // prettier-ignore
+        `/api?email=${emailState}&firstName=${firstNameState}&lastName=${lastNameState}&phoneNumber=${phoneNumberState}&message=${messageState}&timestamp=${new Date(Date.now()).toLocaleString("en-US", {timeZone: "America/New_York", hour12: false }).split(/([,])/gmi).filter((_,r) => r %2 === 0 || r===0).join(" at").concat(" EST")}`
       : null,
     fetcher,
     {}
   );
+  return { data, isValidating, error };
 }
 export function Cta() {
   const [emailState, setEmailState] = useState<string | null>(null);
@@ -56,7 +59,44 @@ export function Cta() {
   const [loading, setLoading] = useState<boolean>(false);
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
   const [invalidEmail, setInvalidEmail] = useState<boolean>(false);
-
+  const [hasSubmitted, setHasSubmitted] = useState<boolean>(false);
+  const [dataState, setDataState] = useState<SubmitGfFormPayload | undefined>(
+    undefined
+  );
+  const { data, isValidating, error } = UseSwrSync({
+    emailState: emailState ?? "",
+    firstNameState: firstNameState ?? "",
+    isSubmitted,
+    lastNameState: lastNameState ?? "",
+    messageState: message ?? "",
+    phoneNumberState: phoneNumberState ?? ""
+  });
+  function getData() {
+    if (
+      emailState &&
+      firstNameState &&
+      lastNameState &&
+      phoneNumberState &&
+      message
+    ) {
+      const { data, isValidating, error } = UseSwrSync({
+        emailState,
+        firstNameState,
+        isSubmitted,
+        lastNameState,
+        messageState: message,
+        phoneNumberState
+      });
+      return { data, isValidating, error, success: true };
+    } else {
+      return {
+        data: undefined,
+        isValidating: false,
+        error: undefined,
+        success: false
+      };
+    }
+  }
   const firstNameCb = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
       e.preventDefault();
@@ -119,21 +159,24 @@ export function Cta() {
     console.log(Object.fromEntries(variables));
   }, []);
 
-  const btnCb = useCallback(
-    (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {},
-    []
-  );
-
-  async function FormEvent(e: FormEvent<HTMLButtonElement>) {
-    e.target.addEventListener("submit", s => {});
+  const btnCb = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
-    console.log(e.currentTarget);
-    // console.log(Object.fromEntries(variables));
-    // const accessTarget = (
-    //   props: "first-name" | "last-name" | "email" | "phone-number" | "message"
-    // ) => variables.get(props);
-    // console.log(accessTarget("message"));
-  }
+    setLoading(true);
+    setIsSubmitted(true);
+    setHasSubmitted(true);
+    console.log(e.eventPhase);
+    try {
+      setTimeout(() => setIsSubmitted(false), 1000);
+    } catch (err) {
+      console.error(`${err}`);
+    }
+  };
+
+  useEffect(() => {
+    typeof data !== "undefined"
+      ? (setDataState(data), setIsSubmitted(false), setLoading(false))
+      : undefined;
+  }, [data]);
   return (
     <div className='relative flex min-h-fit w-full flex-col justify-evenly overflow-hidden bg-[rgba(249,242,232,0.3)] align-top'>
       <div
@@ -179,15 +222,15 @@ export function Cta() {
             Get in touch
           </h2>
         </div>
-        <div className='max-w-[28.57vw]'>
-          <div className='mt-8 sm:mx-auto sm:w-full sm:max-w-md'>
+        <div className='mx-auto max-w-[38.57vw]'>
+          <div className='mt-8 sm:mx-auto sm:w-full sm:max-w-xl'>
             <form
               action='#'
               method='POST'
               onSubmit={cb}
-              className='px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48'>
+              className='px-6 pb-24 pt-16 sm:pb-32 lg:px-8 lg:py-20'>
               <div className='mx-auto max-w-xl lg:mr-0 lg:max-w-lg'>
-                <div className='grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2'>
+                <div className='grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2 font-basis-grotesque-pro'>
                   <div>
                     <label htmlFor='first-name' className='sr-only'>
                       First Name
@@ -200,7 +243,7 @@ export function Cta() {
                         name='first-name'
                         id='first-name'
                         autoComplete='given-name'
-                        className='block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+                        className={cn(hasSubmitted === true ? "cursor-default bg-gray-50" : "cursor-text",'focus:ring-h2hDarkGreen block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6')}
                       />
                     </div>
                   </div>
@@ -216,7 +259,7 @@ export function Cta() {
                         name='last-name'
                         id='last-name'
                         autoComplete='family-name'
-                        className='block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+                        className={cn(hasSubmitted === true ? "cursor-default bg-gray-50" : "cursor-text",'focus:ring-h2hDarkGreen block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6')}
                       />
                     </div>
                   </div>
@@ -232,7 +275,7 @@ export function Cta() {
                         name='email'
                         id='email'
                         autoComplete='email'
-                        className='block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+                        className={cn(hasSubmitted === true ? "cursor-default bg-gray-50" : "cursor-text",'focus:ring-h2hDarkGreen block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6')}
                       />
                       <div className='pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3'>
                         {invalidEmail === true ? (
@@ -276,7 +319,7 @@ export function Cta() {
                         name='phone-number'
                         id='phone-number'
                         autoComplete='tel'
-                        className='block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+                        className={cn(hasSubmitted === true ? "cursor-default bg-gray-50" : "cursor-text",'focus:ring-h2hDarkGreen block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6')}
                       />
                     </div>
                   </div>
@@ -290,109 +333,59 @@ export function Cta() {
                         placeholder='Message'
                         id='message'
                         rows={5}
+                        readOnly={!!hasSubmitted}
                         onChange={textAreaCb}
-                        className='block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+                        className={cn(hasSubmitted === true ? "cursor-default bg-gray-50" : "cursor-text",'focus:ring-h2hDarkGreen block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6')}
                         defaultValue={""}
                       />
                     </div>
                   </div>
                 </div>
-                <div className='mt-8 flex justify-end'>
-                  <button
-                    disabled={invalidEmail === true}
-                    type='submit'
-                    onSubmit={FormEvent}
-                    onClick={e => e}
-                    className='rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'>
-                    Submit
-                  </button>
-                </div>
+
+                {hasSubmitted === true ? (
+                  <div className='w-full rounded-md p-4'>
+                    <div className='flex'>
+                      <div className='flex-shrink-0'>
+                        <svg
+                          xmlns='http://www.w3.org/2000/svg'
+                          className='mt-2 w-[1.125rem]'
+                          viewBox='0 0 20 20'>
+                          <path
+                            fill='#313A2E'
+                            fillRule='evenodd'
+                            d='M10 18a8 8 0 1 0 0-16a8 8 0 0 0 0 16Zm3.707-9.293a1 1 0 0 0-1.414-1.414L9 10.586L7.707 9.293a1 1 0 0 0-1.414 1.414l2 2a1 1 0 0 0 1.414 0l4-4Z'
+                            clipRule='evenodd'
+                          />
+                        </svg>
+                      </div>
+                      <div className='6xl:text-[2.5rem] font-basis-grotesque-pro 6xl:leading-[3.85rem] text-[1.1258333rem] font-normal leading-[1.125rem] tracking-[-0.06em] text-[#313A2E]'>
+                        <div className='mt-2 '>
+                          <p>
+                            {`Thanks ${firstNameState}, we'll be reaching out soon!`}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  <div className='mx-auto relative py-8 justify-center flex flex-row w-full'>
+                
+                    <button
+                      type='submit'
+                        onClick={btnCb}
+                        disabled={!emailState && !firstNameState && !lastNameState && !message && !phoneNumberState}
+                      className={cn(
+                        "font-basis-grotesque-pro z-10 rounded-md bg-[#313A2E] px-[1vw] py-[0.4vw] text-[1.5rem] tracking-[-0.05em]  text-white  "
+                      )}>
+                      {hasSubmitted === false ? "Submit" : <></>}
+                    </button>
+                  </div>
+                )}
               </div>
             </form>
-            {/* <div className='bg-white px-4 py-8 shadow sm:rounded-lg sm:px-10'>
-              <form method='POST' onSubmit={FormEvent} className='space-y-6'>
-                <fieldset disabled={loading} aria-busy={loading}>
-                  <div>
-                    <label
-                      htmlFor='email'
-                      className='sr-only block text-sm font-medium text-gray-700'>
-                      Email
-                    </label>
-                    <div className='my-1'>
-                      <input
-                        placeholder="Email"
-                        id='email'
-                        name='email'
-                        type='email'
-                        autoComplete='email'
-                        required
-                        onInput={e => {
-                          e.preventDefault();
-                          return e.currentTarget.value;
-                        }}
-                        className='block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm'
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <label
-                      htmlFor='name'
-                      className='sr-only block text-sm font-medium text-gray-700'>
-                      Name
-                    </label>
-                    <div className='my-1'>
-                      <input
-                        placeholder="Name"
-                        id='name'
-                        name='name'
-                        type='text'
-                        autoComplete='given-name'
-                        required
-                        onInput={e => {
-                          e.preventDefault();
-                          return e.currentTarget.value;
-                        }}
-                        className='block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-blue-700 focus:outline-none focus:ring-blue-700 sm:text-sm'
-                      />
-                    </div>
-                  </div>
-                  <div className='my-1'>
-                    <div className='text-sm'></div>
-                  </div>
-                  <div>
-                    <Button
-                      variant='secondary'
-                      size='lg'
-                      Component='button'
-                      onClick={() => setLoading(true)}
-                      disabled={loading}
-                      type='submit'
-                      className='mx-auto flex w-2/3 justify-center rounded-md border border-transparent bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2'>
-                      {loading ? "Signing in..." : "Sign in"}
-                    </Button>
-                  </div>
-                </fieldset>
-              </form>
-            </div> */}
           </div>
         </div>
       </div>
-      <Inspector Component='pre' variant='white'>
-        {JSON.stringify(
-          {
-            data: {
-              email: emailState,
-              nameFirst: firstNameState,
-              nameLast: lastNameState,
-              phone: phoneNumberState,
-              message: message,
-              isSubmitted: isSubmitted
-            }
-          },
-          null,
-          2
-        )}
-      </Inspector>
     </div>
   );
 }

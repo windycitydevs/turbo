@@ -31,7 +31,7 @@ const Email = () => {
                     rel='noopener'
                     target={"_blank"}
                     className='ml-3'
-                    href='tel:+18652149643'>
+                    href='tel:+18652146943'>
                     <PhoneIcon
                       className='h-6 w-6 flex-shrink-0 text-gray-400'
                       aria-hidden='true'
