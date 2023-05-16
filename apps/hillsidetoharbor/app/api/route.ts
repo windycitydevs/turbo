@@ -133,7 +133,7 @@ export async function GET(request: NextRequest) {
               {
                 id: 3,
                 value: message.concat(
-                  `\n \n ~ PROGRAMMATICALLY DERIVED DATA INIT ~ \n\n timestamp: ${submissionTimestamp} \n\n city: ${city} \n\n geocoordinates: [${lat}, ${lng}] \n\n useragent: ${UA}`
+                  `\n \n ------------------------------- \n\n timestamp: ${submissionTimestamp} \n\n city: ${city} \n\n geocoordinates: [${lat}, ${lng}] \n\n useragent: ${UA}`
                 )
               },
               { id: 4, value: phoneNumber }
