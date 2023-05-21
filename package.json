@@ -52,7 +52,7 @@
     "dotenv": "^16.0.3",
     "dotenv-cli": "^7.2.1",
     "dotenv-expand": "^10.0.0",
-    "eslint": "^8.40.0",
+    "eslint": "^8.41.0",
     "eslint-config-custom": "*",
     "eslint-config-turbo": "latest",
     "husky": "^8.0.3",
@@ -65,7 +65,7 @@
     "tsx": "^3.12.7",
     "turbo": "latest",
     "typescript": "^5.0.4",
-    "vercel": "^29.3.0"
+    "vercel": "^29.3.6"
   },
   "engines": {
     "node": ">=18.0.0",
