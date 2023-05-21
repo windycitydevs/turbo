@@ -29,7 +29,7 @@
     "build:express": "turbo run build --filter=\\@windycitydevs/express",
     "build:hillsidetoharbor": "turbo run build --filter=\\@windycitydevs/hillsidetoharbor",
     "build:ui": "turbo run build --filter=\\@windycitydevs/ui",
-    "clean:house": "cd apps/express && rm -rf node_modules .turbo && cd ../hillsidetoharbor && rm -rf node_modules .turbo .next && cd ../../packages/ui && rm -rf node_modules .turbo && cd ../jest-presets && rm -rf node_modules && cd ../eslint-config-custom-server && rm -rf node_modules && cd ../eslint-config-custom && rm -rf node_modules && cd ../.. && rm -rf node_modules yarn.lock && yarn install",
+    "clean:house": "cd apps/express && rm -rf node_modules .turbo && cd ../hillsidetoharbor && rm -rf node_modules .turbo .next && cd ../../packages/ui && rm -rf node_modules .turbo dist .swc && cd ../jest-presets && rm -rf node_modules && cd ../eslint-config-custom-server && rm -rf node_modules && cd ../eslint-config-custom && rm -rf node_modules && cd ../.. && rm -rf node_modules yarn.lock && yarn install",
     "clean:exe": "yarn clean:house && yarn clean:install",
     "clean:install": "yarn install && yarn build:ui && yarn build:sanity-indexer && yarn build:backfill",
     "condense:private": "awk -v ORS='\\n' '1' private.pem",
