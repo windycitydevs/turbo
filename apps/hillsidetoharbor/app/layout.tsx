@@ -14,6 +14,7 @@ export const metadata = {
     default: "Hillside To Harbor",
     template: "%s | Hillside To Harbor"
   },
+  description: "Helping You Navigate Challenging Situations.",
   colorScheme: "normal",
   themeColor: "#F9F2E8",
   manifest: new URL(
@@ -213,7 +214,7 @@ export default async function RootLayout({
 }) {
   return (
     <html
-      lang='en'
+      lang='en-US'
       className={cn(
         "h-full",
         DomainDisplayCondensed.variable,

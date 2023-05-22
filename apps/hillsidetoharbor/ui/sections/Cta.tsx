@@ -392,6 +392,7 @@ export function Cta() {
               <a
                 className='col-span-1 mx-auto my-auto inline-grid'
                 rel='noopener'
+                aria-label='call hillside to harbor'
                 target='_blank'
                 href='tel:+18652146943'>
                 <Phone
@@ -400,6 +401,7 @@ export function Cta() {
                 />
               </a>
               <a
+                aria-label='email hillside to harbor'
                 className='col-span-1 mx-auto inline-grid'
                 rel='noopener'
                 target='_blank'
