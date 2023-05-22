@@ -392,19 +392,23 @@ export function Cta() {
               <a
                 className='col-span-1 mx-auto my-auto inline-grid'
                 rel='noopener'
+                aria-label='call hillside to harbor'
                 target='_blank'
                 href='tel:+18652146943'>
                 <Phone
+                  aria-label='call hillside to harbor'
                   className='w-[0.875rem] flex-shrink sm:w-[1.875rem]'
                   aria-hidden='true'
                 />
               </a>
               <a
+                aria-label='email hillside to harbor'
                 className='col-span-1 mx-auto inline-grid'
                 rel='noopener'
                 target='_blank'
                 href='mailto:contact@hillsidetoHarbor.com'>
                 <Email
+                  aria-label='email hillside to harbor'
                   className='w-[0.875rem] flex-shrink sm:w-[1.875rem]'
                   aria-hidden='true'
                 />
