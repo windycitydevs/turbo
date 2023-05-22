@@ -1,5 +1,8 @@
 "use client";
 import type { SubmitGfFormPayload } from "@/gql/graphql";
+import Email from "@/ui/vectors/Email";
+import FooterVector from "@/ui/vectors/FooterVector";
+import Phone from "@/ui/vectors/Phone";
 import { HillsideToHarborFooter } from "@windycitydevs/ui";
 import cn from "clsx";
 import {
@@ -11,9 +14,6 @@ import {
   type MouseEvent as ReactMouseEvent
 } from "react";
 import useSWR from "swr";
-import Email from "../vectors/Email";
-import FooterVector from "../vectors/FooterVector";
-import Phone from "../vectors/Phone";
 
 const fetcher = (input: RequestInfo, init?: RequestInit): Promise<any> =>
   fetch(input, init).then(res => res.json());
@@ -217,7 +217,7 @@ export function Cta() {
                             hasSubmitted === true
                               ? "cursor-default bg-gray-50"
                               : "cursor-text",
-                            "focus:ring-h2hDarkGreen block w-full placeholder:font-sohne-buche rounded-[0.25rem] border-0 px-3.5 py-2 text-gray-900 ring-1 ring-inset ring-[#CBCBCB] placeholder:text-[#494949]  focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
+                            "focus:ring-h2hDarkGreen placeholder:font-sohne-buche block w-full rounded-[0.25rem] border-0 px-3.5 py-2 text-gray-900 ring-1 ring-inset ring-[#CBCBCB] placeholder:text-[#494949]  focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
                           )}
                         />
                       </div>
@@ -248,7 +248,7 @@ export function Cta() {
                       <label htmlFor='email' className='sr-only'>
                         Email
                       </label>
-                      <div className='relative mt-2.5 rounded-md shadow-sm font-sohne-buche'>
+                      <div className='font-sohne-buche relative mt-2.5 rounded-md shadow-sm'>
                         <input
                           onChange={emailCb}
                           placeholder='Email'
@@ -304,7 +304,7 @@ export function Cta() {
                             hasSubmitted === true
                               ? "cursor-default bg-gray-50"
                               : "cursor-text",
-                            "focus:ring-h2hDarkGreen block w-full placeholder:font-sohne-buche rounded-[0.25rem] border-0 px-3.5 py-2 text-gray-900 ring-1 ring-inset ring-[#CBCBCB] placeholder:text-[#494949]  focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
+                            "focus:ring-h2hDarkGreen placeholder:font-sohne-buche block w-full rounded-[0.25rem] border-0 px-3.5 py-2 text-gray-900 ring-1 ring-inset ring-[#CBCBCB] placeholder:text-[#494949]  focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
                           )}
                         />
                       </div>
@@ -332,7 +332,6 @@ export function Cta() {
                       </div>
                     </div>
                   </div>
-
                   {hasSubmitted === true ? (
                     <div className='w-full rounded-md p-4'>
                       <div className='flex'>
@@ -371,7 +370,10 @@ export function Cta() {
                           !phoneNumberState
                         }
                         className={cn(
-                          "font-basis-grotesque-pro bg-h2hPinkOrange z-10 rounded-[3.5rem] px-[2.5625rem] py-[1.25rem] text-[1rem] font-medium tracking-[-0.06em] text-black  hover:bg-opacity-95  ", hasSubmitted === false ? "cursor-pointer" : "cursor-default"
+                          "font-basis-grotesque-pro bg-h2hPinkOrange z-10 rounded-[3.5rem] px-[2.5625rem] py-[1.25rem] text-[1rem] font-medium tracking-[-0.06em] text-black  hover:bg-opacity-95  ",
+                          hasSubmitted === false
+                            ? "cursor-pointer"
+                            : "cursor-default"
                         )}>
                         {hasSubmitted === false ? "Submit" : <></>}
                       </button>
@@ -385,13 +387,27 @@ export function Cta() {
         <div className='isolate flow-root'>
           <FooterVector className='relative bottom-0 left-0 w-[100%]' />
           <HillsideToHarborFooter className='absolute bottom-[2.5%] left-[40%] w-[19.23611111111111%] sm:bottom-[5%]' />
-          <div className="absolute bottom-0 sm:bottom-[1.5%] w-screen min-w-full mx-auto text-center justify-center max-w-[2760px]">
-            <span className="flex flex-row mx-auto text-center justify-around w-[5.97222222222222%] gap-x-2">
-              <a className="inline-grid mx-auto col-span-1 my-auto" rel="noopener" target="_blank" href='tel:+18652146943'>
-              <Phone className='sm:w-[1.875rem] w-[0.875rem] flex-shrink' aria-hidden="true" />
+          <div className='absolute bottom-0 mx-auto w-screen min-w-full max-w-[2760px] justify-center text-center sm:bottom-[1.5%]'>
+            <span className='mx-auto flex w-[5.97222222222222%] flex-row justify-around gap-x-2 text-center'>
+              <a
+                className='col-span-1 mx-auto my-auto inline-grid'
+                rel='noopener'
+                target='_blank'
+                href='tel:+18652146943'>
+                <Phone
+                  className='w-[0.875rem] flex-shrink sm:w-[1.875rem]'
+                  aria-hidden='true'
+                />
               </a>
-              <a className="inline-grid mx-auto col-span-1" rel="noopener" target="_blank" href="mailto:contact@hillsidetoHarbor.com">
-              <Email className='sm:w-[1.875rem] w-[0.875rem] flex-shrink' aria-hidden="true"  />
+              <a
+                className='col-span-1 mx-auto inline-grid'
+                rel='noopener'
+                target='_blank'
+                href='mailto:contact@hillsidetoHarbor.com'>
+                <Email
+                  className='w-[0.875rem] flex-shrink sm:w-[1.875rem]'
+                  aria-hidden='true'
+                />
               </a>
             </span>
           </div>
