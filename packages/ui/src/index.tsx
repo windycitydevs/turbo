@@ -50,6 +50,7 @@ export { default as Spinner } from "./atoms/Spinner";
 export { default as Text } from "./atoms/Text";
 // icons
 export { default as FacebookIcon } from "./icons/Facebook";
+export { default as HillsideToHarborFooter } from "./icons/HillsideToHarbor/HillsideToHarborFooter";
 export { default as HillsideToHarborHorizontal } from "./icons/HillsideToHarbor/HillsideToHarborHorizontal";
 export { default as HillsideToHarborSquare } from "./icons/HillsideToHarbor/HillsideToHarborSquare";
 export { default as HillsideToHarborTypeOneLine } from "./icons/HillsideToHarbor/HillsideToHarborTypeOneLine";

@@ -33,7 +33,7 @@ export async function GET(request: NextRequest) {
       },
       method: "POST",
       body: JSON.stringify({
-        query: `fragment SubmissionConfirmationFields on SubmissionConfirmation {
+        query: /* GraphQL */ `fragment SubmissionConfirmationFields on SubmissionConfirmation {
         message
         pageId
         queryString

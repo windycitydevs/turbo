@@ -1,6 +1,3 @@
-// import { getHomePageData } from "@/lib/fetch-wp";
-// import AboutUs from "@/ui/About";
-// import Email from "@/ui/Email";
 import Cta from "@/ui/sections/Cta";
 import { HeroSplit } from "@/ui/sections/HeroSplit";
 import SubHero from "@/ui/sections/SubHero";
@@ -12,7 +9,6 @@ import WeCreateWinWins from "@/ui/sections/WeCreateWinWins";
 // }
 
 export default async function Page() {
-  // preloadSubHero(data.page.hero);
   return (
     <>
       <HeroSplit />
@@ -20,8 +16,6 @@ export default async function Page() {
       <WeBuyFixerUppers />
       <WeCreateWinWins />
       <Cta />
-      {/* <AboutUs {...data.page.about} />
-      <Email /> */}
     </>
   );
 }
