@@ -1,24 +1,73 @@
 import { getSiteUrl } from "@/lib/env-handler";
 import * as gtag from "@/utils/analytics";
-import { HillsideToHarborHorizontal } from "@windycitydevs/ui";
 import cn from "clsx";
 import type { Metadata } from "next";
 import type { NextFontWithVariable } from "next/dist/compiled/@next/font/dist/types";
 import localFont from "next/font/local";
-import Link from "next/link";
 import Script from "next/script";
 import type { ReactNode } from "react";
 import "./global.css";
 
 export const metadata = {
   metadataBase: new URL(getSiteUrl(process.env.NODE_ENV)),
-  title: "Hillside To Harbor",
+  title: {
+    default: "Hillside To Harbor",
+    template: "%s | Hillside To Harbor"
+  },
   colorScheme: "normal",
   themeColor: "#F9F2E8",
   manifest: new URL(
     "/favicon/site.webmanifest",
     getSiteUrl(process.env.NODE_ENV)
   ),
+  appleWebApp: {
+    capable: true,
+    title: "Hillside To Harbor",
+    statusBarStyle: "black-translucent"
+  },
+  icons: [
+    {
+      type: "image/vnd.microsoft.icon",
+      rel: "shortcut icon",
+      url: new URL("/favicon/favicon.ico", getSiteUrl(process.env.NODE_ENV)),
+      sizes: "32x32"
+    },
+    {
+      type: "image/png",
+      rel: "apple-touch-icon",
+      url: new URL(
+        "/favicon/apple-touch-icon.png",
+        getSiteUrl(process.env.NODE_ENV)
+      ),
+      sizes: "180x180"
+    },
+    {
+      type: "image/svg+xml",
+      rel: "mask-icon",
+      url: new URL(
+        "/favicon/safari-pinned-tab.svg",
+        getSiteUrl(process.env.NODE_ENV)
+      )
+    },
+    {
+      type: "image/png",
+      rel: "icon",
+      url: new URL(
+        "/favicon/favicon-32x32.png",
+        getSiteUrl(process.env.NODE_ENV)
+      ),
+      sizes: "32x32"
+    },
+    {
+      type: "image/png",
+      rel: "icon",
+      url: new URL(
+        "/favicon/favicon-16x16.png",
+        getSiteUrl(process.env.NODE_ENV)
+      ),
+      sizes: "16x16"
+    }
+  ],
   viewport: {
     viewportFit: "auto",
     initialScale: 1,
@@ -171,48 +220,9 @@ export default async function RootLayout({
         BasisGrotesquePro.variable,
         SohneBuch.variable
       )}>
-      <head>
-        <meta name='apple-mobile-web-app-capable' content='yes' />
-        <meta name='apple-mobile-web-app-status-bar-style' content='#F9F2E8' />
-        <link rel='shortcut icon' href='/favicon/favicon.ico' />
-        <link
-          rel='apple-touch-icon'
-          sizes='180x180'
-          href='/favicon/apple-touch-icon.png'
-        />
-        <link
-          rel='icon'
-          type='image/png'
-          sizes='32x32'
-          href='/favicon/favicon-32x32.png'
-        />
-        <link
-          rel='icon'
-          type='image/png'
-          sizes='16x16'
-          href='/favicon/favicon-16x16.png'
-        />
-        <link
-          rel='mask-icon'
-          href='/favicon/safari-pinned-tab.svg'
-          color='#5bbad5'
-        />
-        <meta name='msapplication-TileColor' content='#da532c' />
-        <meta name='theme-color' content='#F9F2E8' />
-      </head>
       <body
         className={`max-w-10xl bg-neutral font-basis-grotesque-pro mx-auto h-full overflow-y-scroll scroll-smooth`}>
-        <div className='bg-accents-0'>{children}</div>{" "}
-        <footer className='bg-accents-1 z-20 mt-auto flex w-full items-center justify-center border-t py-10'>
-          <span className='sr-only'>back to top</span>
-          <Link
-            href='/'
-            aria-label='Hillside To Harbor'
-            scroll={true}
-            className='leading-relaxed tracking-wider text-black'>
-            <HillsideToHarborHorizontal className='text-primary ml-3 inline-block h-20' />
-          </Link>
-        </footer>
+        <div className='bg-accents-0'>{children}</div>
       </body>
       <Script
         async
