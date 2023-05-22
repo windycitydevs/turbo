@@ -396,6 +396,7 @@ export function Cta() {
                 target='_blank'
                 href='tel:+18652146943'>
                 <Phone
+                  aria-label='call hillside to harbor'
                   className='w-[0.875rem] flex-shrink sm:w-[1.875rem]'
                   aria-hidden='true'
                 />
@@ -407,6 +408,7 @@ export function Cta() {
                 target='_blank'
                 href='mailto:contact@hillsidetoHarbor.com'>
                 <Email
+                  aria-label='email hillside to harbor'
                   className='w-[0.875rem] flex-shrink sm:w-[1.875rem]'
                   aria-hidden='true'
                 />
