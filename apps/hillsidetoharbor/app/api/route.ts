@@ -33,89 +33,91 @@ export async function GET(request: NextRequest) {
       },
       method: "POST",
       body: JSON.stringify({
-        query: /* GraphQL */ `fragment SubmissionConfirmationFields on SubmissionConfirmation {
-        message
-        pageId
-        queryString
-        type
-        url
-        __typename
-      }
-      
-      fragment GfEntryToFormFieldConnectionEdgeFields on GfEntryToFormFieldConnectionEdge {
-        cursor
-        __typename
-      }
-      
-      fragment GfEntryFields on GfEntry {
-        dateCreated
-        userAgent
-        __typename
-        ip
-        formId
-        isSubmitted
-        sourceUrl
-        id
-        createdById
-        createdByDatabaseId
-        dateCreatedGmt
-      }
-      
-      fragment FormFieldFields on FormField {
-        databaseId
-        displayOnly
-        inputType
-        layoutGridColumnSpan
-        layoutSpacerGridColumnSpan
-        pageNumber
-        type
-        visibility
-        __typename
-      }
-      
-      fragment GfFormFields on GfForm {
-        cssClass
-        databaseId
-        dateCreated
-        description
-        title
-        nextFieldId
-        __typename
-      }
-      
-      fragment FieldErrorFields on FieldError {
-        id
-        message
-        __typename
-      }
-      
-      mutation ContactSubmission($input: SubmitGfFormInput!) {
-        submitGfForm(input: $input) {
-          clientMutationId
-          confirmation {
-            ...SubmissionConfirmationFields
+        query: /* GraphQL */ `
+          fragment SubmissionConfirmationFields on SubmissionConfirmation {
+            message
+            pageId
+            queryString
+            type
+            url
+            __typename
           }
-          errors {
-            ...FieldErrorFields
+
+          fragment GfEntryToFormFieldConnectionEdgeFields on GfEntryToFormFieldConnectionEdge {
+            cursor
+            __typename
           }
-          __typename
-          entry {
-            ...GfEntryFields
-            form {
-              ...GfFormFields
-            }
-            formFields {
+
+          fragment GfEntryFields on GfEntry {
+            dateCreated
+            userAgent
+            __typename
+            ip
+            formId
+            isSubmitted
+            sourceUrl
+            id
+            createdById
+            createdByDatabaseId
+            dateCreatedGmt
+          }
+
+          fragment FormFieldFields on FormField {
+            databaseId
+            displayOnly
+            inputType
+            layoutGridColumnSpan
+            layoutSpacerGridColumnSpan
+            pageNumber
+            type
+            visibility
+            __typename
+          }
+
+          fragment GfFormFields on GfForm {
+            cssClass
+            databaseId
+            dateCreated
+            description
+            title
+            nextFieldId
+            __typename
+          }
+
+          fragment FieldErrorFields on FieldError {
+            id
+            message
+            __typename
+          }
+
+          mutation ContactSubmission($input: SubmitGfFormInput!) {
+            submitGfForm(input: $input) {
+              clientMutationId
+              confirmation {
+                ...SubmissionConfirmationFields
+              }
+              errors {
+                ...FieldErrorFields
+              }
               __typename
-              edges {
-                ...GfEntryToFormFieldConnectionEdgeFields
-                node {
-                  ...FormFieldFields
+              entry {
+                ...GfEntryFields
+                form {
+                  ...GfFormFields
+                }
+                formFields {
+                  __typename
+                  edges {
+                    ...GfEntryToFormFieldConnectionEdgeFields
+                    node {
+                      ...FormFieldFields
+                    }
+                  }
                 }
               }
             }
           }
-        }
-      }`,
+        `,
         variables: {
           input: {
             clientMutationId: `${lastName},${firstName}`,
