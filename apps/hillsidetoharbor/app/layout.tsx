@@ -28,7 +28,7 @@ export const metadata = {
   },
   icons: [
     {
-      type: "image/vnd.microsoft.icon",
+      type: "shortcut",
       rel: "shortcut icon",
       url: new URL("/favicon/favicon.ico", getSiteUrl(process.env.NODE_ENV)),
       sizes: "32x32"

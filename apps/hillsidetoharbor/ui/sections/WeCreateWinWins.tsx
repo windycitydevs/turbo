@@ -1,6 +1,6 @@
 const WeCreateWinWins = () => {
   return (
-    <section className='relative h-screen max-h-[1304px] bg-[#354136]/20'>
+    <section className='relative h-[50vh] max-h-[1304px] bg-[#354136]/20 sm:h-screen'>
       <div className='isolate flow-root max-h-fit'>
         <svg
           className='absolute left-0 top-0 h-[26.25vw] max-h-[756px] w-[61.45%] max-w-full'
@@ -24,9 +24,9 @@ const WeCreateWinWins = () => {
             fill='#4E5F4F'
           />
         </svg>
-        <p className='6xl:text-[2.5rem] font-basis-grotesque-pro 6xl:leading-[3.85rem] absolute left-[50.69%] top-[52.60736196319018%] h-[10.0694444vw] max-h-[290px] w-[34.166666667%] max-w-full text-[1.458333vw] font-normal leading-[2.04166666666667vw] tracking-[-0.06em] text-black'>{`If you need to sell your home quickly "as-is" due to pre-foreclosure or other challenging circumstances, we'd love to see if we can help. We can make same day offers and close quickly, usually within 2 to 4 weeks, sometimes even sooner. Our goal is to create a win-win and help you get a fresh start.`}</p>
+        <p className='6xl:text-[2.5rem] font-basis-grotesque-pro 6xl:leading-[3.85rem] absolute left-[5%] top-[52.60736196319018%] h-[10.0694444vw] max-h-[290px] w-[92.5%] max-w-full text-[5vw] font-normal leading-[5vw] tracking-[-0.06em] text-black sm:left-[50.69%] sm:w-[34.166666667%] sm:text-[1.458333vw] sm:leading-[2.04166666666667vw]'>{`If you need to sell your home quickly "as-is" due to pre-foreclosure or other challenging circumstances, we'd love to see if we can help. We can make same day offers and close quickly, usually within 2 to 4 weeks, sometimes even sooner. Our goal is to create a win-win and help you get a fresh start.`}</p>
       </div>
-      <h1 className='6xl:text-[10rem] 6xl:leading-[8rem] font-domaine-display-condensed absolute left-0 ml-[5.55555555555556%] mt-[5.55555555555556%] w-[27.9166666%] max-w-[804px] text-[5.56vw] font-semibold leading-[6vw] text-[#2F4B5F]'>
+      <h1 className='6xl:text-[10rem] 6xl:leading-[8rem] font-domaine-display-condensed absolute left-0 ml-[5.55555555555556%] mt-[5.55555555555556%] w-[75%] max-w-[804px] text-[10vw] font-semibold leading-[12vw] text-[#2F4B5F] sm:w-[27.9166666%] sm:text-[5.56vw] sm:leading-[6vw]'>
         We Create Win-Wins.
       </h1>
     </section>

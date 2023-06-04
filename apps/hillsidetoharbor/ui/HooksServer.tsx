@@ -1,5 +1,5 @@
 import { Inspector, type UI } from "@windycitydevs/ui";
-import type { RequestCookie } from "next/dist/server/web/spec-extension/cookies";
+import type { RequestCookie } from "@edge-runtime/cookies";
 import { cookies, draftMode, headers } from "next/headers";
 
 type PossibleDataTypes = {
