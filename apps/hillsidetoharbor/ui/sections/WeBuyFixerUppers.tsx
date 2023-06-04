@@ -2,19 +2,19 @@ import type { FC } from "react";
 
 const WeBuyFixerUppers: FC = () => {
   return (
-    <section className='relative h-[50vh] sm:h-screen max-h-[1304px] bg-[#EEEFE6]'>
+    <section className='relative h-[45vh] max-h-[1304px] bg-[#EEEFE6] sm:h-screen'>
       <div className='isolate flow-root max-h-fit bg-[#EEEFE6]'>
-        <h1 className='6xl:text-[10rem] 6xl:leading-[8rem] font-domaine-display-condensed absolute left-0 ml-[5.55555555555556%] mt-[30%] sm:mt-[5.55555555555556%] sm:w-[40.25%] w-[90%] max-w-full text-[10vw] sm:text-[5.56vw] font-semibold leading-[12vw] sm:leading-[6vw]  text-[#4E5F4F]'>
+        <h1 className='6xl:text-[10rem] 6xl:leading-[8rem] font-domaine-display-condensed absolute left-0 ml-[5.55555555555556%] mt-[12.5%] w-[60%] max-w-full text-[10vw] font-semibold leading-[10vw] text-[#4E5F4F] sm:mt-[5.55555555555556%] sm:w-[40.25%] sm:text-[5.56vw]  sm:leading-[6vw]'>
           We Buy Fixer Uppers
         </h1>
         <svg
-          className='absolute right-0 mr-[5.55555555555556%] mt-[5.55555555555556%] h-[20%] sm:h-[11.25vw] max-h-[324px] w-[20%] sm:w-[11.25%]'
+          className='absolute right-0 mr-[5.55555555555556%] mt-[5.55555555555556%] h-[20%] max-h-[324px] w-[20%] sm:h-[11.25vw] sm:w-[11.25%]'
           viewBox='0 0 162 162'
           fill='none'
           xmlns='http://www.w3.org/2000/svg'>
           <circle cx='81' cy='81' r='81' fill='#F49A7A' />
         </svg>
-        <p className='6xl:text-[2.5rem] font-basis-grotesque-pro 6xl:leading-[3.85rem] absolute left-[5%] sm:left-[50.69%] top-[52.60736196319018%] h-[8.0555556%] sm:max-h-[232px] w-[92.5%] sm:w-[34.166666667%] max-w-full text-[5vw] sm:text-[1.458333vw] font-normal leading-[5vw] sm:leading-[2.04166666666667vw] tracking-[-0.06em] text-[#313A2E]'>
+        <p className='6xl:text-[2.5rem] font-basis-grotesque-pro 6xl:leading-[3.85rem] absolute left-[5%] top-[45%] h-[8.0555556%] w-[92.5%] max-w-full text-[5vw] font-normal leading-[5vw] tracking-[-0.06em] text-[#313A2E] sm:left-[50.69%] sm:top-[52.60736196319018%] sm:max-h-[232px] sm:w-[34.166666667%] sm:text-[1.458333vw] sm:leading-[2.04166666666667vw]'>
           {
             "We are a family owned business, not a large corporation. At Hillside to Harbor you aren't just a number, you're treated as a respected client. We are committed to helping our community and the people in it be successful."
           }

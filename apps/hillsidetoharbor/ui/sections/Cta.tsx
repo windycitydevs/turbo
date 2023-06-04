@@ -151,18 +151,18 @@ export function Cta() {
         <div
           className={`absolute inset-0 bg-center [mask-image:linear-gradient(180deg,rgba(249,242,232,0.3)/30,rgba(249,242,232,0.3))]`}></div>
         <div className='relative mx-[4.93055555555556%] mb-[10.83%] mt-[4.1666%] rounded-[3.88vw] bg-[rgba(249,242,232,1)] ring-1 ring-gray-900/5 sm:max-w-[88.88888vw]'>
-          <div className='6xl:gap-x-[5rem] container mx-auto flex max-h-[788px] w-full min-w-full max-w-[2560px] flex-row justify-between gap-x-[13.045375%] selection:text-[#F49A7A]'>
-            <div className='relative my-auto mb-[7.77777777777778%] ml-[5.5vw] mt-[8.6111111111111%]  w-[66.67vw] max-w-[1440px] align-top sm:ml-[5rem] sm:w-[49.5833vw]'>
-              <h2 className='font-basis-grotesque-pro 6xl:text-[9.5rem] 6xl:leading-[9.5rem] top-0 inline-flex h-fit max-h-[360px] object-contain align-top text-[5.55555555555556vw] font-medium leading-[5.55555555555556vw] tracking-[-0.06em] text-black'>
+          <div className='6xl:gap-x-[5rem] container mx-auto flex max-h-[788px] w-full min-w-full max-w-[2560px] flex-col justify-between selection:text-[#F49A7A] sm:flex-row sm:gap-x-[13.045375%]'>
+            <div className='relative my-auto ml-[5.5vw] mt-[8.6111111111111%] w-[90vw]  max-w-[270px] align-top sm:mb-[7.77777777777778%] sm:ml-[5rem] sm:w-[49.5833vw] sm:max-w-[1440px]'>
+              <h2 className='font-basis-grotesque-pro 6xl:text-[9.5rem] 6xl:leading-[9.5rem] top-0 inline-flex h-fit max-h-[360px] max-w-[270px] object-contain align-top text-[14.25vw] font-medium leading-[12.5vw] tracking-[-0.06em] text-black sm:max-w-full sm:text-[5.55555555555556vw] sm:leading-[5.55555555555556vw]'>
                 Let us know how we can help
               </h2>
             </div>
-            <div className='6xl:max-w-[480px] mb-[5.20833333333333%] mr-[5vw] mt-[5.9722%] inline-flex max-w-[16.319%] sm:mr-[5rem]'>
+            <div className='6xl:max-w-[480px] relative mb-[5.20833333333333%] mt-[5.9722%]  grid w-full grid-cols-3 sm:mr-[5rem] sm:inline-flex sm:max-w-[16.319%]'>
               <svg
                 viewBox='0 0 235 235'
                 fill='none'
                 xmlns='http://www.w3.org/2000/svg'
-                className='h-auto w-[16.319vw] min-w-full'>
+                className='col-start-3 inline-grid h-[28.2vw] min-w-full self-end sm:h-auto sm:w-[16.319vw]'>
                 <path
                   d='M117.5 164.5L164.5 117.5L117.5 70.5'
                   stroke='#F49A7A'
@@ -186,18 +186,18 @@ export function Cta() {
           </div>
         </div>
         <div className='space-y-[1rem]'>
-          <div className='relative mx-auto my-0 text-center sm:w-[47.71%] sm:max-w-[1374px] '>
-            <h2 className='font-domaine-display-condensed 6xl:text-[12rem] 6xl:leading-[12rem] text-h2hDarkGreen text-[5.555556vw] font-semibold leading-[5.555556vw] '>
+          <div className='relative mx-auto my-5 text-center sm:my-0 sm:w-[47.71%] sm:max-w-[1374px] '>
+            <h2 className='font-domaine-display-condensed 6xl:text-[12rem] 6xl:leading-[12rem] text-h2hDarkGreen text-[4rem] font-semibold  leading-[4rem] sm:text-[5.555556vw] sm:leading-[5.555556vw] '>
               Get in touch
             </h2>
           </div>
-          <div className='mx-auto max-w-[95.27777777777778vw] md:w-[27.777778vw] md:max-w-[1250px]'>
-            <div className='mt-8 sm:mx-auto sm:w-full sm:max-w-xl'>
+          <div className='mx-auto max-w-[90vw] sm:max-w-[95.27777777777778vw] md:w-[27.777778vw] md:max-w-[1250px]'>
+            <div className='sm:mx-auto sm:mt-8 sm:w-full sm:max-w-xl'>
               <form
                 action='#'
                 method='POST'
                 onSubmit={cb}
-                className='pb-24 pt-16 sm:pb-32  lg:py-20'>
+                className='pb-6 pt-6 sm:pb-32 sm:pt-16  lg:py-20'>
                 <div className='mx-auto max-w-xl lg:mr-0 lg:max-w-lg'>
                   <div className='font-basis-grotesque-pro grid grid-cols-1 gap-x-8 gap-y-4 md:grid-cols-2'>
                     <div className='sm:col-span-2'>
@@ -370,7 +370,7 @@ export function Cta() {
                           !phoneNumberState
                         }
                         className={cn(
-                          "font-basis-grotesque-pro bg-h2hPinkOrange z-10 rounded-[3.5rem] px-[2.5625rem] py-[1.25rem] text-[1rem] font-medium tracking-[-0.06em] text-black  hover:bg-opacity-95  ",
+                          "font-basis-grotesque-pro bg-h2hPinkOrange z-10 rounded-[3.5rem] px-[2.5625rem] py-[0.85rem] text-[5vw] font-medium tracking-[-0.06em] text-black hover:bg-opacity-95 sm:py-[1.25rem]  sm:text-[1.25rem]  ",
                           hasSubmitted === false
                             ? "cursor-pointer"
                             : "cursor-default"
@@ -386,7 +386,7 @@ export function Cta() {
         </div>
         <div className='isolate flow-root'>
           <FooterVector className='relative bottom-0 left-0 w-[100%]' />
-          <HillsideToHarborFooter className='absolute bottom-[2.5%] left-[40%] w-[19.23611111111111%] sm:bottom-[5%]' />
+          <HillsideToHarborFooter className='absolute bottom-[2.5%]  left-[32%] w-[35%] sm:bottom-[5%] sm:left-[40%] sm:w-[19.23611111111111%]' />
           <div className='absolute bottom-0 mx-auto w-screen min-w-full max-w-[2760px] justify-center text-center sm:bottom-[1.5%]'>
             <span className='mx-auto flex w-[5.97222222222222%] flex-row justify-around gap-x-2 text-center'>
               <a
@@ -397,7 +397,7 @@ export function Cta() {
                 href='tel:+18652146943'>
                 <Phone
                   aria-label='call hillside to harbor'
-                  className='w-[0.875rem] flex-shrink sm:w-[1.875rem]'
+                  className='w-[1.55rem] flex-shrink sm:w-[1.875rem]'
                   aria-hidden='true'
                 />
               </a>
@@ -409,7 +409,7 @@ export function Cta() {
                 href='mailto:contact@hillsidetoHarbor.com'>
                 <Email
                   aria-label='email hillside to harbor'
-                  className='w-[0.875rem] flex-shrink sm:w-[1.875rem]'
+                  className='w-[1.55rem] flex-shrink sm:w-[1.875rem]'
                   aria-hidden='true'
                 />
               </a>
