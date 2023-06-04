@@ -14,7 +14,7 @@ const WeBuyFixerUppers: FC = () => {
           xmlns='http://www.w3.org/2000/svg'>
           <circle cx='81' cy='81' r='81' fill='#F49A7A' />
         </svg>
-        <p className='6xl:text-[2.5rem] font-basis-grotesque-pro 6xl:leading-[3.85rem] absolute left-[5%] top-[45%] h-[8.0555556%] w-[92.5%] max-w-full text-[5vw] font-normal leading-[5vw] tracking-[-0.06em] text-[#313A2E] sm:left-[50.69%] sm:top-[52.60736196319018%] sm:max-h-[232px] sm:w-[34.166666667%] sm:text-[1.458333vw] sm:leading-[2.04166666666667vw]'>
+        <p className='6xl:text-[2.5rem] font-basis-grotesque-pro 6xl:leading-[3.85rem] absolute left-[5%] top-[42.5%] h-[8.0555556%] w-[92.5%] max-w-full text-[5vw] font-normal leading-[5vw] tracking-[-0.06em] text-[#313A2E] sm:left-[50.69%] sm:top-[52.60736196319018%] sm:max-h-[232px] sm:w-[34.166666667%] sm:text-[1.458333vw] sm:leading-[2.04166666666667vw]'>
           {
             "We are a family owned business, not a large corporation. At Hillside to Harbor you aren't just a number, you're treated as a respected client. We are committed to helping our community and the people in it be successful."
           }
