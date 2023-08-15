@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "next dev -p ${PORT:=3000}",
     "prebuild": "tsx utils/generate/webmanifest.ts && tsx vercel-schema-generator.ts && graphql-codegen --config codegen.ts",
-    "postbuild": "next-sitemap --config next-sitemap.js",
+    "postbuild": "next-sitemap --config next-sitemap.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
