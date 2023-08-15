@@ -3,4 +3,7 @@ storybook-static
 .next
 dist
 .changeset
-apps/hillsidetoharbor/og
+apps/hillsidetoharbor/og/*
+apps/hillsidetoharbor/public/*
+.eslintrc.*
+apps/express/*

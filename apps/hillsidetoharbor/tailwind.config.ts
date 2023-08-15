@@ -76,7 +76,7 @@ export default <TailwindConfig>{
           "wcd-border-gradient": `radial-gradient(at left top, ${theme(
             "colors.gray.500"
           )}, 50px, ${theme("colors.gray.800")} 50%)`
-        } satisfies ResolvableTo<KeyValuePair<string, string>> | undefined),
+        }) satisfies ResolvableTo<KeyValuePair<string, string>> | undefined,
       fontFamily: {
         "basis-grotesque-pro": ["var(--font-basis-grotesque-pro)"],
         "domaine-display-condensed": ["var(--font-domaine-display-condensed)"],
@@ -182,14 +182,14 @@ export default <TailwindConfig>{
               opacity: "0"
             }
           }
-        } satisfies
+        }) satisfies
           | ResolvableTo<
               KeyValuePair<
                 string,
                 KeyValuePair<string, KeyValuePair<string, string>>
               >
             >
-          | undefined)
+          | undefined
     }
   },
   plugins: [

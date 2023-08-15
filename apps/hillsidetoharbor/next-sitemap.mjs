@@ -1,4 +1,4 @@
-/**@param {string|undefined} env */
+/**@param {"test" | "production" | "development" |undefined} env */
 const handleUrl = env =>
   !env
     ? "http://localhost:3000"
@@ -8,7 +8,7 @@ const handleUrl = env =>
 
 // @ts-check
 /** @type {import('next-sitemap').IConfig} */
-module.exports = {
+export default {
   siteUrl: handleUrl(process.env.NODE_ENV),
   changefreq: "daily",
   generateIndexSitemap: false,

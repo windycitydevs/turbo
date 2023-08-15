@@ -1,6 +1,6 @@
 /**@type {import("prettier/index").Options} */
 
-module.exports = {
+export default {
   semi: true,
   singleQuote: false,
   trailingComma: "none",
@@ -12,5 +12,8 @@ module.exports = {
   bracketSpacing: true,
   quoteProps: "as-needed",
   printWidth: 80,
-  plugins: [require("prettier-plugin-tailwindcss")]
+  plugins: [
+    import("prettier-plugin-tailwindcss"),
+    import("prettier-plugin-organize-imports")
+  ]
 };

@@ -323,7 +323,7 @@ export namespace UI {
     };
 
     export const objectValues = (obj: { [record: string]: any }) => {
-      return objectKeys(obj).map((e, i) => ({ [i]: obj[e] }[i++]));
+      return objectKeys(obj).map((e, i) => ({ [i]: obj[e] })[i++]);
     };
     export enum ObjectOptions {
       "Keys",
@@ -481,7 +481,10 @@ export namespace UI {
        * @param arrayOne
        * @param arrayTwo
        */
-      constructor(private arrayOne: T[], private arrayTwo: T[]) {
+      constructor(
+        private arrayOne: T[],
+        private arrayTwo: T[]
+      ) {
         arrayOne = this.arrayOne;
         arrayTwo = this.arrayTwo;
       }
@@ -600,7 +603,8 @@ export namespace UI {
 
     export const createReactElementHelper =
       <
-        T extends keyof globalThis.JSX.IntrinsicElements = keyof globalThis.JSX.IntrinsicElements
+        T extends
+          keyof globalThis.JSX.IntrinsicElements = keyof globalThis.JSX.IntrinsicElements
       >(
         type: T
       ) =>
@@ -618,7 +622,8 @@ export namespace UI {
     };
 
     export const createNativeElement = <
-      T extends keyof globalThis.HTMLElementTagNameMap = keyof globalThis.HTMLElementTagNameMap
+      T extends
+        keyof globalThis.HTMLElementTagNameMap = keyof globalThis.HTMLElementTagNameMap
     >(
       type: T
     ) => document.querySelector<T>(type);
