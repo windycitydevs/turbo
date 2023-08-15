@@ -155,15 +155,6 @@
       ]
     },
     {
-      "source": "/break_iterator.wasm",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=604800, must-revalidate=1987200"
-        }
-      ]
-    },
-    {
       "source": "/favicon.ico",
       "headers": [
         {
